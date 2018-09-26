@@ -1,50 +1,42 @@
-// app.js
-// csc648-01 fall2018 SFSU
-// team 02
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-// import relavent modules
-var express 	= require('express');
-var app 		= express();
-var formidable 	= require('formidable');
-var credentials = require('./credentials.js');
-var bodyParser 	= require('body-parser');
-var cookies		= require('cookie-parser');
-var handlebars 	= require('express-handlebars');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-// setput body-parse and cookie-parser
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(cookies(credentials.cookieSecret));
+var app = express();
 
-// prevents leaking server info
-app.disable('x-powered-by');
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
-// sets view engine and default view and locations
-app.engine('handlebars',handlebars(
-	{
-		extname:'handlebars',
-		defaultLayout:'main',
-		layoutDir: __dirname + '/views/layouts/',
-		partialsDir:__dirname + '/views/partials/'
-	}));
-app.set('view engine','handlebars');
-app.set('views',__dirname+'/views');
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// set port by variable or defaults to 8000
-app.set('port',process.env.PORT||8000)
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-// static resources located in public folder
-app.use(express.static(__dirname + '/public'));
-
-// redirect to home file in routes folder
-// ** add more as we make pages **
-app.use('/',		require('./routes/home'));
-app.use('/about',	require('./routes/about'));
-
-/* Things to add later  */
-/* + login session		*/
-/* + chat sockets		*/
-
-// start server
-app.listen(app.get('port'), function(){
-	console.log('Up and Running on port '+app.get('port')+'! press Ctrl-C to terminate.');
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
