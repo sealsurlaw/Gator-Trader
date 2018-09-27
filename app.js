@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV === 'development') {
+require("dotenv").config();
+}
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,7 +10,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var tests = require('./routes/tests');
 var app = express();
 
 // view engine setup
@@ -22,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/tests', tests);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
