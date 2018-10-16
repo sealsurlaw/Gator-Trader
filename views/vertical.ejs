@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vertical</title>
+  </head>
+  <body>
+    <ul>
+      <% data.forEach(function(item) { %>
+        <li><%= item.item_title %> - $<%= item.item_price %> - 
+            <%= item.item_description %> - Approved: <%= item.item_approved %>
+	    <img src="<%= item.item_image %>" style="width: 100px;">
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
