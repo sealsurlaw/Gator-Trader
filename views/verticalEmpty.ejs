@@ -9,5 +9,14 @@
         <input ype="text" name="search">
         <input type="submit">
     </form>
+    <h3>Enter browse:</h3>
+    <form action="/vertical" method="GET">
+        <select name="browse">
+            <% data.forEach(function(category) { %>
+                <option value="<%= category.CategoryID %>"><%= category.CategoryName %></option>
+            <% }); %>
+        </select>
+        <input type="submit">
+    </form>
   </body>
 </html>

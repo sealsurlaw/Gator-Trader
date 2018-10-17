@@ -17,29 +17,55 @@ router.get('/', function(req, res, next) {
   // Get query from url
   var q = url.parse(req.url, true).query;
   var search = q.search;
+  var browse = q.browse;
 
-  if (!search) {
-    // Display basic search page if no query
-    // views/verticalEmpty.ejs
-    res.render('verticalEmpty');
-  }
-  else {
-    // Display page with results if search query
+  if (!search && !browse) {
 
-    // Access database, get all columns from Items table, and
-    // select only the entries that have a title or description
-    // that match the search query (case insensitive with ILIKE)
-    db.any(`SELECT * FROM "Items" WHERE "ItemTitle" ILIKE '%` +
-      search + `%' OR "ItemDescription" ILIKE '%` + search + `%'`)
+    // Get categories
+    db.any(`SELECT * FROM "Categories"`)
       .then(function(myData) {
-        // How many search results returned
-        var numReturned = myData.length;
-        // Pass the variables 'data' and 'size' to views/vertical.ejs
-        res.render('vertical', { data: myData, size: numReturned });
+        // Pass the categories to views/verticalEmpty.ejs
+        res.render('verticalEmpty', { data: myData });
       })
       .catch(function(error) {
           console.log(error);
       });
+  }
+  else {
+    // Display page with results if search query or browse
+
+    // Access database, get all columns from Items table, and
+    // select only the entries that have a title or description
+    // that match the search query (case insensitive with ILIKE)
+
+    // Searching
+    if (search) {
+      db.any(`SELECT * FROM "Items" WHERE "ItemTitle" ILIKE '%` +
+        search + `%' OR "ItemDescription" ILIKE '%` + search + `%'`)
+        .then(function(myData) {
+          // How many search results returned
+          var numReturned = myData.length;
+          // Pass the variables 'data' and 'size' to views/vertical.ejs
+          res.render('vertical', { data: myData, size: numReturned });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
     }
+
+    // Browsing
+    else if (browse) {
+      db.any(`SELECT * FROM "Items" WHERE "CategoryID"=` + browse)
+        .then(function(myData) {
+          // How many browse results returned
+          var numReturned = myData.length;
+          // Pass the variables 'data' and 'size' to views/vertical.ejs
+          res.render('vertical', { data: myData, size: numReturned });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+  }
 });
 module.exports = router;
