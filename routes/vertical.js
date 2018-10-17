@@ -8,7 +8,7 @@ var db = require('../db');
 
 router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
-  db.any('SELECT * FROM item')
+  db.any(`SELECT * FROM "Items"`)
     .then(function(myData) {
       console.log(myData);
       res.render('vertical', { data: myData });
