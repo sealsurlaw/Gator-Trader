@@ -4,9 +4,10 @@
     <title>Vertical</title>
   </head>
   <body>
+    <h3>Search returned <%= size %> results</h3>
     <ul>
       <% data.forEach(function(item) { %>
-        <li><%= item.ItemTitle %> - $<%= item.ItemPrice %> - 
+        <li><%= item.ItemTitle %> - <%= item.ItemPrice %> - 
             <%= item.ItemDescription %> - Approved: <%= item.StatusApproved %>
 	    <img src="<%= item.ItemImage %>" style="width: 100px;">
         </li>
