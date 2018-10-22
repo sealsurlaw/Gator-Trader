@@ -7,9 +7,9 @@
     <h3>Search returned <%= size %> results</h3>
     <ul>
       <% data.forEach(function(item) { %>
-        <li><%= item.ItemTitle %> - <%= item.ItemPrice %> - 
-            <%= item.ItemDescription %> - Approved: <%= item.StatusApproved %>
-	    <img src="<%= item.ItemImage %>" style="width: 100px;">
+        <li><%= item.item_title %> - <%= item.item_price %> - 
+            <%= item.item_description %> - Approved: <%= item.item_status %>
+	    <img src="<%= item.item_image %>" style="width: 100px;">
         </li>
       <% }); %>
     </ul>

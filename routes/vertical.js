@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
   if (!search && !browse) {
 
     // Get categories
-    db.any(`SELECT * FROM "Categories"`)
+    db.any(`SELECT * FROM category`)
       .then(function(myData) {
         // Pass the categories to views/verticalEmpty.ejs
         res.render('verticalEmpty', { data: myData });
@@ -40,8 +40,8 @@ router.get('/', function(req, res, next) {
 
     // Searching
     if (search) {
-      db.any(`SELECT * FROM "Items" WHERE "ItemTitle" ILIKE '%` +
-        search + `%' OR "ItemDescription" ILIKE '%` + search + `%'`)
+      db.any(`SELECT * FROM item WHERE item_title ILIKE '%` +
+        search + `%' OR item_description ILIKE '%` + search + `%'`)
         .then(function(myData) {
           // How many search results returned
           var numReturned = myData.length;
@@ -55,7 +55,7 @@ router.get('/', function(req, res, next) {
 
     // Browsing
     else if (browse) {
-      db.any(`SELECT * FROM "Items" WHERE "CategoryID"=` + browse)
+      db.any(`SELECT * FROM item WHERE category_id=` + browse)
         .then(function(myData) {
           // How many browse results returned
           var numReturned = myData.length;
