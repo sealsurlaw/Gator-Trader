@@ -19,7 +19,7 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
-    "pg-promise": "^8.4.6",
+    "pg-promise": "^8.5.0",
     "sequelize": "^4.39.0",
     "sequelize-cli": "^4.1.1"
   },

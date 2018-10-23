@@ -3,8 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('home_test', { title: 'Express' });
 });
+
+router.get('/index', function(req, res, next) {
+  res.render('index', { title: 'index' });
+});
+
 router.get('/Gayatri', function(req, res, next) {
   res.render('gayatri', { title: 'Gayatri' });
 });
@@ -26,8 +31,8 @@ router.get('/Regine', function(req, res, next) {
 router.get('/Divam', function(req, res, next) {
   res.render('Divam', { title: 'Divam' });
 });
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/home_test', function(req, res, next) {
+  res.render('home_test', { title: 'Express' });
 });
 
 module.exports = router;
