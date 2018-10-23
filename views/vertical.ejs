@@ -5,14 +5,31 @@
   </head>
   <body>
     <h1 style="text-align: center;">CSC 648 - Team 02 Vertical Prototype</h1>
+    <h3>Enter search:</h3>
+    <form action="/vertical" method="GET">
+        <input type="text" name="search">
+        <input type="submit">
+    </form>
+    <h3>Select Category:</h3>
+    <form action="/vertical" method="GET">
+        <select name="browse">
+            <option value="">--SELECT OPTION--</option>
+            <% categories.forEach(function(category) { %>
+                <option value="<%= category.category_id %>"><%= category.category_name %></option>
+            <% }); %>
+        </select>
+        <input type="submit">
+    </form>
+    <%if (data != undefined || size != -1) { %>
     <h3>Search returned <%= size %> results</h3>
     <ul>
-      <% data.forEach(function(item) { %>
-        <li><%= item.item_title %> - <%= item.item_price %> - 
-            <%= item.item_description %> - Approved: <%= item.item_status %>
-	    <img src="<%= item.item_image %>" style="width: 100px;">
-        </li>
-      <% }); %>
+        <% data.forEach(function(item) { %>
+          <li><%= item.item_title %> - <%= item.item_price %> - 
+              <%= item.item_description %> - Approved: <%= item.item_status %>
+              <img src="<%= item.item_image %>" style="width: 100px;">
+          </li>
+        <% }); %>
     </ul>
+    <% } %>
   </body>
 </html>

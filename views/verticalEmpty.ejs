@@ -14,7 +14,7 @@
     <form action="/vertical" method="GET">
         <select name="browse">
             <option value="">--SELECT OPTION--</option>
-            <% data.forEach(function(category) { %>
+            <% cat.forEach(function(category) { %>
                 <option value="<%= category.category_id %>"><%= category.category_name %></option>
             <% }); %>
         </select>

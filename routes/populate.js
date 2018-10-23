@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
         res.render('populate');
       })
       .catch(function(error) {
-          console.log(error);
+          console.log(error);n
       });
 });
 module.exports = router;
