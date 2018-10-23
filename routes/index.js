@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('home_test', { title: 'Express' });
+  db.any(`SELECT * FROM category`)
+    .then(function(cat) {
+      res.render('home_test', { title: 'Express', categories: cat });
+    });
 });
 
 router.get('/index', function(req, res, next) {
@@ -32,7 +36,10 @@ router.get('/Divam', function(req, res, next) {
   res.render('Divam', { title: 'Divam' });
 });
 router.get('/home_test', function(req, res, next) {
-  res.render('home_test', { title: 'Express' });
+  db.any(`SELECT * FROM category`)
+    .then(function(cat) {
+      res.render('home_test', { title: 'Express', categories: cat });
+    });
 });
 
 module.exports = router;

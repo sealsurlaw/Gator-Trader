@@ -72,7 +72,21 @@ body {
   <p><b>Vertical SW prototype</b></p>
   <br>
   <br>
-  <input type="text" placeholder="Search..">
+  <h3>Enter search:</h3>
+  <form action="/vertical" method="GET">
+      <input type="text" name="search">
+      <input type="submit">
+  </form>
+  <h3>Select Category:</h3>
+  <form action="/vertical" method="GET">
+      <select name="browse">
+          <option value="">--SELECT OPTION--</option>
+          <% categories.forEach(function(category) { %>
+              <option value="<%= category.category_id %>"><%= category.category_name %></option>
+          <% }); %>
+      </select>
+      <input type="submit">
+  </form>
 </div>
 
 </body>
