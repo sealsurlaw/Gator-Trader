@@ -4,14 +4,16 @@
     <title>Vertical</title>
   </head>
   <body>
+    <h1 style="text-align: center;">CSC 648 - Team 02 Vertical Prototype</h1>
     <h3>Enter search:</h3>
     <form action="/vertical" method="GET">
         <input type="text" name="search">
         <input type="submit">
     </form>
-    <h3>Enter browse:</h3>
+    <h3>Select Category:</h3>
     <form action="/vertical" method="GET">
         <select name="browse">
+            <option value="">--SELECT OPTION--</option>
             <% data.forEach(function(category) { %>
                 <option value="<%= category.category_id %>"><%= category.category_name %></option>
             <% }); %>
