@@ -3,8 +3,8 @@ var fs = require('fs');
 var router = express.Router();
 var db = require('../db');
 
-var createTables = fs.readFileSync('dbSetup.txt').toString();
-createTables += fs.readFileSync('dbData.txt').toString();
+var createTables = fs.readFileSync('db/dbSetup.txt').toString();
+createTables += fs.readFileSync('db/dbData.txt').toString();
 
 db.any(createTables)
    .then(function(myData) {
