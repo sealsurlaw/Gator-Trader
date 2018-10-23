@@ -9,7 +9,7 @@
     "db:create:migration": "sequelize migration:generate --name ",
     "db:migrate": "sequelize db:migrate",
     "db:rollback": "sequelize db:migrate:undo",
-    "postinstall": "sequelize db:migrate"
+    "postinstall": "node ./bin/populate.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
