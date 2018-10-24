@@ -31,8 +31,9 @@ router.get('/', function(req, res, next) {
 
       // search by category
       else if (browse) {
-        db.any(`SELECT * FROM item WHERE category_id=` + browse)
-          .then(function(myData) {
+        if (browse == -1) {
+          db.any(`SELECT * FROM item`)
+            .then(function(myData) {
             // How many browse results returned
             numReturned = myData.length;
             res.render('vertical', { data: myData, size: numReturned, categories: cat });
@@ -40,6 +41,18 @@ router.get('/', function(req, res, next) {
           .catch(function(error) {
               console.log(error);
           });
+        }
+        else {
+          db.any(`SELECT * FROM item WHERE category_id=` + browse)
+            .then(function(myData) {
+              // How many browse results returned
+              numReturned = myData.length;
+              res.render('vertical', { data: myData, size: numReturned, categories: cat });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+          }
       }
 
       else {

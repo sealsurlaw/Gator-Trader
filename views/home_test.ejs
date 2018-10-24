@@ -81,6 +81,7 @@ body {
   <form action="/vertical" method="GET">
       <select name="browse">
           <option value="">--SELECT OPTION--</option>
+          <option value="-1">VIEW ALL</option>
           <% categories.forEach(function(category) { %>
               <option value="<%= category.category_id %>"><%= category.category_name %></option>
           <% }); %>
