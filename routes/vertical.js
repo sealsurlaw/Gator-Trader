@@ -4,15 +4,6 @@ var url = require('url');
 var router = express.Router();
 var db = require('../db');
 
-/*
-
-Usage:
-
-  Input in the search bar
-    http://localhost:3000/vertical?search=YOUR_SEARCH_QUERY
-
-*/
-
 router.get('/', function(req, res, next) {
   db.any(`SELECT * FROM category`)
     .then(function(cat) {
@@ -24,7 +15,7 @@ router.get('/', function(req, res, next) {
 
       // Display page with results if search query or browse
 
-      // Searching
+      // Search by name
       if (search) {
         db.any(`SELECT * FROM item WHERE item_title ILIKE '%` +
           search + `%' OR item_description ILIKE '%` + search + `%'`)
@@ -38,7 +29,7 @@ router.get('/', function(req, res, next) {
           });
       }
 
-      // Browsing
+      // search by category
       else if (browse) {
         db.any(`SELECT * FROM item WHERE category_id=` + browse)
           .then(function(myData) {
