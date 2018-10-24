@@ -1,6 +1,7 @@
 #ignore packages installed by npm
 node_modules
 package-lock.json
+.env
 *~
 .DS_Store
 
