@@ -43,6 +43,10 @@
           border: none;
           font-size: 17px;
         }
+
+        .items {
+          list-style-type: none;
+        }
         
         @media screen and (max-width: 600px) {
           .topnav a, .topnav input[type=text] {
@@ -89,10 +93,10 @@
     </form>
     <%if (data != undefined || size != -1) { %>
     <h3>Search returned <%= size %> results</h3>
-    <ul>
+    <ul class="items">
         <% data.forEach(function(item) { %>
           <li><%= item.item_title %> - <%= item.item_price %> - 
-              <%= item.item_description %> - Approved: <%= item.item_status %>
+              <%= item.item_description %>
               <img src="<%= item.item_image %>" style="width: 100px;">
           </li>
         <% }); %>
