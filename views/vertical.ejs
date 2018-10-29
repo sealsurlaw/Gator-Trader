@@ -64,43 +64,53 @@
         </style>
   </head>
   <body>
-      <div class="topnav">
-        <a style="padding-left:10px;"href="home_test">Gator Trader</a>
-        <a style="padding-left:10px;"href="index">About</a>
-      </div>
-      
-      <div style="padding-left:16px;padding-top:50px;text-align: center;font-size: 20px;">
-        <h2><b>CSC 648-848 Fall  2018</b></h2>
-        <h3><b>Section 01 Team 02</b></h3>
-        <p><b>Vertical SW prototype</b></p>
-        <br>
-        <br>
-    <h3>Enter search:</h3>
-    <form action="/vertical" method="GET">
-        <input type="text" name="search">
-        <input type="submit">
-    </form>
-    <h3>Select Category:</h3>
-    <form action="/vertical" method="GET">
-        <select name="browse">
-            <option value="">--SELECT OPTION--</option>
-            <option value="-1">VIEW ALL</option>
-            <% categories.forEach(function(category) { %>
+    <!-- Nav bar -->
+    <div class="topnav">
+      <a style="padding-left:10px;"href="home_test">Gator Trader</a>
+      <a style="padding-left:10px;"href="index">About</a>
+    </div>
+    
+    <div style="padding-left:16px;padding-top:50px;text-align: center;font-size: 20px;">
+      <h2><b>CSC 648-848 Fall  2018</b></h2>
+      <h3><b>Section 01 Team 02</b></h3>
+      <p><b>Vertical SW prototype</b></p>
+      <br>
+      <br>
+      <!-- Search bar -->
+      <h3>Enter search:</h3>
+      <!-- Sends a GET message to '/vertical?search=SEARCH_TEXT' -->
+      <form action="/vertical" method="GET">
+          <input type="text" name="search">
+          <input type="submit">
+      </form>
+      <!-- Browse dropdown -->
+      <h3>Select Category:</h3>
+      <!-- Sends a GET message to '/vertical?browse=CATEGORY_ID' -->
+      <form action="/vertical" method="GET">
+          <select name="browse">
+              <option value="-1">VIEW ALL</option>
+              <!-- For each item in category array -->
+              <% categories.forEach(function(category) { %>
+                <!-- Create a dropdown item with the name of the category -->
                 <option value="<%= category.category_id %>"><%= category.category_name %></option>
-            <% }); %>
-        </select>
-        <input type="submit">
-    </form>
-    <%if (data != undefined || size != -1) { %>
-    <h3>Search returned <%= size %> results</h3>
-    <ul class="items">
-        <% data.forEach(function(item) { %>
-          <li><%= item.item_title %> - <%= item.item_price %> - 
-              <%= item.item_description %>
-              <img src="<%= item.item_image %>" style="width: 100px;">
-          </li>
-        <% }); %>
-    </ul>
-    <% } %>
+              <% }); %>
+          </select>
+          <input type="submit">
+      </form>
+      <!-- Check if there are any queries in the url -->
+      <%if (data != undefined || size != -1) { %>
+        <!-- Display the size of the results returned from a query -->
+        <h3>Search returned <%= size %> results</h3>
+        <ul class="items">
+          <!-- For each item from the query -->
+          <% data.forEach(function(item) { %>
+            <!-- Display some of its data -->
+            <li><%= item.item_title %> - <%= item.item_price %> - 
+                <%= item.item_description %>
+                <img src="<%= item.item_image %>" style="width: 100px;">
+            </li>
+          <% }); %>
+        </ul>
+        <% } %>
   </body>
 </html>
