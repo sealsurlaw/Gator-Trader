@@ -20,8 +20,25 @@ router.get('/', function(req, res, next) {
 
       // Display page with results if search query or browse
 
+      // If nothing in the search bar
+      if (search == '') {
+        // Get all items in database
+        db.any(`SELECT * FROM item`)
+          // Query returns with data called 'myData'
+          .then(function(myData) {
+          // How many browse results returned
+          numReturned = myData.length;
+          // Go to page 'vertical.ejs' passing in selected items, number of search results, and categories
+          res.render('vertical', { data: myData, size: numReturned, categories: cat });
+        })
+        .catch(function(error) {
+          // Print out error
+          console.log(error);
+        });
+      }
+
       // Search by name
-      if (search) {
+      else if (search) {
         // Get items from database where item title and item description have
         // some part of it matching the search query
         db.any(`SELECT * FROM item WHERE item_title ILIKE '%` +
@@ -34,10 +51,10 @@ router.get('/', function(req, res, next) {
             res.render('vertical', { data: myData, size: numReturned, categories: cat });
           })
           .catch(function(error) {
-
+            // Print out error
             console.log(error);
           });
-      }
+        }
 
       // Browse by category
       else if (browse) {
@@ -73,6 +90,7 @@ router.get('/', function(req, res, next) {
           }
         }
 
+      // No search or browse
       else {
         // Go to page 'vertical.ejs' passing no search / no browse defaults
         res.render('vertical', { data: undefined, size: -1, categories: cat });
