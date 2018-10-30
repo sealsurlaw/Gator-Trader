@@ -48,7 +48,7 @@ router.get('/', function(req, res, next) {
             // How many search results returned
             numReturned = myData.length;
             // Go to page 'vertical.ejs' passing in selected items, number of search results, and categories
-            res.render('vertical', { data: myData, size: numReturned, categories: cat });
+            res.render('vertical', { data: myData, size: numReturned, categories: cat, searchQuery: search });
           })
           .catch(function(error) {
             // Print out error
