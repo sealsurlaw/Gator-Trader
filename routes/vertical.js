@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
           .then(function(myData) {
           // How many browse results returned
           numReturned = myData.length;
-          // Go to page 'vertical.ejs' passing in selected items, number of search results, and categories
+          // Go to page 'vertical.handlebars' passing in selected items, number of search results, and categories
           res.render('vertical', { data: myData, size: numReturned, categories: cat });
         })
         .catch(function(error) {
@@ -47,7 +47,7 @@ router.get('/', function(req, res, next) {
           .then(function(myData) {
             // How many search results returned
             numReturned = myData.length;
-            // Go to page 'vertical.ejs' passing in selected items, number of search results, and categories
+            // Go to page 'vertical.handlebars' passing in selected items, number of search results, and categories
             res.render('vertical', { data: myData, size: numReturned, categories: cat, searchQuery: search });
           })
           .catch(function(error) {
@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
             .then(function(myData) {
             // How many browse results returned
             numReturned = myData.length;
-            // Go to page 'vertical.ejs' passing in selected items, number of search results, and categories
+            // Go to page 'vertical.handlebars' passing in selected items, number of search results, and categories
             res.render('vertical', { data: myData, size: numReturned, categories: cat });
           })
           .catch(function(error) {
@@ -92,7 +92,7 @@ router.get('/', function(req, res, next) {
 
       // No search or browse
       else {
-        // Go to page 'vertical.ejs' passing no search / no browse defaults
+        // Go to page 'vertical.handlebars' passing no search / no browse defaults
         res.render('vertical', { categories: cat });
       }
   });
