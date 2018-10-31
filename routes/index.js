@@ -6,7 +6,7 @@ var db = require('../db');
 router.get('/', function(req, res, next) {
   db.any(`SELECT * FROM category`)
     .then(function(cat) {
-      res.render('home_test', { title: 'Express', categories: cat });
+      res.render('vertical', { categories: cat });
     });
 });
 
