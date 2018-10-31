@@ -93,7 +93,7 @@ router.get('/', function(req, res, next) {
       // No search or browse
       else {
         // Go to page 'vertical.ejs' passing no search / no browse defaults
-        res.render('vertical', { data: undefined, size: -1, categories: cat });
+        res.render('vertical', { categories: cat });
       }
   });
 });
