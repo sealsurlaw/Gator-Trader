@@ -35,10 +35,13 @@ router.get('/Regine', function(req, res, next) {
 router.get('/Divam', function(req, res, next) {
   res.render('Divam', { title: 'Divam' });
 });
-router.get('/home_test', function(req, res, next) {
+router.get('/insert_item', function(req, res, next) {
   db.any(`SELECT * FROM category`)
     .then(function(cat) {
-      res.render('home_test', { title: 'Express', categories: cat });
+      db.any(`SELECT * FROM user_record`)
+      .then(function(user) {
+        res.render('insert_item', { users: user, categories: cat });
+      });
     });
 });
 

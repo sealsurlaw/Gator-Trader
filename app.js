@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
+var process_insert = require('./routes/process_insert')
 //var populate = require('./routes/populate');
 var app = express();
 
@@ -38,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/tests', tests);
 app.use('/vertical', vertical);
-//app.use('/populate', populate);
+app.use('/process_insert', process_insert);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
