@@ -6,7 +6,7 @@ var db = require('../db');
 var formidable = require('formidable');
 var fs = require('fs');
 var hash = require('object-hash');
-var im = require('node-imagemagick')
+var im = require('node-imagemagick');
 
 var filename;
 var thumbname;

@@ -13,8 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
-var process_insert = require('./routes/process_insert')
-//var populate = require('./routes/populate');
+var process_insert = require('./routes/process_insert');
 var app = express();
 
 // view engine setup
@@ -25,9 +24,6 @@ app.engine('handlebars', exphbs(
   }
 ));
 app.set('view engine', 'handlebars');
-
-//app.engine('html', require('ejs').renderFile);
-//app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
