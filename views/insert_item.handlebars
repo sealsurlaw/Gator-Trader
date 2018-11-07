@@ -68,52 +68,36 @@
     {{>navbar}}
     
     <div style="padding-left:16px;padding-top:50px;text-align: center;font-size: 20px;">
-      <h2><b>CSC 648-848 Fall  2018</b></h2>
-      <h3><b>Section 01 Team 02</b></h3>
-      <p><b>Vertical SW prototype</b></p>
-      <br>
-      <br>
-      <!-- Search bar -->
-      <h3>Search:</h3>
-      <!-- Sends a GET message to '/vertical?search=SEARCH_TEXT' -->
-      <form action="/vertical" method="GET">
-          <input 
-            type="text" name="search" maxlength="40"
-            {{#if searchQuery}}
-              value="{{searchQuery}}"
-            {{/if}}
-          >
-          <input type="submit">
-      </form>
-      <!-- Browse dropdown -->
-      <h3>Select Category:</h3>
-      <!-- Sends a GET message to '/vertical?browse=CATEGORY_ID' -->
-      <form action="/vertical" method="GET">
-          <select name="browse">
-              <option value="-1">ALL CATEGORIES</option>
-              <!-- For each item in category array -->
+        <h2><b>CSC 648-848 Fall  2018</b></h2>
+        <h3><b>Section 01 Team 02</b></h3>
+        <p><b>Vertical SW prototype</b></p>
+        <br>
+        <br>
+
+        <form action="/process_insert" method="post" enctype="multipart/form-data">
+            <h3>User</h3>
+            <select name="user">
+              {{#each users}}
+                <option value="{{this.user_id}}">{{this.user_name}}</option>
+              {{/each}}
+            </select>
+            <h3>Item Title</h3>
+            <input type="text" name="title">
+            <h3>Item Description</h3>
+            <input type="text" name="description">
+            <h3>Item Price</h3>
+            <input type="text" name="price">
+            <h3>Item Category</h3>
+            <select name="category">
               {{#each categories}}
-                <!-- Create a dropdown item with the name of the category -->
                 <option value="{{this.category_id}}">{{this.category_name}}</option>
               {{/each}}
-          </select>
-          <input type="submit">
-      </form>
-      <!-- Check if there are any queries in the url -->
-      {{#if data}}
-        <!-- Display the size of the results returned from a query -->
-        <h3>Search returned {{size}} results</h3>
-        <ul class="items">
-          <!-- For each item from the query -->
-          {{#each data}}
-            <!-- Display some of its data -->
-            <li>{{this.item_title}} - {{this.item_price}} - 
-                {{this.item_description}}
-                <img src="{{this.item_image_thumbnail}}">
-            </li>
-          {{/each}}
-        </ul>
-      {{/if}}
+            </select>
+            <h3>Image:</h3>
+            <input type="file" name="image_file">
+            <input type="submit">
+        </form>
+
     </div>
   </body>
 </html>
