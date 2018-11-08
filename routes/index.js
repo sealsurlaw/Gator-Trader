@@ -35,14 +35,11 @@ router.get('/Regine', function(req, res, next) {
 router.get('/Divam', function(req, res, next) {
   res.render('Divam', { title: 'Divam' });
 });
-router.get('/home_test', function(req, res, next) {
-  res.render('home_test', { title: 'Express' });
+router.get('/register', function(req, res, next) {
+  res.render('register');
 });
-/*router.get('/home_test', function(req, res, next) {
-  db.any(`SELECT * FROM category`)
-    .then(function(cat) {
-      res.render('home_test', { title: 'Express', categories: cat });
-    });
-});*/
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
 
 module.exports = router;

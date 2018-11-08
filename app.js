@@ -13,11 +13,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
-//var populate = require('./routes/populate');
+var register = require('./routes/register');
+var login = require('./routes/login');
 var app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs(
   {
     partialsDir: "./views/partials/"
@@ -25,20 +25,18 @@ app.engine('handlebars', exphbs(
 ));
 app.set('view engine', 'handlebars');
 
-//app.engine('html', require('ejs').renderFile);
-//app.set('view engine', 'ejs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('A@w#e$s(o!m)e T!@$eFA&a&^67m N#%q13umb3232%&er 2'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/tests', tests);
 app.use('/vertical', vertical);
-//app.use('/populate', populate);
+app.use('/register', register);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
