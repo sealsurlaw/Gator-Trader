@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Log Into Gator Trader</title>
+
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    #GatorHeader
+    {
+    margin: 0px 0px 10px 0px;
+    background-color: purple;
+    border: 5px solid purple;
+    border-radius: 5px;
+    color: yellow;
+    padding: 40px;
+    text-align: left;
+    } 
+    input[type=email], input[type=password] {
+    width: 100%;
+    border: 2px solid black;
+    align-self:auto;
+    text-align: center;
+    font-size: 30px;
+    }
+    .container{
+        padding: 20px 90px 90px 90px;
+        margin: 15px 100px 0px 55px;
+        color: black;
+        background-color: lightgray;
+        border: 5px solid black;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 30px;
+        }
+    .displayText{
+        margin-top: 5px;
+        text-align: right;
+        display: inline-block;
+    }
+    .loginLinks{
+        margin-top: 10px;
+        padding: 5px;
+        line-height: 1.2;
+        font-size: 15px;
+    }
+    button{
+        padding: 5px;    
+    }
+    .buttonLayout{
+        margin-top: 5px;
+    }
+    a{
+        text-decoration: none;
+    }
+
+</style>
+</head>
+<body>
+<h1 id="GatorHeader">Gator Trader</h1>
+<form>
+<div class="container">
+    <h2 style="font-size: 50px">Log In</h2>
+
+    <div class="displayText"> 
+            E-Mail:
+            <br><br>
+            Password:
+    </div>
+
+    <div class="displayText">
+            <input type="email" name="UserEmail"/>
+            <br><br>
+            <input type="password" name="UserPswd"/>
+    </div>
+
+    <div class="loginLinks">
+            <a href="">Forgot your password?</a>
+            <br><span style="padding-left: 85px">New to Gator Trader?<a href="RegPage.html"></span><span style="padding-left:5px">Register Here</span></a> 
+    </div>
+
+    <div class="buttonLayout">
+            <span style="float:left"><button type="submit">Cancel</button></span>
+            <span style="float:right"><button type="submit">Login</button></span>
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -20,9 +20,12 @@ var clearPage = require('./routes/clear');
 var app = express();
 
 // view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs(
   {
-    partialsDir: "./views/partials/"
+    partialsDir:  './views/partials/',
+    layoutsDir:   './views/layouts/',
+    defaultLayout:'main-layout'
   }
 ));
 app.set('view engine', 'handlebars');
