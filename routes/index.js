@@ -110,6 +110,10 @@ router.get('/PostItem',function(req,res,next){
   res.render('PostItem',{title:'POST ITEM PAGE',stylesheet:'PostItem'})
 });
 
+router.get('/sendMessage',function(req,res,next){
+  res.render('sendMessage',{title:'SEND MESSAGE'});
+});
+
 /*
 router.get('/',function(req,res,next){
   res.render('',{title:'',stylesheet:''})
