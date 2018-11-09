@@ -1,8 +1,10 @@
 
     <div class="container">
     <h2 style="font-size: 50px; text-align: left;"><u>Post an Item</u></h2>
-    <form>
+    <form action="/process_insert" method="POST" enctype="multipart/form-data">
     <div class="displayText">
+            User:
+            <br>
             Title:
             <br>
             Category:
@@ -11,35 +13,44 @@
             <br>
     </div>
     <div class="displayText">
-        <input type="text" name="Title"/><br>
-        <input list="Category" name="Category">
-            <datalist id="Category">
-                <option value="Category1">
+      <select name="user">
+        {{#each users}}
+          <option value="{{this.user_id}}">{{this.user_name}}</option>
+        {{/each}}
+      </select>
+        <input type="text" name="title"/><br>
+        <!--<input list="Category" name="category">-->
+            <select name ="category">
+              {{#each categories}}
+                <option value="{{this.category_id}}">{{this.category_name}}</option>
+              {{/each}}
+              <!--  <option value="Category1">
                 <option value="Category2">
                 <option value="Category3">
                 <option value="Category4">
-                <option value="Category5">
-            </datalist>
+                <option value="Category5">-->
+           <!-- </datalist> -->
         <br>
-        <input type="text" name="Price"/><br>
+        <input type="text" name="price"/><br>
     </div>
     <br><br>
     <div>
 
     <div class="displayText" style="position:relative; top:-80px; left:5px;">
-       Description: 
+       Description:
     </div>
 
     <div class="descriptionInput">
-        <textarea rows="3" cols="26"> </textarea>
+        <textarea rows="3" cols="26" name="description"> </textarea>
     </div>
     <br>
     <div class="displayText" style="position:relative; left:13px;">
         Images:
     </div>
     <!-- -->
+
     <div class="uploadLayout">
-            <input type="file" name="Images" accept="image/*" multiple>
+            <input type="file" name="image_file" accept="image/*" multiple>
     </div>
 
     <br><br>
@@ -48,7 +59,7 @@
         <p>Once an item has been posted it is in default pending status.</p>
         <p>Please wait wait until Approved by Administrator to go Live.<p>
     </div>
-    <br>    
+    <br>
     <div class="buttonLayout">
             <span style="float:left"><button type="submit">Cancel</button></span>
             <span style="float:right"><button type="submit">Post</button></span>

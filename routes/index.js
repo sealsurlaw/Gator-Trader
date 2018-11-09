@@ -35,12 +35,12 @@ router.get('/Regine', function(req, res, next) {
 router.get('/Divam', function(req, res, next) {
   res.render('Divam', { title: 'Divam' });
 });
-router.get('/insert_item', function(req, res, next) {
+router.get('/PostItem', function(req, res, next) {
   db.any(`SELECT * FROM category`)
   .then(function(cat) {
     db.any(`SELECT * FROM user_record`)
     .then(function(user) {
-      res.render('insert_item', { users: user, categories: cat });
+      res.render('PostItem', { users: user, categories: cat, stylesheet:'PostItem'});
     });
   });
 });
@@ -106,9 +106,9 @@ router.get('/RegPage',function(req,res,next){
   res.render('RegPage',{title:'REGISTRATION PAGE',stylesheet:'RegPage'})
 });
 
-router.get('/PostItem',function(req,res,next){
+/*router.get('/PostItem',function(req,res,next){
   res.render('PostItem',{title:'POST ITEM PAGE',stylesheet:'PostItem'})
-});
+});*/
 
 /*
 router.get('/',function(req,res,next){

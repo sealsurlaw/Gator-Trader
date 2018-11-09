@@ -1,5 +1,5 @@
 
-<form name="inputValidation">
+<form action="/register" name="inputValidation" method="POST" enctype="multipart/form-data">
 <div class="container">
     <h2 style="font-size: 50px; text-align: left;"><u>Create Account</u></h2>
     <p>*All fields are required</p>
@@ -13,11 +13,11 @@
             *Re-enter password:
     </div>
     <div class="displayText">
-            <input type="text" name="Username" required><br>
-            <input type="email" name="UserEmail"required><br>
+            <input type="text" name="userName" required><br>
+            <input type="email" name="userEmail"required><br>
             <div class="pswdRequirement">Password must be at least 8 characters</div><br>
-            <input type="password" name="UserPswd"required><br>
-            <input type="password" name="RePswd" required>
+            <input type="password" name="userPswd"required><br>
+            <input type="password" name="rePswd" required>
     </div>
 
     <div class="radioButtons">

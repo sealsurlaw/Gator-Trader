@@ -11,7 +11,7 @@ router.post('/', function(req, res, next) {
     var form = new formidable.IncomingForm();
 
     form.parse(req,function(err,fields,files){
-        db.any(`SELECT * FROM user_record WHERE user_email='` + fields.email + `'`)
+        db.any(`SELECT * FROM user_record WHERE user_email='` + fields.UserEmail + `'`)
         .then(function (user){
             loginUser(res, user, fields);
         });

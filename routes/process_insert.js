@@ -54,7 +54,8 @@ var identifySizeCallback = function (err, features) {
     height: smallestDimension,
     quality: 1,
     gravity: "Center"
-  }, cropImageCallback); 
+  }, cropImageCallback);
+
 }
 
 
@@ -96,7 +97,7 @@ router.post('/', function(req, res, next) {
 
       // Read height and width
       im.identify(newpath, identifySizeCallback);
-      
+
 
       // Insert new item into database
       db.any(`INSERT INTO item(
@@ -110,11 +111,11 @@ router.post('/', function(req, res, next) {
           item_availability,
           item_image_thumbnail
         )
-        VALUES 
+        VALUES
         (
           '` + fields.title + `',
           '` + fields.description + `',
-          '` + fields.price + `', 
+          '` + fields.price + `',
           'Pending',
           ` + fields.user + `,
           ` + fields.category + `,

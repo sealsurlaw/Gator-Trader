@@ -13,7 +13,7 @@ async function getUserFromDB (req) {
 }
 
 function loginUser (res, user, fields) {
-    if (user[0] && passwordHash.verify(fields.password,user[0].user_password)) {
+    if (user[0] && passwordHash.verify(fields.UserPswd,user[0].user_password)) {
         console.log("Login successful!");
         console.log(user);
         res.cookie('id', user[0].user_id, { signed: true} ).redirect('/users');

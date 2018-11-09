@@ -1,4 +1,6 @@
 var express = require("express");
+var pgp = require('pg-promise');
+var url = require('url');
 var router = express.Router();
 var db = require('../db');
 var formidable = require('formidable');
@@ -15,9 +17,9 @@ router.post('/', function(req, res, next) {
   form.parse(req,function(err,fields,files){
 
     //password gets stored here
-    var pswd = fields.password;
-    var userName = fields.name;
-    var userEmail = fields.email;
+    var pswd = fields.userPswd;
+    var userName = fields.userName;
+    var userEmail = fields.userEmail;
 
     //If username is not undefined
     if(userName)
@@ -32,9 +34,9 @@ router.post('/', function(req, res, next) {
     //Debugging purposes
     console.log(pswd);
     console.log(hashedPassword);
-    console.log(fields.name);
+    console.log(fields.userName);
     //Confirmed password field gets saved here
-    var cpswd = fields.cpassword;
+    var cpswd = fields.rePswd;
     console.log(typeof(pswd));
     //If userpassword is not undefined
     if(pswd && cpswd)
@@ -54,7 +56,7 @@ router.post('/', function(req, res, next) {
     if(pswd === cpswd && entryName && entryPass && entryEmail)
     {
       //page gets rendered
-      res.render('register');
+      res.render('Regpage');
       //data gets inserted into database
       db.any(`INSERT INTO user_record(
         user_name,
@@ -66,14 +68,14 @@ router.post('/', function(req, res, next) {
       (
         '`+ userName + `',
         '`+ hashedPassword + `',
-        '`+ fields.email + `',
+        '`+ fields.userEmail + `',
         false
       )`
      )
     }
     //if passwords do not match
     else {
-      res.render('register' , {match : false});
+      res.render('RegPage' , {match : false});
     }
 
   });
