@@ -82,7 +82,32 @@ router.get('/homePage',function(req,res,next){
     }
   };
 
-  res.render('homePage', {title:'homePage', stylesheet:'homePage',item_set:default_items_set});
+  res.render('homePage', {title:'HOME PAGE', stylesheet:'homePage',item_set:default_items_set});
 });
 
+router.get('/searchPage',function(req,res,next){
+  res.render('searchPage',{title:'SEARCH PAGE',stylesheet:'searchPage'});
+});
+
+router.get('/detailsPage',function(req,res,next){
+  res.render('detailsPage',{title:'DETAILS PAGE',stylesheet:'detailsPage'});
+});
+
+router.get('/LoginPage',function(req,res,next){
+  res.render('LoginPage',{title:'LOGIN PAGE',stylesheet:'LoginPage'})
+});
+
+router.get('/RegPage',function(req,res,next){
+  res.render('RegPage',{title:'REGISTRATION PAGE',stylesheet:'RegPage'})
+});
+
+router.get('/PostItem',function(req,res,next){
+  res.render('PostItem',{title:'POST ITEM PAGE',stylesheet:'PostItem'})
+});
+
+/*
+router.get('/',function(req,res,next){
+  res.render('',{title:'',stylesheet:''})
+});
+*/
 module.exports = router;

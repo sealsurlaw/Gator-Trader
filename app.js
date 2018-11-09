@@ -20,8 +20,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs(
   {
-    partialsDir: './views/partials/',
-    layoutsDir: './views/layouts/',
+    partialsDir:  './views/partials/',
+    layoutsDir:   './views/layouts/',
     defaultLayout:'main-layout'
   }
 ));

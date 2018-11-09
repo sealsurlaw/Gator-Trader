@@ -1,0 +1,56 @@
+
+    <div class="container">
+    <h2 style="font-size: 50px; text-align: left;"><u>Post an Item</u></h2>
+    <form>
+    <div class="displayText">
+            Title:
+            <br>
+            Category:
+            <br>
+            Price:
+            <br>
+    </div>
+    <div class="displayText">
+        <input type="text" name="Title"/><br>
+        <input list="Category" name="Category">
+            <datalist id="Category">
+                <option value="Category1">
+                <option value="Category2">
+                <option value="Category3">
+                <option value="Category4">
+                <option value="Category5">
+            </datalist>
+        <br>
+        <input type="text" name="Price"/><br>
+    </div>
+    <br><br>
+    <div>
+
+    <div class="displayText" style="position:relative; top:-80px; left:5px;">
+       Description: 
+    </div>
+
+    <div class="descriptionInput">
+        <textarea rows="3" cols="26"> </textarea>
+    </div>
+    <br>
+    <div class="displayText" style="position:relative; left:13px;">
+        Images:
+    </div>
+    <!-- -->
+    <div class="uploadLayout">
+            <input type="file" name="Images" accept="image/*" multiple>
+    </div>
+
+    <br><br>
+
+    <div class="warningText">
+        <p>Once an item has been posted it is in default pending status.</p>
+        <p>Please wait wait until Approved by Administrator to go Live.<p>
+    </div>
+    <br>    
+    <div class="buttonLayout">
+            <span style="float:left"><button type="submit">Cancel</button></span>
+            <span style="float:right"><button type="submit">Post</button></span>
+    </div>
+</form>
