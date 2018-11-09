@@ -1,87 +1,168 @@
- /* Remove the navbar's default margin-bottom and rounded borders */ 
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
-	margin-bottom: 0;
-	border-radius: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	height: 1500px;
+  height: 1500px;
 }
 
-/* Set gray background color and 100% height */
-.sidenav {
-	padding-top: 20px;
-	background-color: #f1f1f1;
-	height: 100%;
-}
-
-/* section with carousels */
-.col-sm-9 {
-	height: 600px;
+.search-bar{
+  position: absolute;
+  left:50vw;
+  transform: translateX(-50%);
 }
 
 /* side bar navigation sizings */
-.col-sm-3 {
-	height: 150px;
-	text-align: center;
+
+.carousel-column{
+  height: 800px;
 }
+.carousel{
+  height:125px;
+}
+.carousel-indicators li{
+  display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left:10px;
+    margin-right:10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: green;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background-color: orange;
+}
+.carousel-control{
+  width:80px;
+  height: 80px;
+  margin-top:35px;
+
+    background-color: orange;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+
+.sidebar-column{
+  
+  background-color: lightgrey;
+  position: relative;
+  width:250px;
+  padding-top: 250px;
+}
+.sidebar-content{
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+}
+
+.item img{
+  width:125px;
+  max-width:125px;
+  min-width:125px;
+
+  height:125px;
+  max-height:125px;
+  min-height:125px;
+}
+
 
 /* search bar */
 .navbar .search-container {
-	float: right;
+  float: right;
 
 }
 
 .navbar input[type=text] {
-	padding: 3px 200px;
-	margin-top: -10px;
-	margin-left: 200px;
-	margin-bottom: 10px;
-	font-size: 17px;
-	border: none;
+  padding: 3px 200px;
+  margin-top: -10px;
+  margin-left: 200px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  border: none;
 
 }
 
 /* search button */
 .navbar .search-container button {
-	float: right;
-	padding: 3px 15px;
+  float: right;
+  padding: 3px 15px;
 
-	margin-top: -6px;
+  margin-top: -6px;
 
-	background: #ddd;
-	font-size: 17px;
-	border: none;
-	cursor: pointer;
+  /*background: #ddd;*/
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
 }
 
 .navbar .search-container button:hover {
-	background: #ccc;
+  background: #ccc;
 }
 
 @media screen and (max-width: 600px) {
-	.jumbotron .search-container {
-		float: none;
-	}
-	.navbar, .navbar input[type=text], .navbar .search-container button {
-		float: none;
-		display: block;
-		text-align: left;
-		width: 100%;
-		margin: 0;
-		padding: 14px;
-	}
-	.navbar input[type=text] {
-		border: 1px solid #fff;  
-	}
+  .jumbotron .search-container {
+    float: none;
+  }
+  .navbar, .navbar input[type=text], .navbar .search-container button {
+    float: none;
+    display: inline-block;
+
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .navbar input[type=text] {
+    border: 1px solid #fff;  
+  }
 } 
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
-	.sidenav {
-		height: auto;
-		padding: 15px;
-	}
-	.row.content {height:auto;} 
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;} 
+}
+.thumbnail-nobs{
+  margin-top:5px;
+
+  width:150px;
+  min-width: 150px;
+  max-width: 150px;
+
+  height: 150px;
+  min-height: 150px
+  max-height: 150px;
+}
+
+.red{
+  border:solid 2px red;
+}
+.blue{
+  border:solid 2px lightblue;
+}
+.green{
+  border:solid 2px green; 
 }

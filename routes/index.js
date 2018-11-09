@@ -5,9 +5,9 @@ var db = require('../db');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   db.any(`SELECT * FROM category`)
-    .then(function(cat) {
-      res.render('vertical', { categories: cat });
-    });
+  .then(function(cat) {
+    res.render('vertical', { categories: cat });
+  });
 });
 
 router.get('/index', function(req, res, next) {
@@ -37,12 +37,52 @@ router.get('/Divam', function(req, res, next) {
 });
 router.get('/insert_item', function(req, res, next) {
   db.any(`SELECT * FROM category`)
-    .then(function(cat) {
-      db.any(`SELECT * FROM user_record`)
-      .then(function(user) {
-        res.render('insert_item', { users: user, categories: cat });
-      });
+  .then(function(cat) {
+    db.any(`SELECT * FROM user_record`)
+    .then(function(user) {
+      res.render('insert_item', { users: user, categories: cat });
     });
+  });
+});
+
+router.get('/homePage',function(req,res,next){
+  var default_item={
+    'item_id':'1',
+    'item_image_thumbnail':'/images/ny.jpg',
+    'item_title':'New York'
+  };
+
+  var default_items_set={
+    'books':{
+      '0':default_item,
+      '1':default_item,
+      '2':default_item,
+      '3':default_item,
+      '4':default_item,
+      '5':default_item,
+      '6':default_item
+    },
+    'books1':{
+      '0':default_item,
+      '1':default_item,
+      '2':default_item,
+      '3':default_item,
+      '4':default_item,
+      '5':default_item,
+      '6':default_item
+    },
+    'books2':{
+      '0':default_item,
+      '1':default_item,
+      '2':default_item,
+      '3':default_item,
+      '4':default_item,
+      '5':default_item,
+      '6':default_item
+    }
+  };
+
+  res.render('homePage', {title:'homePage', stylesheet:'homePage',item_set:default_items_set});
 });
 
 module.exports = router;
