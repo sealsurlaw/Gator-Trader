@@ -15,6 +15,7 @@ var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var clearPage = require('./routes/clear');
 var app = express();
 
 // view engine setup
@@ -37,6 +38,7 @@ app.use('/tests', tests);
 app.use('/vertical', vertical);
 app.use('/register', register);
 app.use('/login', login);
+app.use('/clear', clearPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

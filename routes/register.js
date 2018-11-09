@@ -1,6 +1,4 @@
 var express = require("express");
-var pgp = require('pg-promise');
-var url = require('url');
 var router = express.Router();
 var db = require('../db');
 var formidable = require('formidable');
