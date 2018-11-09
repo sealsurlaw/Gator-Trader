@@ -49,6 +49,7 @@ router.get('/register', function(req, res, next) {
 });
 router.get('/login', function(req, res, next) {
   res.render('login');
+});
 
 router.get('/homePage',function(req,res,next){
   var default_item={
@@ -86,7 +87,6 @@ router.get('/homePage',function(req,res,next){
       '6':default_item
     }
   };
-
   res.render('homePage', {title:'HOME PAGE', stylesheet:'homePage',item_set:default_items_set});
 });
 
