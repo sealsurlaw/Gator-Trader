@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     })
     .catch( e => {
       console.log("No user logged in");
-      res.redirect('/login');
+      res.render('users');
     });
 });
 

@@ -37,12 +37,13 @@ router.get('/Divam', function(req, res, next) {
 });
 router.get('/insert_item', function(req, res, next) {
   db.any(`SELECT * FROM category`)
-    .then(function(cat) {
-      db.any(`SELECT * FROM user_record`)
-      .then(function(user) {
-        res.render('insert_item', { users: user, categories: cat });
-      });
+  .then(function(cat) {
+    db.any(`SELECT * FROM user_record`)
+    .then(function(user) {
+      res.render('insert_item', { users: user, categories: cat });
     });
+  });
+});
 router.get('/register', function(req, res, next) {
   res.render('register');
 });
