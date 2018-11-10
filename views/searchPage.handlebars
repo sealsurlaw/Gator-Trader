@@ -1,5 +1,5 @@
 
-
+{{#if data}}
 <!-- Navigation Bar w/ Dropdowns -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -10,53 +10,68 @@
         <span class="icon-bar"></span>                        
       </button>
     </div>
-
     <div class="collapse navbar-collapse" id="myNavbar">
-<ul class="nav navbar-nav">
-   
-        <h5><a href="#">Showing 1-25 of 100 results</a></h5>
-      
+      <ul class="nav navbar-nav">
+        <h5><a href="#">Showing 1-25 of {{size}} results</a></h5>
       </ul>
 
-
-
-
-
-
       <ul class="nav navbar-nav navbar-right">
-  
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Date
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</div>
-
-
-
-
-
-
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+        
         <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Price
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</div>
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Date
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Price
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+  
       </ul>
     </div>
   </div>
 </nav>
 
+{{/if}}
+
+
   <!-- Left-aligned media object -->
+  {{#if data}}
+  {{#each data}}
+  <div class="media">
+    <div class="media-left">
+      <img src="{{this.item_image_thumbnail}}" class="media-object" style="width:200px">
+    </div>
+    <div class="media-body">
+      <h3 class="media-heading">Item Name: {{this.item_title}}</h3>
+      {{!-- <h4>Category: </h4> --}}
+      <h4>Price: {{this.item_price}}</h4>
+      <br>
+      <br>
+      <br>
+      <button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn btn-default">View Details</button>
+      <button type="button" class="btn btn-warning pull-right">Contact Seller</button>
+    </div>
+  </div>
+  <hr>
+  {{/each}}
+  {{/if}}
+
+    {{!-- <!-- Left-aligned media object -->
   <div class="media">
     <div class="media-left">
       <img src="/images/img_avatar1.png" class="media-object" style="width:200px">
@@ -90,22 +105,4 @@
       <button type="button" class="btn btn-warning pull-right">Contact Seller</button>
     </div>
   </div>
-  <hr>
-
-    <!-- Left-aligned media object -->
-  <div class="media">
-    <div class="media-left">
-      <img src="/images/img_avatar1.png" class="media-object" style="width:200px">
-    </div>
-    <div class="media-body">
-      <h3 class="media-heading">Item Name: </h3>
-      <h4>Category: </h4>
-      <h4>Price: </h4>
-      <br>
-      <br>
-      <br>
-      <button type="button" class="btn btn-default">View Details</button>
-      <button type="button" class="btn btn-warning pull-right">Contact Seller</button>
-    </div>
-  </div>
-  <hr>
+  <hr> --}}

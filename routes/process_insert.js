@@ -11,7 +11,7 @@ var im = require('node-imagemagick');
 var filename;
 var thumbname;
 
-let resizeWidth = 100;
+let resizeWidth = 200;
 
 
 
@@ -117,7 +117,7 @@ router.post('/', function(req, res, next) {
           '` + fields.description + `',
           '` + fields.price + `',
           'Pending',
-          ` + fields.user + `,
+          ` + req.signedCookies.id + `,
           ` + fields.category + `,
           'images/user_images/` + filename + `',
           true,

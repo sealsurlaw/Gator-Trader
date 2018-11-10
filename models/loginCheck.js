@@ -16,7 +16,7 @@ function loginUser (res, user, fields) {
     if (user[0] && passwordHash.verify(fields.UserPswd,user[0].user_password)) {
         console.log("Login successful!");
         console.log(user);
-        res.cookie('id', user[0].user_id, { signed: true} ).redirect('/users');
+        res.cookie('id', user[0].user_id, { signed: true} ).redirect('/search?search=');
     }
     else {
         console.log("Login failed!");

@@ -3,8 +3,8 @@
     <h2 style="font-size: 50px; text-align: left;"><u>Post an Item</u></h2>
     <form action="/process_insert" method="POST" enctype="multipart/form-data">
     <div class="displayText">
-            User:
-            <br>
+            {{!-- User:
+            <br> --}}
             Title:
             <br>
             Category:
@@ -13,11 +13,11 @@
             <br>
     </div>
     <div class="displayText">
-      <select name="user">
+      {{!-- <select name="user">
         {{#each users}}
           <option value="{{this.user_id}}">{{this.user_name}}</option>
         {{/each}}
-      </select>
+      </select> --}}
         <input type="text" name="title"/><br>
         <!--<input list="Category" name="category">-->
             <select name ="category">

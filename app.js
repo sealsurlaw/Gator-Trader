@@ -17,6 +17,9 @@ var process_insert = require('./routes/process_insert');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var clearPage = require('./routes/clear');
+var search = require('./routes/search');
+var item = require('./routes/item');
+
 var app = express();
 
 // view engine setup
@@ -44,6 +47,8 @@ app.use('/process_insert', process_insert);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/clear', clearPage);
+app.use('/search', search);
+app.use('/item', item);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -55,8 +55,6 @@ router.post('/', function(req, res, next) {
     //If they do you insert into database
     if(pswd === cpswd && entryName && entryPass && entryEmail)
     {
-      //page gets rendered
-      res.render('Regpage');
       //data gets inserted into database
       db.any(`INSERT INTO user_record(
         user_name,
@@ -72,10 +70,18 @@ router.post('/', function(req, res, next) {
         false
       )`
      )
+     .then( _ => db.any(`SELECT * FROM category`)
+     .then( cat => {
+        // res.render('LoginPage', {title: 'LOGIN PAGE', categories: cat})
+        res.redirect('./LoginPage');
+     }))
+     .catch( e => {
+       res.redirect('./RegPage');
+     })
     }
     //if passwords do not match
     else {
-      res.render('RegPage' , {match : false});
+      res.redirect('./RegPage');
     }
 
   });

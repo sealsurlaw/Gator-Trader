@@ -8,7 +8,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <div class="search-container">
-          <form action="/action_page.php">
+          <form action="/search">
             <input type="text" placeholder="Search" name="search">
             <button type="submit">Submit</button>
           </form>
@@ -17,8 +17,8 @@
     </div>
     
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/RegPage"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/LoginPage"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -37,12 +37,14 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Home</a></li> -->
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Clothing</a></li>
+        {{#each categories}}
+        <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
+        {{/each}}
+        {{!-- <li><a href="#">Clothing</a></li>
         <li><a href="#">Electronics</a></li>
         <li><a href="#">Home & Life</a></li>
         <li><a href="#">More!</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="#">About</a></li> --}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
       </ul>
