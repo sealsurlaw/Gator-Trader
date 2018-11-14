@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.7/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Register with Gator Trader</title>
+
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    #GatorHeader
+    {
+        margin: 0px 0px 10px 0px;
+        background-color: purple;
+        border: 5px solid purple;
+        border-radius: 5px;
+        color: yellow;
+        padding: 40px;
+        text-align: left;
+    } 
+    .container{
+        width: 75%;
+        margin: auto;
+        color: black;
+        background-color: lightgray;
+        border: 5px solid black;
+        border-radius: 5px;
+    }
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+    <h1 id="GatorHeader">Gator Trader</h1>
+    <div class="container">
+            <h2><center>Create Account</center></h2>
+            <form>  
+                <div class="row center-block ">
+                    <div class="form-group row">
+                        <div class="col-md-4 offset-md-10">
+                         <p>*All fields are required</p>
+                         </div>
+                    </div>
+                    <div class="form-group row centered">
+                            <label for="Username" class="col-sm-2 col-form-label">*Username:</label>
+                            <div class="col-sm-4">
+                              <input type="text" class="form-control" id="Username" maxlength="20" required>
+                            </div>
+                    </div>
+                    <div class="form-group row centered">
+                            <label for="UserEmail" class="col-sm-2 col-form-label">*Email:</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control" id="UserEmail" pattern=".+@mail.sfsu.edu"maxlength="34" required>
+                            </div>
+                    </div>
+                    <div class="form-group row centered">
+                            <label for="UserPswd" class="col-sm-2 col-form-label">*Password:</label>
+                            <div class="col-sm-4">
+                              <input type="password" class="form-control" id="UserPswd" minlength ="8" maxlength="20" placeholder="Password must between 8-20 characters" required>
+                            </div>
+                    </div>
+                    <div class="form-group row centered">
+                            <label for="RePswd" class="col-sm-2 col-form-label">*Re-enter Password:</label>
+                            <div class="col-sm-4">
+                              <input type="password" class="form-control" id="RePswd" minlength ="8" maxlength="20" placeholder="Passwords must match"required>
+                             </div>
+                    </div>
+                    <div class="form-group row centered">
+                                <label class="col-sm-3 col-form-label" for="TOC"></label>
+                                <div class="col-sm-5">
+                                        <input class="form-check-input" class="form-control" id="TOC" type="checkbox"> 
+                                        I agree to Gator Trader's <a href="">Terms of Condition</a>
+                                </div>
+                    </div>
+                    <div class="form-group row centered">
+                                <label class="col-sm-3 col-form-label" for="Robot"></label>
+                                <div class="col-sm-5">
+                                <input class="form-check-input" class="form-control" id="Robot" type="checkbox">
+                                                I am not a robot.
+                                </div>
+                    </div>
+                    <div >
+                            <center>Already a member<a href="LoginPage2.html"> Sign In </a></center>
+                    </div>
+                    <div>
+                            <span style="float:left"><button type="submit"  class="btn btn-primary btn-lg">Cancel</button></span>
+                            <span style="float:right"><button type="submit"  class="btn btn-primary btn-lg">Create</button></span>
+                    </div>
+                </div>
+            </form>
+    </div>
+</body>
+</html>
