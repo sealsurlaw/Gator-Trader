@@ -1,6 +1,9 @@
 
 <form action ="/login" method="POST" enctype="multipart/form-data">
 <div class="container">
+        {{#if message}}
+        <h3 style="text-align: center; color: red;">{{message}}</h3>
+        {{/if}}
     <h2 style="font-size: 50px">Log In</h2>
 
     <div class="displayText">

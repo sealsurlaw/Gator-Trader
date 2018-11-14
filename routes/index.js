@@ -35,8 +35,14 @@ db.any(`SELECT * FROM category`)
     res.render('Divam', { title: 'Divam', categories: cat });
   });
   router.get('/PostItem', function(req, res, next) {
-    var user_id = req.signedCookies.item_id;
-    res.render('PostItem', { user: user_id, stylesheet:'PostItem', categories: cat});
+    var user_id = req.signedCookies.id;
+    console.log(req.signedCookies.id);
+    if (user_id == false || !user_id) {
+      res.redirect('./LoginPage');
+    }
+    else {
+      res.render('PostItem', { user: user_id, stylesheet:'PostItem', categories: cat});
+    }
   });
   router.get('/register', function(req, res, next) {
     res.render('register', {categories: cat});

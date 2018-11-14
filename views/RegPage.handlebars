@@ -1,6 +1,9 @@
 
 <form action="/register" name="inputValidation" method="POST" enctype="multipart/form-data">
 <div class="container">
+    {{#if message}}
+    <h3 style="text-align: center; color: red">{{message}}</h3><br>
+    {{/if}}
     <h2 style="font-size: 50px; text-align: left;"><u>Create Account</u></h2>
     <p>*All fields are required</p>
      <div class="displayText">

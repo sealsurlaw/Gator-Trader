@@ -19,8 +19,11 @@ function loginUser (res, user, fields) {
         res.cookie('id', user[0].user_id, { signed: true} ).redirect('/search?search=');
     }
     else {
-        console.log("Login failed!");
-        res.render('login');
+        db.any(`SELECT * FROM category`)
+        .then(cat => {
+            console.log("Login failed!");
+            res.render('LoginPage', {title:'LOGIN PAGE',stylesheet:'LoginPage', categories: cat, message: "Incorrect Login"});
+        })
     }
 }
 

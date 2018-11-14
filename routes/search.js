@@ -8,16 +8,20 @@ router.get('/', function(req, res, next) {
     var search = q.search;
     var browse = q.browse;
 
+    if (browse == -1) {
+        search = '';
+    }
+
     var where;
 
-    if (browse) {
-        where = ' WHERE category_id=' + browse;
-    }
-    else if (search == '') {
+    if (search == '') {
         where = '';
     }
     else if (search) {
         where = ` WHERE item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%'`;
+    }
+    else if (browse) {
+        where = ' WHERE category_id=' + browse;
     }
 
     db.any(`SELECT * FROM category`)

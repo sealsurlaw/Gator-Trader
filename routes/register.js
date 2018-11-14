@@ -56,32 +56,39 @@ router.post('/', function(req, res, next) {
     if(pswd === cpswd && entryName && entryPass && entryEmail)
     {
       //data gets inserted into database
-      db.any(`INSERT INTO user_record(
-        user_name,
-        user_password,
-        user_email,
-        admin_right
-      )
-      VALUES
-      (
-        '`+ userName + `',
-        '`+ hashedPassword + `',
-        '`+ fields.userEmail + `',
-        false
-      )`
-     )
-     .then( _ => db.any(`SELECT * FROM category`)
-     .then( cat => {
-        // res.render('LoginPage', {title: 'LOGIN PAGE', categories: cat})
-        res.redirect('./LoginPage');
-     }))
-     .catch( e => {
-       res.redirect('./RegPage');
-     })
+      db.any(`SELECT * FROM category`)
+      .then( function (cat) {
+        db.any(`INSERT INTO user_record(
+          user_name,
+          user_password,
+          user_email,
+          admin_right
+          )
+          VALUES
+          (
+            '`+ userName + `',
+            '`+ hashedPassword + `',
+            '`+ fields.userEmail + `',
+            false
+          )`
+        )
+        .then( function() {
+          // res.render('LoginPage', {title: 'LOGIN PAGE', categories: cat})
+          res.redirect('./LoginPage');
+        })
+        .catch( e => {
+          console.log('Couldn\'t add user');
+          console.log(e);
+          res.render('RegPage', {title:'REGISTRATION PAGE', stylesheet:'RegPage', message: "Email already exists", categories: cat});
+        })
+      })
     }
     //if passwords do not match
     else {
-      res.redirect('./RegPage');
+      db.any (`SELECT * FROM category`)
+      .then( cat => {
+        res.render('RegPage', {title:'REGISTRATION PAGE', stylesheet:'RegPage', message: "Passwords don't match", categories: cat});
+      })
     }
 
   });

@@ -126,8 +126,14 @@ router.post('/', function(req, res, next) {
       )
       // Query returns with data called 'myData'
       .then(function(myData) {
-        res.write('Item stored in database!');
-        res.end();
+        db.any(`SELECT item_id FROM item WHERE item_image='images/user_images/` + filename + `'`)
+        .then( function(id) {
+          console.log(id[0].item_id);
+          res.redirect('./item/' + id[0].item_id);
+        })
+        .catch( e => {
+          console.log("Couldn't find item");
+        })
       })
       .catch(function(error) {
         // Print out error
