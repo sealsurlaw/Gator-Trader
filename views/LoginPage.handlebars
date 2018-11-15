@@ -1,28 +1,27 @@
-
-<form>
-<div class="container">
-    <h2 style="font-size: 50px">Log In</h2>
-
-    <div class="displayText"> 
-            E-Mail:
-            <br><br>
-            Password:
-    </div>
-
-    <div class="displayText">
-            <input type="email" name="UserEmail"/>
-            <br><br>
-            <input type="password" name="UserPswd"/>
-    </div>
-
-    <div class="loginLinks">
-            <a href="">Forgot your password?</a>
-            <br><span style="padding-left: 85px">New to Gator Trader?<a href="RegPage.html"></span><span style="padding-left:5px">Register Here</span></a> 
-    </div>
-
-    <div class="buttonLayout">
-            <span style="float:left"><button type="submit">Cancel</button></span>
-            <span style="float:right"><button type="submit">Login</button></span>
+<div class="container login-box">
+    <h2 class="centered">Log In</h2>
+    <form>  
+        <div class="row center-block ">
+            <div class="form-group row centered">
+                <label for="UserEmail" class="col-sm-1 col-form-label">Email</label>
+                <div class="col-sm-5">
+                  <input type="email" class="form-control" id="UserEmail" placeholder="Email" required>
+              </div>
+          </div>
+          <div class="form-group row centered">
+            <label for="UserPswd" class="col-sm-1 col-form-label">Password</label>
+            <div class="col-sm-5">
+              <input type="password" class="form-control" id="UserPswd" placeholder="Password" required>
+          </div>
+      </div>
+      <div>
+        <center><a href="" class="centered">Forgot your password?</a>
+           <br>New to Gator Trader?<a href="RegPage2.html">Register Here</a></center>
+       </div>
+       <div>
+        <span style="float:left"><button type="submit" class="btn btn-primary btn-lg">Cancel</button></span>
+        <span style="float:right"><button type="submit" class="btn btn-primary btn-lg">Login</button></span>
     </div>
 </div>
 </form>
+</div>

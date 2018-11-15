@@ -1,0 +1,33 @@
+
+  /* Remove the navbar's default margin-bottom and rounded borders */ 
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+   /* Navigation Bar Categories Centered*/
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {
+    height: 1500px;
+  }
+
+  /* dropdown "ALL"*/
+  .navbar .dropdown {
+    margin-left: 257px;
+    margin-top: -20px;
+    margin-bottom: 12px;
+  }
+
+  /* Search Bar */
+  .navbar .container {
+    margin-top:-46px;
+    margin-left:300px;
+    margin-bottom:30px;
+    width:775px;
+  }

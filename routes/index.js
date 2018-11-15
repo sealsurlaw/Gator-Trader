@@ -90,10 +90,6 @@ router.get('/homePage',function(req,res,next){
   res.render('homePage', {title:'HOME PAGE', stylesheet:'homePage',item_set:default_items_set});
 });
 
-router.get('/searchPage',function(req,res,next){
-  res.render('searchPage',{title:'SEARCH PAGE',stylesheet:'searchPage'});
-});
-
 router.get('/detailsPage',function(req,res,next){
   res.render('detailsPage',{title:'DETAILS PAGE',stylesheet:'detailsPage'});
 });

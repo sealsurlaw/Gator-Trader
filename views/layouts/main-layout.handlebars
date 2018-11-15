@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
+
   {{#if title}}
   <title>{{this}}</title>
   {{/if}}
@@ -9,7 +10,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+
+   <link rel="stylesheet" href="stylesheets/search-header.css">
+
   {{#if stylesheet}}
   <link rel="stylesheet" href="stylesheets/{{stylesheet}}.css">
   {{/if}}
@@ -17,10 +20,9 @@
   <script type="text/javascript" src="javascript/{{script}}.js"></script>
   {{/if}}
   
-</head>
+</head> 
 <body>
   {{>search-header}}
   {{{body}}}
 </body>
 </html>
-
