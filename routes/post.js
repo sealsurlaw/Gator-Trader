@@ -7,6 +7,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 var hash = require('object-hash');
 var im = require('node-imagemagick');
+var fs_extra = require('fs-extra');
 
 var filename;
 var thumbname;
@@ -92,7 +93,7 @@ router.post('/', function(req, res, next) {
     // Specify new path for uploaded image
     var newpath = './public/images/user_images/' + filename;
     // Move and rename image file to public/images/
-    fs.rename(oldpath, newpath, function (err) {
+    fs_extra.move(oldpath, newpath, function (err) {
       if (err) throw err;
 
       // Read height and width
