@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
     .then( cat => 
     db.any(`SELECT * FROM item` + where)
     .then( data => {
-        res.render('searchPage', {data: data, size: data.length, categories: cat});
+        res.render('search', {data: data, title: 'SEARCH PAGE', stylesheet: 'search', size: data.length, categories: cat});
     }));
 });
 

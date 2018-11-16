@@ -12,8 +12,11 @@ router.get('/:id', function(req, res, next) {
             if (element.category_id == data[0].category_id)
                 category = element.category_name;
         });
-        res.render( 'detailsPage', {data: data[0], categories: cat, category: category} );
-    }));
+        res.render( 'details', {data: data[0], title: 'DETAILS PAGE', stylesheet: 'details', categories: cat, category: category} );
+    }))
+    .catch( (e) => {
+        res.render('error');
+    });
 });
 
 module.exports = router;

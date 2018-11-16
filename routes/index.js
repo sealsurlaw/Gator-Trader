@@ -13,45 +13,40 @@ db.any(`SELECT * FROM category`)
     res.render('index', { title: 'index', categories: cat });
   });
 
-  router.get('/Gayatri', function(req, res, next) {
-    res.render('gayatri', { title: 'Gayatri', categories: cat });
+  router.get('/gayatri', function(req, res, next) {
+    res.render('team/gayatri', { title: 'Gayatri', categories: cat });
   });
-  router.get('/Charul', function(req, res, next) {
-    res.render('Charul', { title: 'Charul', categories: cat });
+  router.get('/charul', function(req, res, next) {
+    res.render('team/charul', { title: 'Charul', categories: cat });
   });
-  router.get('/Dylan', function(req, res, next) {
-    res.render('dylan', { title: 'Dylan', categories: cat });
+  router.get('/dylan', function(req, res, next) {
+    res.render('team/dylan', { title: 'Dylan', categories: cat });
   });
-  router.get('/Moses', function(req, res, next) {
-    res.render('Moses', { title: 'Moses', categories: cat });
+  router.get('/moses', function(req, res, next) {
+    res.render('team/moses', { title: 'Moses', categories: cat });
   });
-  router.get('/Peter', function(req, res, next) {
-    res.render('Peter', { title: 'Peter', categories: cat });
+  router.get('/peter', function(req, res, next) {
+    res.render('team/peter', { title: 'Peter', categories: cat });
   });
-  router.get('/Regine', function(req, res, next) {
-    res.render('regine', { title: 'Regine', categories: cat });
+  router.get('/regine', function(req, res, next) {
+    res.render('team/regine', { title: 'Regine', categories: cat });
   });
-  router.get('/Divam', function(req, res, next) {
-    res.render('Divam', { title: 'Divam', categories: cat });
+  router.get('/divam', function(req, res, next) {
+    res.render('team/divam', { title: 'Divam', categories: cat });
   });
-  router.get('/PostItem', function(req, res, next) {
+
+  router.get('/post', function(req, res, next) {
     var user_id = req.signedCookies.id;
     console.log(req.signedCookies.id);
     if (user_id == false || !user_id) {
-      res.redirect('./LoginPage');
+      res.redirect('./login');
     }
     else {
-      res.render('PostItem', { user: user_id, stylesheet:'PostItem', categories: cat});
+      res.render('post', { user: user_id, stylesheet:'post', categories: cat});
     }
   });
-  router.get('/register', function(req, res, next) {
-    res.render('register', {categories: cat});
-  });
-  router.get('/login', function(req, res, next) {
-    res.render('login', {categories: cat});
-  });
 
-  router.get('/homePage',function(req,res,next){
+  router.get('/home',function(req,res,next){
     var default_item={
       'item_id':'1',
       'item_image_thumbnail':'/images/ny.jpg',
@@ -87,33 +82,24 @@ db.any(`SELECT * FROM category`)
         '6':default_item
       }
     };
-    res.render('homePage', {title:'HOME PAGE', stylesheet:'homePage',item_set:default_items_set, categories: cat});
+    res.render('home', {title:'HOME PAGE', stylesheet:'home',item_set:default_items_set, categories: cat});
   });
 
-  router.get('/searchPage',function(req,res,next){
-    res.render('searchPage',{title:'SEARCH PAGE',stylesheet:'searchPage', categories: cat});
+  // router.get('/search',function(req,res,next){
+  //   res.render('search',{title:'SEARCH PAGE',stylesheet:'searchPage', categories: cat});
+  // });
+
+  router.get('/details',function(req,res,next){
+    res.render('details',{title:'DETAILS PAGE',stylesheet:'details', categories: cat});
   });
 
-  router.get('/detailsPage',function(req,res,next){
-    res.render('detailsPage',{title:'DETAILS PAGE',stylesheet:'detailsPage', categories: cat});
+  router.get('/login',function(req,res,next){
+    res.render('login',{title:'LOGIN PAGE',stylesheet:'login', categories: cat})
   });
 
-  router.get('/LoginPage',function(req,res,next){
-    res.render('LoginPage',{title:'LOGIN PAGE',stylesheet:'LoginPage', categories: cat})
-  });
-
-  router.get('/RegPage',function(req,res,next){
-    res.render('RegPage',{title:'REGISTRATION PAGE',stylesheet:'RegPage', categories: cat})
+  router.get('/register',function(req,res,next){
+    res.render('register',{title:'REGISTRATION PAGE',stylesheet:'register', categories: cat})
   });
 });
 
-/*router.get('/PostItem',function(req,res,next){
-  res.render('PostItem',{title:'POST ITEM PAGE',stylesheet:'PostItem'})
-});*/
-
-/*
-router.get('/',function(req,res,next){
-  res.render('',{title:'',stylesheet:''})
-});
-*/
 module.exports = router;

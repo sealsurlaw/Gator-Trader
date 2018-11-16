@@ -13,10 +13,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
-var process_insert = require('./routes/process_insert');
+var post = require('./routes/post');
 var register = require('./routes/register');
 var login = require('./routes/login');
-var clearPage = require('./routes/clear');
+var clear = require('./routes/clear');
 var search = require('./routes/search');
 var item = require('./routes/item');
 
@@ -43,10 +43,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/tests', tests);
 app.use('/vertical', vertical);
-app.use('/process_insert', process_insert);
+app.use('/post', post);
 app.use('/register', register);
 app.use('/login', login);
-app.use('/clear', clearPage);
+app.use('/clear', clear);
 app.use('/search', search);
 app.use('/item', item);
 

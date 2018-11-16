@@ -74,12 +74,12 @@ router.post('/', function(req, res, next) {
         )
         .then( function() {
           // res.render('LoginPage', {title: 'LOGIN PAGE', categories: cat})
-          res.redirect('./LoginPage');
+          res.redirect('./login');
         })
         .catch( e => {
           console.log('Couldn\'t add user');
           console.log(e);
-          res.render('RegPage', {title:'REGISTRATION PAGE', stylesheet:'RegPage', message: "Email already exists", categories: cat});
+          res.render('register', {title:'REGISTRATION PAGE', stylesheet:'register', message: "Email already exists", categories: cat});
         })
       })
     }
@@ -87,7 +87,7 @@ router.post('/', function(req, res, next) {
     else {
       db.any (`SELECT * FROM category`)
       .then( cat => {
-        res.render('RegPage', {title:'REGISTRATION PAGE', stylesheet:'RegPage', message: "Passwords don't match", categories: cat});
+        res.render('register', {title:'REGISTRATION PAGE', stylesheet:'register', message: "Passwords don't match", categories: cat});
       })
     }
 

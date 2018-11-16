@@ -22,7 +22,7 @@ function loginUser (res, user, fields) {
         db.any(`SELECT * FROM category`)
         .then(cat => {
             console.log("Login failed!");
-            res.render('LoginPage', {title:'LOGIN PAGE',stylesheet:'LoginPage', categories: cat, message: "Incorrect Login"});
+            res.render('login', {title:'LOGIN PAGE',stylesheet:'login', categories: cat, message: "Incorrect Login"});
         })
     }
 }
