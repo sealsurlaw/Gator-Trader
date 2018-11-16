@@ -2,6 +2,7 @@ var express = require("express");
 var url = require('url');
 var router = express.Router();
 var db = require('../db');
+var renderUserAndCategory = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
@@ -28,7 +29,8 @@ router.get('/', function(req, res, next) {
     .then( cat => 
     db.any(`SELECT * FROM item` + where)
     .then( data => {
-        res.render('search', {data: data, title: 'SEARCH PAGE', stylesheet: 'search', size: data.length, categories: cat});
+        data.search = search;
+        renderUserAndCategory(req, res, 'search', 'SEARCH PAGE', 'search', undefined, data);
     }));
 });
 

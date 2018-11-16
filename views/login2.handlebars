@@ -1,22 +1,22 @@
 <div class="container login-box">
     <h2 class="centered">Log In</h2>
-    <form>  
+    <form action="/login" method="POST" enctype="multipart/form-data">  
         <div class="row center-block ">
             <div class="form-group row centered">
-                <label for="UserEmail" class="col-sm-1 col-form-label">Email</label>
+                <label for="email" class="col-sm-1 col-form-label">Email</label>
                 <div class="col-sm-5">
-                  <input type="email" class="form-control" id="UserEmail" placeholder="Email" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
               </div>
           </div>
           <div class="form-group row centered">
-            <label for="UserPswd" class="col-sm-1 col-form-label">Password</label>
+            <label for="password" class="col-sm-1 col-form-label">Password</label>
             <div class="col-sm-5">
-              <input type="password" class="form-control" id="UserPswd" placeholder="Password" required>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
           </div>
       </div>
       <div>
         <center><a href="" class="centered">Forgot your password?</a>
-           <br>New to Gator Trader?<a href="RegPage2.html">Register Here</a></center>
+           <br>New to Gator Trader?<a href="/register">Register Here</a></center>
        </div>
        <div>
         <span style="float:left"><button type="submit" class="btn btn-primary btn-lg">Cancel</button></span>

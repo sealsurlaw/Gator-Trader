@@ -1,0 +1,38 @@
+
+<form action="/register" name="inputValidation" method="POST" enctype="multipart/form-data">
+<div class="container">
+    {{#if message}}
+    <h3 style="text-align: center; color: red">{{message}}</h3><br>
+    {{/if}}
+    <h2 style="font-size: 50px; text-align: left;"><u>Create Account</u></h2>
+    <p>*All fields are required</p>
+     <div class="displayText">
+            *Username:
+            <br>
+            *E-mail:
+            <br>
+            *Password:
+            <br>
+            *Re-enter password:
+    </div>
+    <div class="displayText">
+            <input type="text" name="userName" required><br>
+            <input type="email" name="userEmail"required><br>
+            <div class="pswdRequirement">Password must be at least 8 characters</div><br>
+            <input type="password" name="userPswd"required><br>
+            <input type="password" name="rePswd" required>
+    </div>
+
+    <div class="radioButtons">
+        <span style="margin-left: 300px"><input type="radio" value="TOS" required></span>I Agree to Gator Trader Terms and Services<br>
+        <span style="margin-left: 115px"><input type="radio" value="robot" required>I am not a robot
+    </div>
+
+    <span style="font-size: 15px; margin-top: 50px; margin-left: 170px; display: inline-block;">
+        Already a member! <a href="/LoginPage">Sign In</a>
+    </span>
+    <div class="buttonLayout">
+        <button type="submit">CREATE</button>
+    </div>
+</div>
+</form>

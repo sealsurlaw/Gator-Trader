@@ -1,0 +1,31 @@
+
+<form action ="/login" method="POST" enctype="multipart/form-data">
+<div class="container">
+        {{#if message}}
+        <h3 style="text-align: center; color: red;">{{message}}</h3>
+        {{/if}}
+    <h2 style="font-size: 50px">Log In</h2>
+
+    <div class="displayText">
+            E-Mail:
+            <br><br>
+            Password:
+    </div>
+
+    <div class="displayText">
+            <input type="email" name="UserEmail"/>
+            <br><br>
+            <input type="password" name="UserPswd"/>
+    </div>
+
+    <div class="loginLinks">
+            <a href="">Forgot your password?</a>
+            <br><span style="padding-left: 85px">New to Gator Trader?<a href="/RegPage"></span><span style="padding-left:5px">Register Here</span></a>
+    </div>
+
+    <div class="buttonLayout">
+            <span style="float:left"><button type="submit">Cancel</button></span>
+            <span style="float:right"><button type="submit">Login</button></span>
+    </div>
+</div>
+</form>
