@@ -1,14 +1,11 @@
 <!-- Navigation Bar w/ Register + Login -->
 <nav class="navbar navbar-inverse">
-  
+
   <div class="container-fluid">
     <div class="navbar-header">
 
       <!-- Name / Logo -->
-      <a href="/index"><h2 style="color:#fff">Gator Trader</h2></a>
-
-      {{!-- {{#if excludeSearch}}
-      {{else}} --}}
+      <a href="/home"><h2 style="color:#fff">Gator Trader</h2></a>
 
       <!-- "All" Dropdown -->
       <div class="dropdown">
@@ -61,7 +58,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
+          <span class="icon-bar"></span>
         </button>
       </div>
 
@@ -72,7 +69,7 @@
           <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
           {{/each}}
         </ul>
-        
+
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/post">Sell An Item</a></li>
           <li><a href="/index">About Us</a></li>
