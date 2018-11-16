@@ -85,10 +85,6 @@ db.any(`SELECT * FROM category`)
     res.render('home', {title:'HOME PAGE', stylesheet:'home',item_set:default_items_set, categories: cat});
   });
 
-  // router.get('/search',function(req,res,next){
-  //   res.render('search',{title:'SEARCH PAGE',stylesheet:'searchPage', categories: cat});
-  // });
-
   router.get('/details',function(req,res,next){
     res.render('details',{title:'DETAILS PAGE',stylesheet:'details', categories: cat});
   });

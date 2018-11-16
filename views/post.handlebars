@@ -1,58 +1,55 @@
+ 
+ <div class="container post-body">
+    <h2><center>Post Item</center></h2>
+    <form>  
+        <div class="row center-block ">
 
-    <div class="container">
-    <h2 style="font-size: 50px; text-align: left;"><u>Post an Item</u></h2>
-    <form action="/post" method="POST" enctype="multipart/form-data">
-    <div class="displayText">
-            {{!-- User:
-            <br> --}}
-            Title:
-            <br>
-            Category:
-            <br>
-            Price:
-            <br>
-    </div>
-    <div class="displayText">
+            <div class="form-group row centered">
+                <label for="Title" class="col-sm-1 col-form-label">Title:</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="Title" required>
+              </div>
+          </div>
 
-        <input type="text" name="title"/><br>
-        <!--<input list="Category" name="category">-->
-            <select name ="category">
-              {{#each categories}}
-                <option value="{{this.category_id}}">{{this.category_name}}</option>
-              {{/each}}
+          <div class="form-group row centered">
+            <label for="category" class="col-sm-1 col-form-label">Category:</label>
+            <div class="col-sm-4">
+                <select class="custom-select" id="category" required>
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
 
-        <br>
-        <input type="text" name="price"/><br>
-    </div>
-    <br><br>
-    <div>
-
-    <div class="displayText" style="position:relative; top:-80px; left:5px;">
-       Description:
-    </div>
-
-    <div class="descriptionInput">
-        <textarea rows="3" cols="26" name="description"> </textarea>
-    </div>
-    <br>
-    <div class="displayText" style="position:relative; left:13px;">
-        Images:
-    </div>
-    <!-- -->
-
-    <div class="uploadLayout">
-            <input type="file" name="image_file" accept="image/*" multiple>
+        <div class="form-group row centered">
+            <label for="Price" class="col-sm-1 col-form-label">Price:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="Price"required>
+          </div>
+      </div>
+      <div class="form-group row centered">
+        <label for="descriptionInput" class="col-sm-1 col-form-label">Description:</label>
+        <div class="col-sm-4">
+            <textarea class="form-control" id="descriptionInput" rows="4" placeholder="Write a description here..."required></textarea>
+        </div>
     </div>
 
-    <br><br>
-
-    <div class="warningText">
-        <p>Once an item has been posted it is in default pending status.</p>
-        <p>Please wait wait until Approved by Administrator to go Live.<p>
+    <div class ="form-group row centered">
+        <label for="Images" class="col-sm-1 col-form-label">Images:</label>
+        <div class="col-sm-4">
+            <input type="file" class="custom-file-input" id="Images" multiple>
+        </div>
     </div>
-    <br>
-    <div class="buttonLayout">
-            <span style="float:left"><button type="submit">Cancel</button></span>
-            <span style="float:right"><button type="submit">Post</button></span>
+    <div class="center-align" style="line-height:0.7;">
+     <p>Once an item has been posted it is in default pending status.</p>
+     <p>Please wait wait until Approved by Administrator to go Live.<p>
+     </div>
+     <div>
+        <span style="float:left"><button type="submit" class="btn btn-primary btn-lg">Cancel</button></span>
+        <span style="float:right"><button type="submit" class="btn btn-primary btn-lg">Post</button></span>
     </div>
+</div>
 </form>
+</div>
