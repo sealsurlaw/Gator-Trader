@@ -42,18 +42,26 @@
     <h2 class="centered">Log In</h2>
     <form>  
         <div class="row center-block ">
+
+            <!-- User email form-->
             <div class="form-group row centered">
                     <label for="UserEmail" class="col-sm-1 col-form-label">Email</label>
                     <div class="col-sm-5">
-                      <input type="email" class="form-control" id="UserEmail" placeholder="Email" required>
+                      <input type="email" class="form-control" id="UserEmail" placeholder="Email" pattern=".+@mail.sfsu.edu"maxlength="34"
+                      oninvalid="setCustomValidity('Invalid Email. Must be @mail.sfsu.edu ')" onchange="try{setCustomValidity('')}catch(e){}"
+                      required>
                     </div>
             </div>
+            <!-- User  password form-->
             <div class="form-group row centered">
                     <label for="UserPswd" class="col-sm-1 col-form-label">Password</label>
                     <div class="col-sm-5">
-                      <input type="password" class="form-control" id="UserPswd" placeholder="Password" required>
+                      <input type="password" class="form-control" id="UserPswd" placeholder="Password" minlength="8" maxlength="20"
+                      oninvalid="setCustomValidity('Password must be alphanumeric and between 8-20 characters long')" onchange="try{setCustomValidity('')}catch(e){}"
+                      required>
                     </div>
             </div>
+              <!-- Links to registraion and password reset-->
             <div>
                 <center><a href="" class="centered">Forgot your password?</a>
                  <br>New to Gator Trader?<a href="RegPage2.html">Register Here</a></center>

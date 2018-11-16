@@ -6,8 +6,23 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.7/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Register with Gator Trader</title>
+<script>
+function passwordValidation(){
+        var Pswd  = document.getElementById("UserPswd");
+        var rPswd = document.getElementById("RePswd");
+        if( Pswd.value != rPswd.value){
+                alert("Passwords Don't Match");
+                return false;
+        }
+        return true;
+    }
+// Removes spaces from username
+function removeSpaces(string) {
+        return string.split(' ').join('');
+}
+</script>
 
+<title>Register with Gator Trader</title>
 <style>
     body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -34,63 +49,89 @@
   align-items: center;
   justify-content: center;
 }
+.requireFields{
+        margin: auto;
+        width:auto;
+}
 </style>
 </head>
 <body>
     <h1 id="GatorHeader">Gator Trader</h1>
     <div class="container">
             <h2><center>Create Account</center></h2>
-            <form>  
+            <form onsubmit="return passwordValidation()" method="post">  
                 <div class="row center-block ">
-                    <div class="form-group row">
-                        <div class="col-md-4 offset-md-10">
-                         <p>*All fields are required</p>
-                         </div>
-                    </div>
+                    <!-- Div for Field Reuirment-->
+                   <div class="form-group row centered">
+                           <label class="col-sm-6 col-form-label" for="Fields"></label>
+                                <div class="col-sm-4">
+                                         *All fields required
+                                 </div>
+                   </div>
+                    <!-- Enter Username form-->
                     <div class="form-group row centered">
                             <label for="Username" class="col-sm-2 col-form-label">*Username:</label>
                             <div class="col-sm-4">
-                              <input type="text" class="form-control" id="Username" maxlength="20" required>
+                              <input type="text" class="form-control" id="Username"  pattern="[A-Za-z0-9]+" minlength="4" maxlength="20"
+                              onblur="this.value=removeSpaces(this.value);"
+                              required>
                             </div>
                     </div>
+                    <!-- Enter Email form-->
                     <div class="form-group row centered">
                             <label for="UserEmail" class="col-sm-2 col-form-label">*Email:</label>
                             <div class="col-sm-4">
-                              <input type="email" class="form-control" id="UserEmail" pattern=".+@mail.sfsu.edu"maxlength="34" required>
+                              <input type="email" class="form-control" id="UserEmail" pattern=".+@mail.sfsu.edu"maxlength="34"
+                              oninvalid="setCustomValidity('Invalid Email. Must be @mail.sfsu.edu ')" onchange="try{setCustomValidity('')}catch(e){}"
+                              required>
                             </div>
                     </div>
+                    <!-- Enter Password form-->
                     <div class="form-group row centered">
                             <label for="UserPswd" class="col-sm-2 col-form-label">*Password:</label>
                             <div class="col-sm-4">
-                              <input type="password" class="form-control" id="UserPswd" minlength ="8" maxlength="20" placeholder="Password must between 8-20 characters" required>
+                              <input type="password" class="form-control" id="UserPswd" pattern="[A-Za-z0-9]+" minlength="8" maxlength="20"
+                              oninvalid="setCustomValidity('Password must be alphanumeric and between 8-20 characters long')" onchange="try{setCustomValidity('')}catch(e){}"
+                              placeholder="Alphanumeric between 8-20 characters" required>
                             </div>
                     </div>
+                    <!-- Re-enter Password form-->
                     <div class="form-group row centered">
                             <label for="RePswd" class="col-sm-2 col-form-label">*Re-enter Password:</label>
                             <div class="col-sm-4">
-                              <input type="password" class="form-control" id="RePswd" minlength ="8" maxlength="20" placeholder="Passwords must match"required>
+                              <input type="password" class="form-control" id="RePswd" pattern="[A-Za-z0-9]+" minlength="8" maxlength="20"
+                              oninvalid="setCustomValidity('Password must be alphanumeric and between 8-20 characters long')" onchange="try{setCustomValidity('')}catch(e){}"
+                              placeholder="Passwords must match"required>
                              </div>
                     </div>
+                    <!-- Term of Conditions form-->
                     <div class="form-group row centered">
                                 <label class="col-sm-3 col-form-label" for="TOC"></label>
                                 <div class="col-sm-5">
-                                        <input class="form-check-input" class="form-control" id="TOC" type="checkbox"> 
+                                        <input class="form-check-input" id="TOC" type="checkbox" value="" 
+                                        oninvalid="setCustomValidity('You must agree to our Terms of Condition')" onchange="try{setCustomValidity('')}catch(e){}"
+                                        required> 
                                         I agree to Gator Trader's <a href="">Terms of Condition</a>
                                 </div>
                     </div>
+                    <!-- User validation form-->
                     <div class="form-group row centered">
                                 <label class="col-sm-3 col-form-label" for="Robot"></label>
                                 <div class="col-sm-5">
-                                <input class="form-check-input" class="form-control" id="Robot" type="checkbox">
+                                <input class="form-check-input" id="Robot" type="checkbox" value=""
+                                oninvalid="setCustomValidity('You must prove you are not a robot')" onchange="try{setCustomValidity('')}catch(e){}"
+                                required>
                                                 I am not a robot.
                                 </div>
                     </div>
+                    <!-- Link to Log In page-->
                     <div >
-                            <center>Already a member<a href="LoginPage2.html"> Sign In </a></center>
+                            <center>Already a member<a href="LoginPagev2.html"> Sign In </a></center>
                     </div>
+                    <!--Buttons-->
                     <div>
                             <span style="float:left"><button type="submit"  class="btn btn-primary btn-lg">Cancel</button></span>
-                            <span style="float:right"><button type="submit"  class="btn btn-primary btn-lg">Create</button></span>
+                            <span style="float:right"><button type="submit" class="btn btn-primary btn-lg">Create</button></span>
                     </div>
                 </div>
             </form>

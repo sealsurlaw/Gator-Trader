@@ -46,32 +46,35 @@
             <h2><center>Post Item</center></h2>
             <form>  
                 <div class="row center-block ">
-                    
+                    <!-- Item Title form-->
                     <div class="form-group row centered">
                             <label for="Title" class="col-sm-1 col-form-label">Title:</label>
                             <div class="col-sm-4">
-                              <input type="text" class="form-control" id="Title" required>
+                              <input type="text" class="form-control" id="Title" maxlength="20" required>
                             </div>
                     </div>
-
+                    <!-- Item category form-->
                     <div class="form-group row centered">
                             <label for="category" class="col-sm-1 col-form-label">Category:</label>
                             <div class="col-sm-4">
-                                    <select class="custom-select" id="category" required>
-                                            <option selected>Choose...</option>
+                                    <select class="custom-select" id="category" 
+                                    oninvalid="setCustomValidity('Please select a category.')" onchange="try{setCustomValidity('')}catch(e){}"
+                                    required>
+                                            <option selected value="">Choose...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
                                     </select>
                             </div>
                     </div>
-                    
+                    <!--Item price form-->
                     <div class="form-group row centered">
                             <label for="Price" class="col-sm-1 col-form-label">Price:</label>
                             <div class="col-sm-4">
-                              <input type="text" class="form-control" id="Price"required>
+                              <input type="text" class="form-control" id="Price" maxlength="10" required>
                             </div>
                     </div>
+                    <!-- Item description form-->
                     <div class="form-group row centered">
                             <label for="descriptionInput" class="col-sm-1 col-form-label">Description:</label>
                             <div class="col-sm-4">
@@ -87,9 +90,10 @@
                     </div>
 
                     <div class="center" style="line-height:0.7;">
-                           <p>Once an item has been posted it is in default pending status.</p>
+                          <p>Once an item has been posted it is in default pending status.</p>
                           <p>Please wait wait until Approved by Administrator to go Live.<p>
                     </div>
+                    <!--Buttons-->
                     <div>
                             <span style="float:left"><button type="submit" class="btn btn-primary btn-lg">Cancel</button></span>
                             <span style="float:right"><button type="submit" class="btn btn-primary btn-lg">Post</button></span>
