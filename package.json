@@ -8,7 +8,6 @@
     "start:dev": "DEBUG=APP_NAME:* nodemon ./bin/www"
   },
   "dependencies": {
-    "aws-sdk": "^2.357.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",

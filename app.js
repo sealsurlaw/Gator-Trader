@@ -10,8 +10,6 @@ var exphbs = require('express-handlebars');
 var session = require('express-session');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var tests = require('./routes/tests');
 var vertical = require('./routes/vertical');
 var post = require('./routes/post');
 var register = require('./routes/register');
@@ -45,8 +43,6 @@ app.use(session(
     saveUninitialized: false}));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/tests', tests);
 app.use('/vertical', vertical);
 app.use('/post', post);
 app.use('/register', register);

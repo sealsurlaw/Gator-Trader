@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db');
 var render = require('../models/loginCheck').renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
@@ -59,10 +58,5 @@ router.get('/login',function(req,res,next){
 router.get('/register',function(req,res,next){
   render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register'});
 });
-
-//router.get('/dashboard',function(req,res,next){
-//   // res.render('login',{title:'LOGIN PAGE', stylesheet:'login', categories: cat})
-  //render(req, res, 'dashboard', 'My Dashboard Page', 'dashboard');
-  //});
 
 module.exports = router;
