@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
     form.parse(req,function(err,fields,files){
         db.any(`SELECT * FROM user_record WHERE user_email='` + fields.email + `'`)
         .then(function (user){
-            loginUser(res, user, fields);
+            loginUser(req, res, user, fields);
         });
     });
 });

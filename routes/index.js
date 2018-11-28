@@ -43,7 +43,7 @@ router.get('/divam', function(req, res, next) {
 });
 
 router.get('/post', function(req, res, next) {
-  var user_id = req.signedCookies.id
+  var user_id = req.session.user_id
   if (user_id == false || !user_id) {
     res.redirect('./login');
   }
@@ -105,7 +105,7 @@ router.get('/login',function(req,res,next){
 });
 
 router.get('/register',function(req,res,next){
-  // var user_id = req.signedCookies.id;
+  // var user_id = req.session.user_id;
   // if (user_id) {
   //   db.any(`SELECT user_name FROM user_record WHERE user_id=` + user_id)
   //   .then( (user) => {

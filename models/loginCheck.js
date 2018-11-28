@@ -3,32 +3,34 @@ var passwordHash = require('password-hash');
 var db = require('../db');
 
 
-function getUserIDFromCookies (req) {
-    return req.signedCookies.id;
+function getUserIDFromSession (req) {
+    return req.session.user_id;
 }
 
 async function getUserFromDB (req) {
-    var id = getUserIDFromCookies(req);
+    var id = getUserIDFromSession(req);
     return await db.any(`SELECT * FROM user_record WHERE user_id=` + id);
 }
 
-function loginUser (res, user, fields) {
+function loginUser (req, res, user, fields) {
     if (user[0] && passwordHash.verify(fields.password, user[0].user_password)) {
         console.log("Login successful!");
         console.log(user);
-        res.cookie('id', user[0].user_id, { signed: true} ).redirect('/search?search=');
+        req.session.user_id = user[0].user_id;
+        res.redirect('/search?search=');
     }
     else {
         db.any(`SELECT * FROM category`)
         .then(cat => {
             console.log("Login failed!");
-            res.render('login', {title:'LOGIN PAGE',stylesheet:'login', categories: cat, message: "Incorrect Login"});
+            // res.render('login', {title:'LOGIN PAGE',stylesheet:'login', categories: cat, message: "Incorrect Login"});
+            renderUserAndCategory(req, res, 'login', 'LOGIN PAGE', 'login');
         })
     }
 }
 
 function renderUserAndCategory (req, res, page, title, stylesheet) {
-    var user_id = req.signedCookies.id;
+    var user_id = req.session.user_id;
 
     db.any(`SELECT * FROM category`)
     .then( cat => {
@@ -51,7 +53,7 @@ function renderUserAndCategory (req, res, page, title, stylesheet) {
 }
 
 function renderUserAndCategory (req, res, page, title, stylesheet, script) {
-    var user_id = req.signedCookies.id;
+    var user_id = req.session.user_id;
 
     db.any(`SELECT * FROM category`)
     .then( cat => {
@@ -74,7 +76,7 @@ function renderUserAndCategory (req, res, page, title, stylesheet, script) {
 }
 
 function renderUserAndCategory (req, res, page, title, stylesheet, script, data) {
-    var user_id = req.signedCookies.id;
+    var user_id = req.session.user_id;
 
     db.any(`SELECT * FROM category`)
     .then( cat => {
@@ -96,7 +98,7 @@ function renderUserAndCategory (req, res, page, title, stylesheet, script, data)
 
 }
 
-module.exports.getUserIDFromCookies = getUserIDFromCookies;
+module.exports.getUserIDFromSession = getUserIDFromSession;
 module.exports.getLoggedInUserFromDB = getUserFromDB;
 module.exports.loginUser = loginUser;
 module.exports.renderUserAndCategory = renderUserAndCategory;

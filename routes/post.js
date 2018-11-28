@@ -125,7 +125,7 @@ var resizeImageCallback = function(err, stdout, stderr){
 
 
 router.post('/', function(req, res, next) {
-  id = req.signedCookies.id;
+  id = req.session.user_id;
   response = res;
   request = req;
   // Get incoming form
