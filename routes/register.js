@@ -5,7 +5,7 @@ var router = express.Router();
 var db = require('../db');
 var formidable = require('formidable');
 var pswdHash = require('password-hash');
-var renderUserAndCategory = require("../models/loginCheck").renderUserAndCategory;
+var render = require("../models/loginCheck").renderUserAndCategory;
 
 
 // var entryName = false;
@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
   .catch( e => {
     console.log('Couldn\'t add user');
     console.log(e);
-    renderUserAndCategory(req, res, 'register', 'REGISTRATION PAGE', 'register', 'register');
+    render(req, res, 'register', 'REGISTRATION PAGE', 'register', 'register');
     // res.render('register', {title:'REGISTRATION PAGE', stylesheet:'register', message: "Email already exists", categories: cat});
   })
 })

@@ -7,7 +7,7 @@ var im = require('node-imagemagick');
 var fs_extra = require('fs-extra');
 var imgur = require('imgur');
 
-var renderUserAndCategory = require('../models/loginCheck').renderUserAndCategory;
+var render = require('../models/loginCheck').renderUserAndCategory;
 
 var filename;
 var thumbname;
@@ -107,7 +107,7 @@ var resizeImageCallback = function(err, stdout, stderr){
         })
         .catch(function(error) {
           // Print out error
-          renderUserAndCategory(request, response, 'post', 'POST PAGE', 'post');
+          render(request, response, 'post', 'POST PAGE', 'post');
         });
 
 

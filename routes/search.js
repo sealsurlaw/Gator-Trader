@@ -2,7 +2,7 @@ var express = require("express");
 var url = require('url');
 var router = express.Router();
 var db = require('../db');
-var renderUserAndCategory = require("../models/loginCheck").renderUserAndCategory;
+var render = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     db.any(`SELECT * FROM item` + where)
     .then( data => {
         data.search = search;
-        renderUserAndCategory(req, res, 'search', 'SEARCH PAGE', 'search', undefined, data);
+        render(req, res, 'search', 'SEARCH PAGE', 'search', {data: data});
     }));
 });
 

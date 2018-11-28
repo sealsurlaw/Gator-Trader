@@ -36,19 +36,19 @@
 						</tr>
 					</thread>
 					<tbody>
-<!--
-						{{if data}}
-						{{#each data}}
-						<tr class="dashboard-item">
-							<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn btn-default">
-								<img src="{{this.thumbnail}}" class="item_image_thumbnail">
-							</button>
+
+					{{#if data}}
+					{{#each data}}
+					<tr class="dashboard-item">
+						<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn btn-default">
+							<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
+						</button>
 						</td>
 						<td>
 							<span class="item-name ">{{this.item_title}}/<br>{{this.item_category}}</span>
 						</td>
 						<td>
-							<span class="item-price ">${{this.item_price}}</span>
+							<span class="item-price ">{{this.item_price}}</span>
 						</td>
 						<td class="vanish">
 							<span class="item-date ">{{this.item_date}}</span>
@@ -56,19 +56,17 @@
 						<td class="vanish">
 							<div class="item-description  ">{{this.item_description}}</div>
 						</td>
-						<td class="vanish">
-							<div class="item-availability">{{this.item_availability}}</div>
-						</td>
 						<td>
 							<div class="item-status">{{this.item_status}}</div>
 						</td>
 						<td><button type="button" onclick="" class="btn btn-default">
 							<div class="item-messages">Messages:<br/>{{this.item_message_count}}</div>
 						</button>
-					</td>
-				</tr>
-				{{/each}}
-				{{/if}} -->
+						</td>
+					</tr>
+					<p>{{this.item_id}}</p>
+					{{/each}}
+					{{/if}}
 
 			</tbody>
 		</table>
@@ -90,7 +88,7 @@
 	</div>
 
 	<!-- single message -->
-	<!-- {{if data.messages}}
+	{{!-- {{if data.messages}}
 	{{#each data.messages}}
 	<div class="message">
 		<div class='message-box'>
@@ -99,7 +97,7 @@
 		</div>
 	</div>
 	{{/each}}
-	{{/if}} -->
+	{{/if}} --}}
 	<!-- end single message -->
 </div>
 
