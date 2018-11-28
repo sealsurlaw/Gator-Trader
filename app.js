@@ -37,7 +37,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(
-  { secret: 'A@w#e$s(o!m)e T!@$eFA&a&^67m N#%q13umb3232%&er 2',
+  { store: new (require('connect-pg-simple')(session))(),
+    secret: 'A@w#e$s(o!m)e T!@$eFA&a&^67m N#%q13umb3232%&er 2',
     cookie: { maxAge: 60000 * 60 * 24},
     resave: false,
     saveUninitialized: false}));
