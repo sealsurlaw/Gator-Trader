@@ -1,0 +1,100 @@
+
+<div class="body">
+	<div class='page-title container'>
+		<h2>My Dashboard</h2>
+	</div>
+	<div class="body-table row ">
+		<div class="item-list col-sm-6" >
+			<div class="filters center ">item List
+				<span class="dropdown filter-dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
+						Filter by
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
+						<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Newest First</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Oldest First</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
+					</ul>
+				</span>
+			</div>
+			
+			<div class="table-responsive dashboard-item-table">
+				<table class="">
+					<thread>
+						<tr class="dashboard-item-table-key" >
+							<th >Thumbnail</th>
+							<th >Title/<br>Category</th>
+							<th >Price</th>
+							<th class="vanish">Date</th>
+							<th class="vanish">Description</th>
+							<th >Status</th>
+							<th class="vanish">Availability</th>
+							<th >Messages</th>
+						</tr>
+					</thread>
+					<tbody>
+						
+						{{if data}}
+						{{#each data}}
+						<tr class="dashboard-item">
+							<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn btn-default">
+								<img src="{{this.thumbnail}}" class="item-thumbnail">
+							</button>
+						</td>
+						<td>
+							<span class="item-name ">{{this.item_title}}/<br>{{this.item_category}}</span>
+						</td>
+						<td>
+							<span class="item-price ">${{this.item_price}}</span>
+						</td>
+						<td class="vanish">
+							<span class="item-date ">{{this.item_date}}</span>
+						</td>
+						<td class="vanish">
+							<div class="item-description  ">{{this.item_description}}</div>
+						</td>
+						<td class="vanish">
+							<div class="item-availability">{{this.item_availability}}</div>
+						</td>
+						<td>
+							<div class="item-status">{{this.item_status}}</div>
+						</td>
+						<td><button type="button" onclick="" class="btn btn-default">
+							<div class="item-messages">Messages:<br/>{{this.item_message_count}}</div>
+						</button>
+					</td>
+				</tr>
+				{{/each}}
+				{{/if}}
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<div class="message-list col-sm-5">
+	<div class="filters center "><span class="">Messages</span><span class="dropdown filter-dropdown">
+		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+			<span class="caret"></span></button>
+			<ul class="dropdown-menu">
+				<li><a href="#">Newest First</a></li>
+				<li><a href="#">Oldest First</a></li>
+			</ul>
+		</span>
+	</div>
+
+	<!-- single message -->
+	<div class="message">
+		<div class='message-box'>
+			<h4>Person 1</h4>
+			<p>Message messsage message</p>
+		</div>
+	</div>
+	<!-- end single message -->
+</div>
+
+</div><!-- end page body -->
