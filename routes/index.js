@@ -118,4 +118,9 @@ router.get('/register',function(req,res,next){
   renderUserAndCategory(req, res, 'register', 'REGISTRATION PAGE', 'register', 'register');
 });
 
+router.get('/dashboard',function(req,res,next){
+  // res.render('login',{title:'LOGIN PAGE', stylesheet:'login', categories: cat})
+  renderUserAndCategory(req, res, 'dashboard', 'My Dashboard Page', 'dashboard');
+});
+
 module.exports = router;
