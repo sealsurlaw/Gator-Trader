@@ -5,7 +5,7 @@
 	</div>
 	<div class="body-table row ">
 		<div class="item-list col-sm-6" >
-			<div class="filters center ">item List
+			<div class="filters center ">Item List
 				<span class="dropdown filter-dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
 						Filter by
@@ -83,17 +83,23 @@
 			<ul class="dropdown-menu">
 				<li><a href="#">Newest First</a></li>
 				<li><a href="#">Oldest First</a></li>
+				<li><a href="#">Alphabetical</a></li>
+
 			</ul>
 		</span>
 	</div>
 
 	<!-- single message -->
+	{{if data.messages}}
+	{{#each data.messages}}
 	<div class="message">
 		<div class='message-box'>
-			<h4>Person 1</h4>
-			<p>Message messsage message</p>
+			<h4>{{this.user_name}}</h4>
+			<p>{{this.message_text}}</p>
 		</div>
 	</div>
+	{{/each}}
+	{{/if}}
 	<!-- end single message -->
 </div>
 
