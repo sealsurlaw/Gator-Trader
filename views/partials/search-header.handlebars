@@ -12,8 +12,9 @@
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">All
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
+              <li><a href="/search?browse=-1">All Categories</a></li>
             {{#each categories}}
-            <li><a href="#"></a>{{this.category_name}}</a></li>
+            <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
             {{/each}}
           </ul>
         </div>
@@ -63,16 +64,10 @@
       </div>
 
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-center">
-          <li><a href="/search?browse=-1">All Categories</a></li>
-          {{#each categories}}
-          <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
-          {{/each}}
-        </ul>
 
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="/index">About Us</a></li>
           <li><a href="/post">Sell An Item</a></li>
-          <li><a href="/index">About Us</a></li>
         </ul>
       </div>
     </div>
