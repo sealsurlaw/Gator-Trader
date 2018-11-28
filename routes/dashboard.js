@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
     db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
     .then( data => {
       console.log (data)
+      renderUserAndCategory (req, res,'dashboard', 'Dashboard Page','dashboard', undefined, data);
     });
 
 });
