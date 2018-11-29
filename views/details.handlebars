@@ -33,22 +33,23 @@
       <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLongTitle">Contact Seller</h4>
       </div>
-      <div class="modal-body">
-           <form>
+
+          <div class="modal-body">
+
+
           <div class="form-group">
-            <label for="contactEmail" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" id="contactEmail">
-          </div>
-          <div class="form-group">
+            <form action="/message" method="post" enctype="multipart/form-data">
             <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text" placeholder="I am interested in your {{data.item_title}} for sale"></textarea>
+          
+            <input type="text" class="form-control" name="text_message" required>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="window.open('/messageSent', '_blank')">Send Message</button>
+            </div>
+            </form>
           </div>
-        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send Message</button>
-      </div>
+
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ var clear = require('./routes/clear');
 var search = require('./routes/search');
 var item = require('./routes/item');
 var dashboard = require('./routes/dashboard');
-
+var message = require('./routes/message');
 var app = express();
 
 // view engine setup
@@ -52,6 +52,7 @@ app.use('/clear', clear);
 app.use('/search', search);
 app.use('/item', item);
 app.use('/dashboard', dashboard);
+app.use('/message',message);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
