@@ -188,7 +188,7 @@ h2{
 
   /* dropdown "ALL"*/
   .navbar .dropdown {
-    margin-left: 257px;
+    margin-left: 266px;
     margin-top: -20px;
     margin-bottom: 12px;
   }
@@ -199,4 +199,8 @@ h2{
     margin-left:300px;
     margin-bottom:30px;
     width:775px;
+  }
+
+   .navbar-right {
+    font-size:21px;
   }
