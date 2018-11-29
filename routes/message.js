@@ -1,42 +1,24 @@
 var express = require("express");
 var router = express.Router();
+var url = require('url');
 var db = require('../db');
 var formidable = require('formidable');
 var render = require('../models/loginCheck').renderUserAndCategory;
-var id_user;
-var id_item;
 
-console.log("Hi1");
-router.post('/', function(req,res,next){
 
-console.log("Hi2");
-console.log("User Session: "+ req.session.user_id);
-id_user = req.session.user_id;
-console.log(id_user);
+router.get('/', function(req,res,next) {
+  var q = url.parse(req.url, true).query;
+  var item = q.item;
 
-if (req.session.user_id) {
-  db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
-  .then( data => db.any(`SELECT * from category`)
-  .then( cats => {
-    data.forEach(item => {
-      cats.forEach(cat => {
-        if (item.category_id == cat.category_id) {
-          item.item_category = cat.category_name;
-        }
-      });
-    });
-    id_item = data.item_id;
-    console.log(id_item);
-    //render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data});
-  }));
-}
-else {
-  req.session.nextPage = '/messageSent';
+  req.session.nextPage = '/item/' + item;
   res.redirect('/login');
-}
+});
+
+router.post('/', function(req,res,next){
 
   var form = new formidable.IncomingForm();
   form.parse(req,function(err,fields,files){
+    req.session.nextPage = '/item/' + fields.item_id;
 
     db.any(
         `INSERT INTO gator_message(
@@ -47,18 +29,18 @@ else {
         VALUES
         (
             '` + fields.text_message +`',
-            ` + id_user + `,
-            ` + id_item + `
+            ` + req.session.user_id + `,
+            ` + fields.item_id + `
         )`
     )
-  .then(function(){
-    res.redirect('./messageSent');
-  })
-  .catch(e =>{
-    console.log("Message Error");
-    console.log(e);
-    render(req, res, 'search', 'SEARCH PAGE', 'search');
-  });
+    .then(function(){
+      res.redirect('messageSent');
+    })
+    .catch(e =>{
+      console.log("Message Error");
+      console.log(e);
+      render(req, res, 'search', 'SEARCH PAGE', 'search');
+    });
   });
 });
 

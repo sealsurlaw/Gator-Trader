@@ -24,7 +24,11 @@
 
 <br>
 
+{{#if username}}
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Message">Contact Seller</button>
+{{else}}
+<button type="button" class="btn btn-warning" onclick="location.href='/message?item={{data.item_id}}'">Contact Seller</button>
+{{/if}}
 
 <!--Modal-->
 <div class="modal fade" id="Message" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
@@ -42,9 +46,10 @@
             <label for="message-text" class="col-form-label">Message:</label>
           
             <input type="text" class="form-control" name="text_message" required>
+            <input type="text" name="item_id" value="{{data.item_id}}" style="display: none;">
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="window.open('/messageSent', '_blank')">Send Message</button>
+              <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
             </form>
           </div>
