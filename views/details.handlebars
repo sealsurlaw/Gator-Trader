@@ -32,36 +32,28 @@
 
 <!--Modal-->
 <div class="modal fade" id="Message" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLongTitle">Contact Seller</h4>
-      </div>
-
-          <div class="modal-body">
-
-
-          <div class="form-group">
-            <form action="/message" method="post" enctype="multipart/form-data">
-            <label for="message-text" class="col-form-label">Message:</label>
-          
-            <input type="text" class="form-control" name="text_message" required>
-            <input type="text" name="item_id" value="{{data.item_id}}" style="display: none;">
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Send Message</button>
-            </div>
-            </form>
-          </div>
-      </div>
-
-    </div>
-  </div>
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<form action="/message" method="post" enctype="multipart/form-data">
+						<label for="message-text" class="col-form-label">Message:</label>
+						<input type="text" value="Hi I am interested in buying your item: {{data.item_title}}" class="form-control" name="text_message" readonly>
+						<input type="hidden" name="item_id" value="{{data.item_id}}">
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Send Message</button>
+						</div>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-
 <br>
 <br>
 <br>
-
 </div>

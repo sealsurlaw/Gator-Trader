@@ -45,9 +45,10 @@
       <br>
       <br>
       <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')">View Details</button>
-      <button type="button" class="btn btn-warning">Contact Seller</button>
+      <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')" >Contact Seller</button>
     </div>
   </div>
+
   <hr>
   {{/each}}
   {{/if}}
