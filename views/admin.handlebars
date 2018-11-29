@@ -98,43 +98,51 @@
 			</div>
 			<!-- single message start -->
 			<div class="message">
-				<div class='message-box'>
-					<h4>Person 1</h4>
-					<p>Message messsage message</p>
-				</div>
-			</div>
-			<!-- single message end -->
-		</div>
-	</div>
-</div> <!-- end Items tab -->
-
-<!-- start users tab -->
-<div id="Users" class="tabcontent">
-	<div class="user-list ">
-		<div class="filters "><span class="">Users</span><span class="dropdown filter-dropdown">
-			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
-				<span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<li><a href="#">Newest First</a></li>
-					<li><a href="#">Oldest First</a></li>
-				</ul>
-			</span>
-		</div>
-		<!-- single message start -->
-		<div class="user">
-			<div class='user-box'>
-				<!-- single message -->
-				{{!-- {{if data.messages}}
-				{{#each data.messages}}
-				<div class="message">
+				{{--
+					{{if data.messages}}
+					{{#each data.messages}}
 					<div class='message-box'>
 						<h4>{{this.user_name}}</h4>
-						<p>{{this.message_text}}</p>
+						<p>{{this.message}}</p>
 					</div>
+					{{/each}}
+					{{/if}}
+					--}}
 				</div>
+				<!-- single message end -->
+			</div>
+		</div>
+	</div> <!-- end Items tab -->
+
+	<!-- start users tab -->
+	<div id="Users" class="tabcontent">
+		<div class="user-list ">
+			<div class="filters "><span class="">Users</span><span class="dropdown filter-dropdown">
+				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Newest First</a></li>
+						<li><a href="#">Oldest First</a></li>
+					</ul>
+				</span>
+			</div>
+			<!-- single message start -->
+
+			{{!-- 
+				{{if data.users}}
+				{{#each data.users}}
+
+					<div class='user-box'>
+						<h4>{{this.user_name}}</h4>
+						<p>Last Message:{{this.user_message}}</p>
+						<p>Last Post: {{this.user_last_post}}</p>
+						<p><button href="#">Remove User</button></p>
+					</div>
+				
 				{{/each}}
-				{{/if}} --}}
-				<!-- end single message -->
+				{{/if}}
+				--}}
+
 
 			</div>
 		</div>

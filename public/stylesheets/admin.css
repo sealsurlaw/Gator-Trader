@@ -209,16 +209,25 @@
 
 }
 
-.user{}
-
 .user-box{
-	margin:20px;
 	background-color: white;
-	border:solid black 1px;
-	padding: 15px;
-	padding-left: 20px;
+	margin:15px;
+	padding-left:15px;
+	padding-right:15px;
+	border:solid 1px black;
 }
-.user-box h4 {font-style: bold;}
+.user-box h4{
+	color:black;
+	padding:0px;
+	/*border:solid red 2px;*/
+}
+.user-box p{
+	color:darkgrey;
+	font-style: italic;
+	padding-top:0px;
+	padding-left: 50px;
+	/*border:solid blue 2px;*/
+}
 
 .view-tabs{
 	margin-left: 20px;
