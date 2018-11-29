@@ -1,0 +1,145 @@
+<!-- admin dashboard -->
+<div class="body">
+	<div class='page-title container'>
+		<h2>Administrator Dashboard</h2>
+	</div>
+	<div class="view-tabs">
+		<button class="tablink" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
+		<button class="tablink" onclick="viewSwitch('Users', this, 'orange')">Users</button>
+	</div>
+	<div id="Items" class="tabcontent"> <!-- start items tab -->
+		<div class="body-table row ">
+			<div class="item-list col-sm-6 ">
+				<div class="filters ">{*} Total Items
+					<span class="dropdown filter-dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
+							Filter by
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
+							<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Newest First</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Oldest First</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Approved</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Unapproved</a></li>
+							<li role="presentation"><a role="menuitem" href="#">Unavailable</a></li>
+						</ul>
+					</span>
+				</div>
+				<!-- repeat items as nessacary -->
+				<div class="table-responsive dashboard-item-table">
+					<table class="">
+						<thread>
+							<tr class="" >
+								<th >Thumbnail</th>
+								<th >Title/<br>Category</th>
+								<th >Price/<br>ID Number</th>
+								<th class="vanish">Date</th>
+								<th class="vanish">Description</th>
+								<th >Status</th>
+								<th >Messages</th>
+							</tr>
+						</thread>
+						<tbody>
+							
+
+							{{#if data}}
+							{{#each data}}
+							<tr class="dashboard-item">
+								<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+									<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
+								</button>
+							</td>
+							<td class="inner">
+								<span class="item-name ">{{this.item_title}}/<br>{{this.item_category}}</span>
+							</td>
+							<td>
+								<span class="item-price ">{{this.item_price}}/<br>{{this.item_id}}</span>
+							</td>
+							<td class="vanish">
+								<span class="item-date ">{{this.item_date}}</span>
+							</td>
+							<td class="vanish">
+								<div class="item-description ">{{this.item_description}}</div>
+							</td>
+							<td>
+								<div class="item-status">{{this.item_status}}</div>
+							</td>
+							<td>
+								<button type="button" onclick ="" class="btn item-messages">
+
+									Messages:<br/>{{this.item_message_count}}
+								</button>
+
+							</td>
+						</tr>
+						{{/each}}
+						{{/if}}
+
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- repeat end-->
+
+		<div class="message-list col-sm-5">
+			<div class="filters center "><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
+				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+					<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Newest First</a></li>
+						<li><a href="#">Oldest First</a></li>
+						<li><a href="#">Alphabetical</a></li>
+
+					</ul>
+				</span>
+			</div>
+			<!-- single message start -->
+			<div class="message">
+				<div class='message-box'>
+					<h4>Person 1</h4>
+					<p>Message messsage message</p>
+				</div>
+			</div>
+			<!-- single message end -->
+		</div>
+	</div>
+</div> <!-- end Items tab -->
+
+<!-- start users tab -->
+<div id="Users" class="tabcontent">
+	<div class="user-list ">
+		<div class="filters "><span class="">Users</span><span class="dropdown filter-dropdown">
+			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Newest First</a></li>
+					<li><a href="#">Oldest First</a></li>
+				</ul>
+			</span>
+		</div>
+		<!-- single message start -->
+		<div class="user">
+			<div class='user-box'>
+				<!-- single message -->
+				{{!-- {{if data.messages}}
+				{{#each data.messages}}
+				<div class="message">
+					<div class='message-box'>
+						<h4>{{this.user_name}}</h4>
+						<p>{{this.message_text}}</p>
+					</div>
+				</div>
+				{{/each}}
+				{{/if}} --}}
+				<!-- end single message -->
+
+			</div>
+		</div>
+		<!-- single message end -->
+
+	</div>
+</div> <!-- end users tab -->
+		</div><!-- end page body -->
