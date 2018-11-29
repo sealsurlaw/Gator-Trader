@@ -59,4 +59,8 @@ router.get('/register',function(req,res,next){
   render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register'});
 });
 
+router.get('/admin',function(req,res,next){
+  render(req, res, 'admin', 'ADMIN PAGE', 'admin');
+});
+
 module.exports = router;

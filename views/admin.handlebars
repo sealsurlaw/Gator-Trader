@@ -10,7 +10,7 @@
 	<div id="Items" class="tabcontent"> <!-- start items tab -->
 		<div class="body-table row ">
 			<div class="item-list col-sm-6 ">
-				<div class="filters ">{*} Total Items
+				<div class="filters ">{{data.items.count}} Total Items
 					<span class="dropdown filter-dropdown">
 						<button class="btn btn-default dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
 							Filter by
@@ -85,7 +85,7 @@
 		<!-- repeat end-->
 
 		<div class="message-list col-sm-5">
-			<div class="filters center "><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
+			<div class="filters center "><span class="">{{data.messages.count}} Total Messages</span><span class="dropdown filter-dropdown">
 				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">
@@ -98,7 +98,7 @@
 			</div>
 			<!-- single message start -->
 			<div class="message">
-				{{--
+				
 					{{if data.messages}}
 					{{#each data.messages}}
 					<div class='message-box'>
@@ -107,7 +107,7 @@
 					</div>
 					{{/each}}
 					{{/if}}
-					--}}
+					
 				</div>
 				<!-- single message end -->
 			</div>
@@ -117,7 +117,7 @@
 	<!-- start users tab -->
 	<div id="Users" class="tabcontent">
 		<div class="user-list ">
-			<div class="filters "><span class="">Users</span><span class="dropdown filter-dropdown">
+			<div class="filters "><span class="">{{data.users.count}} Total Users</span><span class="dropdown filter-dropdown">
 				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">
@@ -128,12 +128,12 @@
 			</div>
 			<!-- single message start -->
 
-			{{!-- 
+			
 				{{if data.users}}
 				{{#each data.users}}
 
 					<div class='user-box'>
-						<h4>{{this.user_name}}</h4>
+						<h4><a href="users/{{this.user_id}}">{{this.user_name}}</a></h4>
 						<p>Last Message:{{this.user_message}}</p>
 						<p>Last Post: {{this.user_last_post}}</p>
 						<p><button href="#">Remove User</button></p>
@@ -141,7 +141,7 @@
 				
 				{{/each}}
 				{{/if}}
-				--}}
+				
 
 
 			</div>
