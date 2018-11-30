@@ -5,16 +5,22 @@
             <h2><center>Post Item</center></h2>
             <form action="/post" method="POST" enctype="multipart/form-data">  
                 <div class="row center-block ">
+                    <div class="form-group row centered">
+                            <label class="col-sm-6 col-form-label" for="Fields"></label>
+                                 <div class="col-sm-4">
+                                          *All fields required
+                                  </div>
+                    </div>
                     <!-- Item Title form-->
                     <div class="form-group row centered">
-                            <label for="Title" class="col-sm-1 col-form-label">Title:</label>
+                            <label for="Title" class="col-sm-1 col-form-label">*Title:</label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control" name="title" id="Title" maxlength="20" required>
                             </div>
                     </div>
                     <!-- Item category form-->
                     <div class="form-group row centered">
-                            <label for="category" class="col-sm-1 col-form-label">Category:</label>
+                            <label for="category" class="col-sm-1 col-form-label">*Category:</label>
                             <div class="col-sm-4">
                                     <select class="custom-select" name="category" id="category" 
                                     oninvalid="setCustomValidity('Please select a category.')" onchange="try{setCustomValidity('')}catch(e){}"
@@ -30,35 +36,38 @@
                     </div>
                     <!--Item price form-->
                     <div class="form-group row centered">
-                            <label for="Price" class="col-sm-1 col-form-label">Price:</label>
+                            <label for="Price" class="col-sm-1 col-form-label">*Price:</label>
                             <div class="col-sm-4">
                               <input type="text" class="form-control" name="price" id="Price" maxlength="10" required>
                             </div>
                     </div>
                     <!-- Item description form-->
                     <div class="form-group row centered">
-                            <label for="descriptionInput" class="col-sm-1 col-form-label">Description:</label>
+                            <label for="descriptionInput" class="col-sm-1 col-form-label">*Description:</label>
                             <div class="col-sm-4">
                                 <textarea class="form-control" name="description" id="descriptionInput" rows="4" placeholder="Write a description here..."required></textarea>
                              </div>
                     </div>
 
                     <div class ="form-group row centered">
-                        <label for="Images" class="col-sm-1 col-form-label">Images:</label>
+                        <label for="Images" class="col-sm-1 col-form-label">*Image:</label>
                         <div class="col-sm-4">
-                            <input type="file" class="custom-file-input" name="image_file" id="Images" multiple required>
+                            <input type="file" class="custom-file-input" name="image_file" id="Images" accept="image/*"  required> Upload a single Image
                           </div>
                     </div>
-
+                        <br>
                     <div class="center" style="line-height:0.7;">
                           <p>Once an item has been posted it is in default pending status.</p>
                           <p>Please wait wait until Approved by Administrator to go Live.<p>
                     </div>
+                    <br>
                     <!--Buttons-->
-                    <div>
-                            <span style="float:left"><button type="submit" class="btn btn-primary btn-lg">Cancel</button></span>
-                            <span style="float:right"><button type="submit" class="btn btn-primary btn-lg">Post</button></span>
-                    </div>
+                    <br>
+                   <div align="center">
+                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%">Cancel</button>
+                    <span style="margin-left:20%; margin-right:20%;"></span>
+                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%">Post</button>
+                </div>
                 </div>
             </form>
     </div>
