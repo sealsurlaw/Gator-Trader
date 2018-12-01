@@ -188,15 +188,19 @@ h2{
 
   /* dropdown "ALL"*/
   .navbar .dropdown {
-    margin-left: 257px;
-    margin-top: -20px;
-    margin-bottom: 12px;
+    margin-left: 266px;
+    margin-top: -81px;
+    margin-bottom: 30px;
   }
 
   /* Search Bar */
   .navbar .container {
-    margin-top:-46px;
+    margin-top:-64px;
     margin-left:300px;
     margin-bottom:30px;
-    width:775px;
+    width:50vw;
+  }
+
+   .navbar-right {
+    font-size:21px;
   }
