@@ -1,15 +1,27 @@
+/**
+ * This script is responsible for producing dashboard results from the databse.
+ * It allows the user to look at thier items for sale and messages from users who are
+ * interested in buying the item.
+ */
 var express = require("express");
 var router = express.Router();
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
-router.get('/', function(req, res, next) {
+/**
+ * The route to dashboard.
+ * @param req request to http
+ * @param res response to http
+ * @return void
+ */
+
+router.get('/', function(req, res) {
   if (!req.session.user_id) {
     req.session.nextPage = '/dashboard';
     res.redirect('/login');
     return;
   }
-
+  //Insertion of dashboard items into dashboard database.
   db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {

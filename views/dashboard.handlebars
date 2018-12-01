@@ -31,8 +31,6 @@
 							<th class="vanish">Date</th>
 							<th class="vanish">Description</th>
 							<th >Status</th>
-							
-							<th >Messages</th>
 						</tr>
 					</thread>
 					<tbody>
@@ -40,7 +38,7 @@
 					{{#if data}}
 					{{#each data}}
 					<tr class="dashboard-item">
-						<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn btn-default">
+						<td><button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')" class="btn btn-default">
 							<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
 						</button>
 						</td>
@@ -59,12 +57,7 @@
 						<td>
 							<div class="item-status">{{this.item_status}}</div>
 						</td>
-						<td><button type="button" onclick="" class="btn btn-default">
-							<div class="item-messages">Messages:<br/>{{this.item_message_count}}</div>
-						</button>
-						</td>
 					</tr>
-					<p>{{this.item_id}}</p>
 					{{/each}}
 					{{/if}}
 
