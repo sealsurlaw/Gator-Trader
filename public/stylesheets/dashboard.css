@@ -24,8 +24,10 @@
 	background-color: grey;
 	padding-top:10px;
 	padding-bottom: 10px;
-	padding-left: 20px;
+	padding-left: 60px;
+	height:50px;
 }
+
 .item-list{
 	background-color: lightgrey;
 	padding:0;
@@ -51,7 +53,7 @@
 	border-color: lightgreen;
 }
 .body-table{
-	align-self: center;
+	
 	/* width:97%; */
 	margin:20px;
 }
@@ -60,7 +62,8 @@
 }
 .filter-dropdown{
 	margin-left: 50px;
-	align-content: center;
+	
+	margin-right:50px;
 }
 .page-title h2{
 	font-weight: bold;
@@ -107,10 +110,9 @@
 	margin:10px;
 	width:auto;
 	margin-bottom: 20px;
+	padding-left: 20px;
 	
 }
-
-
 
 .dashboard-item-table th{
 	width:100px;
@@ -138,7 +140,6 @@
 .message-list{
 	background-color: lightgrey;
 	padding:0px;
-	float:right;
 }
 
 @media (max-width: 1200px) {
@@ -171,40 +172,30 @@
 	/*border:solid blue 2px;*/
 }
 
-.spacer-cell{
-	/*width:10vw;*/
+
+/*switcher*/
+.view-tabs{
+	margin:20px;
 }
 
+.tab-link {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    
+}
 
-  /* Remove the navbar's default margin-bottom and rounded borders */ 
-  .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-  }
+.tab-link:hover {
+    background-color: #777;
+}
 
-   /* Navigation Bar Categories Centered*/
-  .navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-  }
-
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {
-    height: 1500px;
-  }
-
-  /* dropdown "ALL"*/
-  .navbar .dropdown {
-    margin-left: 257px;
-    margin-top: -20px;
-    margin-bottom: 12px;
-  }
-
-  /* Search Bar */
-  .navbar .container {
-    margin-top:-46px;
-    margin-left:300px;
-    margin-bottom:30px;
-    width:775px;
-  }
+/* Style the tab content */
+.tab-content {
+    display: none;
+    
+}

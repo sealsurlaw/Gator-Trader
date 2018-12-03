@@ -60,7 +60,7 @@ router.get('/register',function(req,res,next){
 });
 
 router.get('/admin',function(req,res,next){
-  render(req, res, 'admin', 'ADMIN PAGE', 'admin');
+  render(req, res, 'admin', 'ADMIN PAGE', 'admin',{script: 'tabSwitcher'});
 });
 
 module.exports = router;

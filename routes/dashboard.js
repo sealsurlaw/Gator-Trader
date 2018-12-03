@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
           }
         });
       });
-      render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data});
+      render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
     }));
   }
   else {

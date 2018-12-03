@@ -24,6 +24,8 @@
 	background-color: grey;
 	padding-top:10px;
 	padding-bottom: 10px;
+	padding-left: 60px;
+	height:50px;
 }
 .item-list{
 	background-color: lightgrey;
@@ -67,7 +69,13 @@
 	margin:20px;
 	
 }
-.item-thumbnail{
+.item_image_thumbnail_btn{
+	width:100px;
+	height:100px;
+	margin:0;
+	padding:0;
+}
+.item_image_thumbnail{
 	background-color: darkgrey;
 	width:100px;
 	height:100px;
@@ -117,13 +125,14 @@
 .message-list{
 	background-color: lightgrey;
 	padding:0px;
-	float:right;
 	margin-top:20px;
 }
 
 .message-box{
 	background-color: white;
 	margin:15px;
+	padding-top:10px;
+	padding-bottom:15px;
 	padding-left:15px;
 	padding-right:15px;
 	border:solid 1px black;
@@ -134,6 +143,32 @@
 	/*border:solid red 2px;*/
 }
 .message-box p{
+	color:darkgrey;
+	font-style: italic;
+	padding-top:0px;
+	padding-left: 50px;
+	/*border:solid blue 2px;*/
+}
+.user-list{
+	background-color: lightgrey;
+	padding:0px;
+	margin-top:20px;
+}
+.user-box{
+	background-color: white;
+	margin:15px;
+	padding-top:10px;
+	padding-bottom:15px;
+	padding-left:15px;
+	padding-right:15px;
+	border:solid 1px black;
+}
+.user-box h4{
+	color:black;
+	padding:0px;
+	/*border:solid red 2px;*/
+}
+.user-box p{
 	color:darkgrey;
 	font-style: italic;
 	padding-top:0px;
@@ -169,7 +204,7 @@
 .deny-btn:hover{
 	background-color: black;
 }
-.tablink {
+.tab-link {
     background-color: #555;
     color: white;
     float: left;
@@ -178,15 +213,15 @@
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
-    width: 35%;
+    min-width: 120px;
 }
 
-.tablink:hover {
+.tab-link:hover {
     background-color: #777;
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-content {
     display: none;
     
 }
@@ -194,39 +229,12 @@
 @media (max-width: 1200px) {
 	.vanish { display: none;}
 	.message-list{float:initial;}
+	.user-list{float:initial;}
+	.item-list{float:initial;}
 }
 @media (min-width: 600px) {
 	.dashboard-item-table{ overflow: hidden; }
 
-}
-
-.user-list{
-	margin-left:20px;
-	margin-right:20px;
-	margin-top:100px;
-	background-color: lightgrey;
-	padding-bottom: 15px;
-
-}
-
-.user-box{
-	background-color: white;
-	margin:15px;
-	padding-left:15px;
-	padding-right:15px;
-	border:solid 1px black;
-}
-.user-box h4{
-	color:black;
-	padding:0px;
-	/*border:solid red 2px;*/
-}
-.user-box p{
-	color:darkgrey;
-	font-style: italic;
-	padding-top:0px;
-	padding-left: 50px;
-	/*border:solid blue 2px;*/
 }
 
 .view-tabs{
