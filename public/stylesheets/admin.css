@@ -241,3 +241,24 @@
 	margin-left: 20px;
 	margin-right: 20px;
 }
+
+.item-name{
+	white-space: nowrap; 
+    width: 50px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+.item-description{
+	white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+.item-date{
+	white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

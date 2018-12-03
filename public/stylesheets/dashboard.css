@@ -140,13 +140,18 @@
 .message-list{
 	background-color: lightgrey;
 	padding:0px;
+	margin-top:20px;
 }
 
 @media (max-width: 1200px) {
-    .vanish { display: none;}
+    .vanish-1 { display: none;}
     .message-list{float:initial;}
     .item-list{width:auto;}
 }
+@media (max-width: 600px) {
+    .vanish-2 { display: none;}
+}
+
 @media (min-width: 600px) {
     .dashboard-item-table{ overflow: hidden; }
     
@@ -155,6 +160,8 @@
 .message-box{
 	background-color: white;
 	margin:15px;
+	padding-top:10px;
+	padding-bottom:15px;
 	padding-left:15px;
 	padding-right:15px;
 	border:solid 1px black;
@@ -198,4 +205,25 @@
 .tab-content {
     display: none;
     
+}
+
+.item-name{
+	white-space: nowrap; 
+    width: 50px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+.item-description{
+	white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    
+}
+.item-date{
+	white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }

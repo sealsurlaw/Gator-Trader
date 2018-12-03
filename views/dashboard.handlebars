@@ -5,8 +5,8 @@
 	</div>
 
 	<div class="view-tabs row">
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Items', this, 'orange')" >Items</button>
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')" id="defaultOpen">Messages</button>
+		<button class="tab-link col-sm-4" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
+		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')" >Messages</button>
 	</div>
 
 
@@ -35,14 +35,13 @@
 						<tr class="dashboard-item-table-key" >
 							<th >Thumbnail</th>
 							<th >Title</th>
-							<th >Category</th>
-							<th >ID Number</th>
+							<th class="vanish-2">Category</th>
+							<th class="vanish-1">ID Number</th>
 							<th >Price</th>
-							<th class="vanish">Date</th>
-							<th class="vanish">Description</th>
-							<th >Status</th>
-							<th >Approve</th>
-							<th >Deny</th>
+							<th class="vanish-1">Date</th>
+							<th class="vanish-1">Description</th>
+							<th class="vanish-2">Status</th>
+							<th >Remove</th>
 
 						</tr>
 					</thread>
@@ -56,35 +55,29 @@
 						</button>
 						</td>
 						<td>
-							<span class="item-name ">{{this.item_title}}</span>
+							<div class="item-name ">{{this.item_title}}</span>
+						</td>
+						<td class="vanish-2">
+							<div class="item-category ">{{this.item_category}}</span>
+						</td>
+						<td class="vanish-1">
+							<div class="item-id ">{{this.item_id}}</span>
 						</td>
 						<td>
-							<span class="item-category ">{{this.item_category}}</span>
+							<div class="item-price ">{{this.item_price}}</span>
 						</td>
-						<td>
-							<span class="item-id ">{{this.item_id}}</span>
+						<td class="vanish-1">
+							<div class="item-date ">{{this.item_date}}</span>
 						</td>
-						<td>
-							<span class="item-price ">{{this.item_price}}</span>
-						</td>
-						<td class="vanish">
-							<span class="item-date ">{{this.item_date}}</span>
-						</td>
-						<td class="vanish">
+						<td class="vanish-1">
 							<div class="item-description ">{{this.item_description}}</div>
 						</td>
-						<td>
+						<td class="vanish-2">
 							<div class="item-status">{{this.item_status}}</div>
 						</td>
 						<td>
 							<button type="button" onclick ="" class="btn item-removal-btn">
-								APPROVE<br/>ITEM
-							</button>
-						
-						</td>
-						<td>
-							<button type="button" onclick ="" class="btn item-removal-btn">
-								DENY<br/>ITEM
+								REMOVE<br/>ITEM
 							</button>
 						
 						</td>
@@ -105,8 +98,8 @@
 			<ul class="dropdown-menu">
 				<li><a href="#">Item Alphabetical</a></li>
 				<li><a href="#">User Alphabetical</a></li>
-				<li><a href="#">Newest First</a></li>
-				<li><a href="#">Oldest First</a></li>
+				<li><a href="#">Newest Message</a></li>
+				<li><a href="#">Oldest Message</a></li>
 				
 			</ul>
 		</span>
