@@ -2,7 +2,7 @@
 .sidebar {
   height: 100%;
   background-color:white;
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  /*position: fixed;  /* Fixed Sidebar (stay in place on scroll) */
   right:0;
   text-align: center;
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -13,6 +13,7 @@
 .sidebar-box{
 	
 	width:  400px;
+	min-height: 300px;
 	background:lightgrey;
 	margin-bottom: 5px;
 	padding:20px;
@@ -21,6 +22,7 @@
 }
 
 .sidebar-box img{
-	width:  150px;
-	height: 150px;
+	padding:0;
+	width:  200px;
+	height: 200px;
 }
