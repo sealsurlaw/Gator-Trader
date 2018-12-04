@@ -43,9 +43,7 @@ router.get('/post', function(req, res, next) {
   }
 });
 
-router.get('/home',function(req,res,next){
-  render(req, res, 'home', 'HOME PAGE', 'home');
-});
+
 
 router.get('/details',function(req,res,next){
   render(req, res, 'details', 'DETAILS PAGE', 'details');
