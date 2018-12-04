@@ -63,4 +63,8 @@ router.get('/admin',function(req,res,next){
   render(req, res, 'admin', 'ADMIN PAGE', 'admin',{script: 'tabSwitcher'});
 });
 
+router.get('/messageSent',function(req,res,next){
+  render(req, res, 'messageSent', 'MESSAGE SENT PAGE');
+});
+
 module.exports = router;

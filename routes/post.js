@@ -69,7 +69,7 @@ var resizeImageCallback = function(err, stdout, stderr){
         console.log(thumbjson.data.link);
         console.log(fields);
         console.log(id);
-
+        console.log(fields.category)
         let title = fields.title.replace(/'/g, '');
         let description = fields.description.replace(/'/g, '');
 
@@ -102,7 +102,7 @@ var resizeImageCallback = function(err, stdout, stderr){
           RETURNING item_id`
         )
         // Query returns with data called 'myData'
-        .then(function(myData) {     
+        .then(function(myData) {
           response.redirect('./item/' + myData[0].item_id);
         })
         .catch(function(error) {
