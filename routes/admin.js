@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var url = require('url');
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
@@ -10,6 +11,20 @@ router.get('/', function(req, res, next){
     return;
   }
 
+
+
+  var q = url.parse(req.url, true).query;
+  var removeUser = q.remove_user;
+  var removeItem = q.remove_item;
+  var approveItem = q.approve_item;
+  
+  db.any(`SELECT admin_right FROM user_record WHERE user_id=`+ req.session.user_id)
+  .then(isAdmin =>{
+    console.log(isAdmin);
+    if(!isAdmin[0].admin_right){
+    res.redirect('/dashboard');
+    return;
+  }
   db.any(`SELECT * FROM item WHERE item_status = 'Pending'`)
   .then( data => db.any('SELECT * FROM category')
   .then (cats => {
@@ -46,15 +61,7 @@ router.get('/', function(req, res, next){
       render(req, res, 'admin', 'ADMIN PAGE', 'admin', {data: allData, script: 'tabSwitcher'});
     }));
 
-  }));
-
-    // if(data.items.length > 0){
-    //   var where = 'WHERE';
-    //   data.items.forEach(element => {
-    //     where += 'item_id' + element.item_id+ 'OR';
-    //   });
-    //
-    // }
+  }))});
 
 
 });
