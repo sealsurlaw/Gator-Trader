@@ -48,12 +48,12 @@ router.get('/', function(req, res, next) {
             });
           });
           data.messages = messages;
-          render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data});
+          render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
         })
       })
     }
     else {
-      render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data});
+      render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
     }
   }));
 
