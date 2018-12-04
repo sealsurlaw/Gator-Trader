@@ -10,6 +10,22 @@ router.get('/', function(req, res, next){
     return;
   }
 
+  db.any(`SELECT * FROM item`)
+  .then( data => db.any('SELECT * category')
+  .then (cats => {
+    var items = data;
+    data = {};
+    data.items = items;
+
+    data.items.forEach(item => {
+      cats.forEach(cat =>{
+        if (item.category_id == cat.category_id){
+          item.item_category = cat.category_name;
+        }
+      });
+    });
+    
+  })
 
 }
 )
