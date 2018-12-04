@@ -24,6 +24,10 @@ router.get('/', function(req, res, next){
         }
       });
     });
+
+    db.any(`SELECT * FROM item WHERE item_status= 'Pending'` )
+    .then(items => db.any(`SELECT * FROM users`))
+
     
   })
 

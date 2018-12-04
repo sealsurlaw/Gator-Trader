@@ -8,8 +8,8 @@
 		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')">Messages</button>
 		<button class="tab-link col-sm-4" onclick="viewSwitch('Users', this, 'orange')">Users</button>
 	</div>
-	
-	<div class="body-table row "> 
+
+	<div class="body-table row ">
 		<div  class="item-list col-sm-12 tab-content" id="Items">
 			<div class="filters"> {*} Total Items
 				<span class="dropdown filter-dropdown">
@@ -22,7 +22,7 @@
 						<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
 						<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
 						<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
-						
+
 					</ul>
 				</span>
 			</div>
@@ -45,8 +45,8 @@
 					</thread>
 					<tbody>
 
-						{{#if data}}
-						{{#each data}}
+						{{#if data.items}}
+						{{#each data.items}}
 						<tr class="dashboard-item">
 							<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
 								<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
@@ -120,13 +120,13 @@
 						<button type="button" onclick ="" class="btn item-removal-btn">
 							APPROVE<br/>ITEM
 						</button>
-						
+
 					</td>
 					<td>
 						<button type="button" onclick ="" class="btn item-removal-btn">
 							DENY<br/>ITEM
 						</button>
-						
+
 					</td>
 				</tr>
 
@@ -223,7 +223,7 @@
 				<li><a href="#">User Alphabetical</a></li>
 				<li><a href="#">Newest First</a></li>
 				<li><a href="#">Oldest First</a></li>
-				
+
 			</ul>
 		</span>
 	</div>
@@ -257,7 +257,7 @@
 			</div>
 			<!-- DELETE LATER ^^^^^ -->
 
-		</div> 
+		</div>
 
 		<div id="Users" class="tab-content user-list col-sm-8">
 			<div class="filters"><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
@@ -317,9 +317,9 @@
 			</div>
 			<!-- DELETE LATER ^^^^^ -->
 
-		</div> 
-		
-{{!-- 
+		</div>
+
+{{!--
 	<!-- sidebar 1: Campus Map Image -->
 	<div class="col-sm-3 sidebar-box" >
 		<h4>Campus Map Image</h4>
