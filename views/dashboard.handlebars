@@ -24,7 +24,7 @@
 						<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
 						<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
 						<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
-						
+
 					</ul>
 				</span>
 			</div>
@@ -79,7 +79,7 @@
 							<button type="button" onclick ="" class="btn item-removal-btn">
 								REMOVE<br/>ITEM
 							</button>
-						
+
 						</td>
 					</tr>
 					{{/each}}
@@ -100,7 +100,7 @@
 				<li><a href="#">User Alphabetical</a></li>
 				<li><a href="#">Newest Message</a></li>
 				<li><a href="#">Oldest Message</a></li>
-				
+
 			</ul>
 		</span>
 	</div>
@@ -110,22 +110,20 @@
 	{{#each data.messages}}
 		<div class='message-box'>
 			<!-- <h3>User: {{this.user_name}}</h3><h4>Item:<a href="/details/{{this.item_id}}">{{this.item_name}}</a></h4><p>{{this.message_text}}</p> -->
-			<h3>User: UserName</h3><h4>Item:<a href="#">ItemName</a></h4>
-			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-			<p>email: email@email.com</p>
-			<button class="btn" onclick="">REMOVE MESSAGE</button><br/>
+			<h3>User: {{this.user_name}}</h3><h4>Item:<a href="#"></a></h4>
+			<p>{{this.message_text}}</p>
 		</div>
 	{{/each}}
 	{{/if}}
 	<!-- end single message -->
-</div> 
+</div>
 </div>
 
 <!-- sidebar 1: Campus Map Image -->
     <div class="col-sm-3 sidebar-box" >
       <h4>Campus Map Image</h4>
     </div> <!-- end sidebar 1 -->
-    
+
     <!-- sidebar 2: Pick-Up Locations -->
     <div class="col-sm-3 sidebar-box" >
       <h4>Pick-Up Locations</h4>
