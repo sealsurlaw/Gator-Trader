@@ -28,7 +28,19 @@ router.get('/', function(req, res, next){
     db.any(`SELECT * FROM item WHERE item_status= 'Pending'` )
     .then(items => db.any(`SELECT * FROM users`))
 
-    
+    if (data.items.length > 0 ){
+      var where = `WHERE`;
+      data.items.forEach(element => {
+        where += 'item_id='+element.item_id+'OR';
+      });
+
+      where = 'WHERE';
+      var whereItem = 'WHERE';
+      items.forEach(element =>{
+        where += 'user_id='+element.user_id+'OR';
+      });
+
+    }
   })
 
 }
