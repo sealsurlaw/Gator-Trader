@@ -16,13 +16,13 @@ router.get('/', function(req, res, next) {
     var where;
 
     if (search == '') {
-        where = '';
+        where = ` WHERE item_status='Approved'`;
     }
     else if (search) {
-        where = ` WHERE item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%'`;
+        where = ` WHERE item_status='Approved' AND (item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%')`;
     }
     else if (browse) {
-        where = ' WHERE category_id=' + browse;
+        where = ` WHERE item_status='Approved' AND category_id=` + browse;
     }
 
     db.any(`SELECT * FROM category`)
