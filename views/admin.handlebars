@@ -89,126 +89,6 @@
 					{{/each}}
 					{{/if}}
 
-					<!-- DELETE LATER \/\/\/\/ -->
-					<tr class="dashboard-item">
-						<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn">
-							<img src="https://i.imgur.com/cev7Xx3.jpg" class="item_image_thumbnail">
-						</button>
-					</td>
-					<td>
-						<div class="item-name ">ItemName</div>
-					</td>
-					<td>
-						<div class="item-category ">Electronics</div>
-					</td>
-					<td>
-						<div class="item-id ">500</div>
-					</td>
-					<td>
-						<div class="item-price ">20.00</div>
-					</td>
-					<td class="vanish">
-						<div class="item-date ">10/10/10</div>
-					</td>
-					<td class="vanish">
-						<div class="item-description ">Lorum ipsum dominus rectus</div>
-					</td>
-					<td>
-						<div class="item-status">Approved</div>
-					</td>
-					<td>
-						<button type="button" onclick ="" class="btn item-removal-btn">
-							APPROVE<br/>ITEM
-						</button>
-
-					</td>
-					<td>
-						<button type="button" onclick ="" class="btn item-removal-btn">
-							DENY<br/>ITEM
-						</button>
-
-					</td>
-				</tr>
-
-				<tr class="dashboard-item">
-					<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn">
-						<img src="https://i.imgur.com/cev7Xx3.jpg" class="item_image_thumbnail">
-					</button>
-				</td>
-			</td>
-			<td>
-				<div class="item-name ">ItemName</div>
-			</td>
-			<td>
-				<div class="item-category ">Electronics</div>
-			</td>
-			<td>
-				<div class="item-id ">500</div>
-			</td>
-			<td>
-				<div class="item-price ">20.00</div>
-			</td>
-			<td class="vanish">
-				<div class="item-date ">10/10/10</div>
-			</td>
-			<td class="vanish">
-				<div class="item-description ">Lorum ipsum dominus rectus</div>
-			</td>
-			<td>
-				<div class="item-status">Approved</div>
-			</td>
-			<td>
-				<button type="button" onclick ="" class="btn item-removal-btn">
-					APPROVE<br/>ITEM
-				</button>
-			</td>
-			<td>
-				<button type="button" onclick ="" class="btn item-removal-btn">
-					DENY<br/>ITEM
-				</button>
-			</td>
-		</tr>
-		<tr class="dashboard-item">
-			<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn">
-				<img src="https://i.imgur.com/cev7Xx3.jpg" class="item_image_thumbnail">
-			</button>
-		</td>
-		<td>
-			<div class="item-name ">ItemName</div>
-		</td>
-		<td>
-			<div class="item-category ">Electronics</div>
-		</td>
-		<td>
-			<div class="item-id ">500</div>
-		</td>
-		<td>
-			<div class="item-price ">20.00</div>
-		</td>
-		<td class="vanish">
-			<div class="item-date ">10/10/10</div>
-		</td>
-		<td class="vanish">
-			<div class="item-description ">Lorum ipsum dominus rectus</div>
-		</td>
-		<td>
-			<div class="item-status">Approved</div>
-		</td>
-		<td>
-			<button type="button" onclick ="" class="btn item-removal-btn">
-				APPROVE<br/>ITEM
-			</button>
-
-		</td>
-		<td>
-			<button type="button" onclick ="" class="btn item-removal-btn">
-				DENY<br/>ITEM
-			</button>
-
-		</td>
-	</tr>
-	<!-- DELETE LATER ^^^^^^^^ -->
-
 </tbody>
 </table>
 </div>
@@ -283,39 +163,14 @@
 				<h3>User: {{this.user_name}}</h3>
 				{{#if this.items}}
 				{{#each this.items}}
-				<h4>Item: <a href="{{this.item_id}}">{{this.item_name}}</a></h4>
+				<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
 				{{/each}}
 				{{/if}}
-				<h4>Last Message:</h4>
-				<p> {{this.last_message}}</p>
-				email: {{this.user_email}}<br/><br/>
 				<button class="btn" onclick="">REMOVE USER</button><br/>
 			</div>
 			{{/each}}
 			{{/if}}
 			<!-- end single user -->
-
-			<!-- DELETE LATER \/\/\/\/ -->
-			<div class='user-box'>
-				<h3>User: UserName</h3>
-				<h4>Item: <a href="#">ItemName</a></h4>
-				<h4>Item: <a href="#">ItemName</a></h4>
-				<h4>Item: <a href="#">ItemName</a></h4>
-				<h4>Last Message:</h4>
-				<p> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-				email: email@email.com<br/><br/>
-				<button class="btn">REMOVE USER</button><br/>
-			</div>
-			<div class='user-box'>
-				<h3>User: UserName</h3>
-				<h4>Item:<a href="#">ItemName</a></h4>
-				<h4>Item:<a href="#">ItemName</a></h4>
-				<h4>Item:<a href="#">ItemName</a></h4>
-				<p>Last Message: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-				<p>email: email@email.com</p>
-				<button class="btn">REMOVE USER</button>
-			</div>
-			<!-- DELETE LATER ^^^^^ -->
 
 		</div>
 

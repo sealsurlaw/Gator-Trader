@@ -57,9 +57,9 @@ router.get('/register',function(req,res,next){
   render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register'});
 });
 
-router.get('/admin',function(req,res,next){
-  render(req, res, 'admin', 'ADMIN PAGE', 'admin',{script: 'tabSwitcher'});
-});
+// router.get('/admin',function(req,res,next){
+//   render(req, res, 'admin', 'ADMIN PAGE', 'admin',{script: 'tabSwitcher'});
+// });
 
 router.get('/messageSent',function(req,res,next){
   render(req, res, 'messageSent', 'MESSAGE SENT PAGE');

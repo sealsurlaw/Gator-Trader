@@ -10,8 +10,8 @@ router.get('/', function(req, res, next){
     return;
   }
 
-  db.any(`SELECT * FROM item`)
-  .then( data => db.any('SELECT * category')
+  db.any(`SELECT * FROM item WHERE item_status = 'Pending'`)
+  .then( data => db.any('SELECT * FROM category')
   .then (cats => {
     var items = data;
     data = {};
@@ -25,23 +25,37 @@ router.get('/', function(req, res, next){
       });
     });
 
-    db.any(`SELECT * FROM item WHERE item_status= 'Pending'` )
-    .then(items => db.any(`SELECT * FROM users`))
 
-    if (data.items.length > 0 ){
-      var where = `WHERE`;
-      data.items.forEach(element => {
-        where += 'item_id='+element.item_id+'OR';
+
+    db.any(`SELECT * FROM user_record`)
+    .then (users => db.any(`SELECT * FROM item`)
+    .then (items => {
+      users.forEach(user =>{
+        user.items= [];
+        items.forEach(item => {
+          if(  user.user_id == item.user_id){
+            user.items.push(item);
+          }
+        });
       });
 
-      where = 'WHERE';
-      var whereItem = 'WHERE';
-      items.forEach(element =>{
-        where += 'user_id='+element.user_id+'OR';
-      });
+      var allData = {};
+      allData.users = users;
+      allData.items = data.items;
+      console.log(allData);
+      render(req, res, 'admin', 'ADMIN PAGE', 'admin', {data: allData, script: 'tabSwitcher'});
+    }));
 
-    }
-  })
+  }));
 
-}
-)
+    // if(data.items.length > 0){
+    //   var where = 'WHERE';
+    //   data.items.forEach(element => {
+    //     where += 'item_id' + element.item_id+ 'OR';
+    //   });
+    //
+    // }
+
+
+});
+module.exports = router;
