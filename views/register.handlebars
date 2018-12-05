@@ -2,13 +2,13 @@
         <br>
     <div class="cont">
             <h2><center>Create Account</center></h2>
-            <form onsubmit="return passwordValidation()" action="/register" method="post" enctype="multipart/form-data">  
+            <form onsubmit="return passwordValidation()" action="/register" method="post" enctype="multipart/form-data">
                 <div class="row center-block ">
                     <!-- Div for Field Reuirment-->
                    <div class="form-group row centered">
                            <label class="col-sm-6 col-form-label" for="Fields"></label>
                                 <div class="col-sm-4">
-                                         *All fields required
+                                      *All fields required
                                  </div>
                    </div>
                     <!-- Enter Username form-->
@@ -51,10 +51,10 @@
                     <div class="form-group row centered">
                                 <label class="col-sm-3 col-form-label" for="TOC"></label>
                                 <div class="col-sm-5">
-                                        <input class="form-check-input" id="TOC" type="checkbox" value="" 
+                                        <input class="form-check-input" id="TOC" type="checkbox" value=""
                                         oninvalid="setCustomValidity('You must agree to our Terms of Condition')" onchange="try{setCustomValidity('')}catch(e){}"
-                                        required> 
-                                        I agree to Gator Trader's <a href="">Terms of Condition</a>
+                                        required>
+                                        I agree to Gator Trader's <a href="">Terms and Conditions</a>
                                 </div>
                     </div>
                     <!-- User validation form-->
@@ -64,12 +64,12 @@
                                 <input class="form-check-input" id="Robot" type="checkbox" value=""
                                 oninvalid="setCustomValidity('You must prove you are not a robot')" onchange="try{setCustomValidity('')}catch(e){}"
                                 required>
-                                                I am not a robot.
+                                                I am not a robot
                                 </div>
                     </div>
                     <!-- Link to Log In page-->
                     <div >
-                            <center>Already a member<a href="/login"> Sign In </a></center>
+                            <center>Already a member ?<a href="/login"> Sign In </a></center>
                     </div>
                     <br><br>
                     <!--Buttons-->
