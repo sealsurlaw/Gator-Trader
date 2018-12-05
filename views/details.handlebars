@@ -32,7 +32,7 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller For Item:</h4>
+				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller in order to buy this Item:</h4>
 				<h5>Name: {{data.item_title}}</h5>
 				<h5>Price: {{data.item_price}}</h5>
 				<h5>Category: {{data.category}}</h5>
@@ -41,7 +41,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<form action="/message" method="post" enctype="multipart/form-data">
-						<label for="message-text" class="col-form-label">Write your message below to buy this item. Message would be send to the seller of this item:</label>
+						<label for="message-text" class="col-form-label" style="font-size:18px">Write your message below :</label>
 						<input type="text" placeholder="Hi I am interested in buying your item: {{data.item_title}}" class="form-control" name="text_message">
 						<input type="hidden" name="item_id" value="{{data.item_id}}">
 						<div class="modal-footer">
