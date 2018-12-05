@@ -151,6 +151,7 @@ router.post('/', function(req, res, next) {
     else {
       res.write("Not an image file");
       res.end();
+      return;
     }
 
     console.log(filename);
