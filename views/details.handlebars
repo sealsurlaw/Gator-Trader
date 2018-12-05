@@ -41,7 +41,7 @@
 			<div class="modal-body">
 				<div class="form-group">
 					<form action="/message" method="post" enctype="multipart/form-data">
-						<label for="message-text" class="col-form-label">Please write your message to the seller below to buy the item:</label>
+						<label for="message-text" class="col-form-label">Write your message below to buy this item. Message would be send to the seller of this item:</label>
 						<input type="text" placeholder="Hi I am interested in buying your item: {{data.item_title}}" class="form-control" name="text_message">
 						<input type="hidden" name="item_id" value="{{data.item_id}}">
 						<div class="modal-footer">
