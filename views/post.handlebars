@@ -6,7 +6,7 @@
             <form action="/post" method="POST" enctype="multipart/form-data">  
                 <div class="row center-block ">
                     <div class="form-group row centered">
-                            <label class="col-sm-6 col-form-label" for="Fields"></label>
+                            <label class="col-sm-5 col-form-label" for="Fields"></label>
                                  <div class="col-sm-4">
                                           *All fields required
                                   </div>
@@ -52,22 +52,23 @@
                     <div class ="form-group row centered">
                         <label for="Images" class="col-sm-1 col-form-label">*Image:</label>
                         <div class="col-sm-4">
-                            <input type="file" class="custom-file-input" name="image_file" id="Images" accept="image/*"  required> Upload a single Image
+                            <input type="file" class="custom-file-input" name="image_file" id="Images" accept="image/*"  required> Upload a single Image only
                           </div>
                     </div>
                         <br>
                     <div class="center" style="line-height:0.7;">
-                          <p>Once an item has been posted it is in default pending status.</p>
-                          <p>Please wait wait until Approved by Administrator to go Live.<p>
+                          <p>Once an item has been posted it is in pending status.</p>
+                          <p>Please wait until approved by an administrator to go live.<p>
                     </div>
                     <br>
                     <!--Buttons-->
                     <br>
                    <div align="center">
-                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%">Cancel</button>
+                    <button class="btn btn-primary btn-lg" onclick="location.href='/home/';" style="font-size:175%; background-color:red;">Cancel</button>
                     <span style="margin-left:20%; margin-right:20%;"></span>
-                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%">Post</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%; background-color:#00C90D;">Post</button>
                 </div>
+                <br>
                 </div>
             </form>
     </div>

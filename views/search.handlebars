@@ -12,7 +12,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+<<<<<<< HEAD
         <a href="#"><h5 style="color:#fff">Showing {{data.length}} of {{data.length}} results</h5></a>
+=======
+        <a href="#" style="text-decoration:none;"><h5 style="color:#fff; font-size:150%;">Showing {{data.length}} of {{data.length}} results</h5></a>
+>>>>>>> UIupdate
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -44,7 +48,8 @@
       <br>
       <br>
       <br>
-      <button type="button" class="btn btn-warning" onclick="window.open('/item/{{this.item_id}}', '_blank')" >Contact Seller</button>
+      <button type="button" class="btn btn-info" onclick="window.open('/item/{{this.item_id}}', '_blank')">View Details</button>
+      <button type="button" class="btn btn-warning"onclick="window.open('/item/{{this.item_id}}?open=true', '_blank')" >Contact Seller</button>
     </div>
   </div>
 
