@@ -11,7 +11,7 @@
 
 	<div class="body-table row ">
 		<div  class="item-list col-sm-12 tab-content" id="Items">
-			<div class="filters"> {*} Total Items
+			<div class="filters"> {{data.items.length}} Total Items
 				<span class="dropdown filter-dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
 						Filter by <span class="caret"></span>
@@ -74,13 +74,13 @@
 							<div class="item-status">{{this.item_status}}</div>
 						</td>
 						<td>
-							<button type="button" onclick ="location.href='dashboard?approve_item={{this.item_id}}'" class="btn item-removal-btn">
+							<button type="button" onclick ="location.href='/admin?approve_item={{this.item_id}}'" class="btn item-removal-btn">
 								APPROVE<br/>ITEM
 							</button>
 
 						</td>
 						<td>
-							<button type="button" onclick ="location.href='/dashboard?remove_item={{this.item_id}}'" class="btn item-removal-btn">
+							<button type="button" onclick ="location.href='/admin?remove_item={{this.item_id}}'" class="btn item-removal-btn">
 								DENY<br/>ITEM
 							</button>
 
@@ -95,7 +95,7 @@
 </div>
 
 <div id="Messages" class="tab-content message-list col-sm-8">
-	<div class="filters"><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
+	<div class="filters"><span class="">{{data.items.length}} Total Messages</span><span class="dropdown filter-dropdown">
 		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">

@@ -11,13 +11,6 @@ router.get('/', function(req, res, next){
     return;
   }
 
-
-
-  var q = url.parse(req.url, true).query;
-  var removeUser = q.remove_user;
-  var removeItem = q.remove_item;
-  var approveItem = q.approve_item;
-  
   db.any(`SELECT admin_right FROM user_record WHERE user_id=`+ req.session.user_id)
   .then(isAdmin =>{
     console.log(isAdmin);
@@ -25,6 +18,45 @@ router.get('/', function(req, res, next){
     res.redirect('/dashboard');
     return;
   }
+
+  var q = url.parse(req.url, true).query;
+  var removeUser = q.remove_user;
+  var removeItem_id = q.remove_item;
+  var approveItem_id = q.approve_item;
+
+  approveQuery =`UPDATE item SET item_status='Approved' WHERE item_id=` + approveItem_id;
+  denyQuery =`UPDATE item SET item_status='Denied' WHERE item_id=` + removeItem_id;
+  console.log(approveQuery);
+  if(approveItem_id)
+  {
+    console.log(approveItem_id);
+    console.log(approveQuery);
+    db.any(approveQuery)
+    .then(data => {
+      console.log("this is " + data);
+      //res.redirect('/admin');
+      RenderAdmin(req,res);
+    });
+  }
+  else if(removeItem_id)
+  {
+    console.log(removeItem_id);
+    console.log(denyQuery);
+    db.any(denyQuery)
+    .then(data => {
+      console.log("this is denied" + data);
+      //res.redirect('/admin');
+      RenderAdmin(req,res);
+    });
+  }
+  else{
+    RenderAdmin(req,res);
+  }
+});
+});
+
+//Render Function Starts here
+var RenderAdmin = function(req, res){
   db.any(`SELECT * FROM item WHERE item_status = 'Pending'`)
   .then( data => db.any('SELECT * FROM category')
   .then (cats => {
@@ -39,8 +71,6 @@ router.get('/', function(req, res, next){
         }
       });
     });
-
-
 
     db.any(`SELECT * FROM user_record`)
     .then (users => db.any(`SELECT * FROM item`)
@@ -59,10 +89,9 @@ router.get('/', function(req, res, next){
       allData.items = data.items;
       console.log(allData);
       render(req, res, 'admin', 'ADMIN PAGE', 'admin', {data: allData, script: 'tabSwitcher'});
-    }));
+    }))
 
-  }))});
+  }))
+}
 
-
-});
 module.exports = router;
