@@ -26,8 +26,12 @@ router.get('/', function(req, res) {
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
 
+    var items = data;
+    data = {};
+    data.items = items;
+
     // Items
-    data.forEach(item => {
+    data.items.forEach(item => {
       cats.forEach(cat => {
         if (item.category_id == cat.category_id) {
           item.item_category = cat.category_name;
@@ -35,10 +39,15 @@ router.get('/', function(req, res) {
       });
     });
 
+
+
+    db.any(`SELECT * FROM item WHERE item_status='Pending'`)
+    .then( items => db.any(`SELECT * FROM users`))
+
     // Messages
-    if (data.length > 0) {
+    if (data.items.length > 0) {
       var where = ' WHERE ';
-      data.forEach(element => {
+      data.items.forEach(element => {
         where += 'item_id='+element.item_id+' OR ';
       });
       where = where.substr(0, where.length-4);
@@ -46,6 +55,7 @@ router.get('/', function(req, res) {
       .then( messages => {
         // Get usernames associated with IDs
         where = ' WHERE ';
+        var whereItem = ' WHERE ';
         messages.forEach(element => {
           where += 'user_id='+element.user_id+' OR ';
         });
@@ -58,8 +68,15 @@ router.get('/', function(req, res) {
               if (element.user_id == element2.user_id)
                 element.user_name = element2.user_name;
             });
+            data.items.forEach( item => {
+              if (item.item_id == element.item_id)
+                element.item_title = item.item_title;
+            });
           });
           data.messages = messages;
+
+          console.log(data);
+
           render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
         })
       })

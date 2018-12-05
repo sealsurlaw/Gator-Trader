@@ -47,10 +47,10 @@
 					</thread>
 					<tbody>
 
-					{{#if data}}
-					{{#each data}}
+					{{#if data.items}}
+					{{#each data.items}}
 					<tr class="dashboard-item">
-						<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+						<td><button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')" class="btn item_image_thumbnail_btn">
 							<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
 						</button>
 						</td>
@@ -76,7 +76,7 @@
 							<div class="item-status">{{this.item_status}}</div>
 						</td>
 						<td>
-							<button type="button" onclick ="" class="btn item-removal-btn">
+							<button type="button" onclick ="location.href='/dashboard?remove={{this.item_id}}'" class="btn item-removal-btn">
 								REMOVE<br/>ITEM
 							</button>
 
@@ -92,7 +92,7 @@
 
 <div id="Messages" class="tab-content">
 <div class="message-list col-sm-8">
-	<div class="filters"><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
+	<div class="filters"><span class="">{{data.messages.length}} Total Messages</span><span class="dropdown filter-dropdown">
 		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu">
@@ -109,8 +109,7 @@
 	{{#if data.messages}}
 	{{#each data.messages}}
 		<div class='message-box'>
-			<!-- <h3>User: {{this.user_name}}</h3><h4>Item:<a href="/details/{{this.item_id}}">{{this.item_name}}</a></h4><p>{{this.message_text}}</p> -->
-			<h3>User: {{this.user_name}}</h3><h4>Item:<a href="#"></a></h4>
+			<h3>User: {{this.user_name}}</h3><h4>Item: <a onclick="window.open('/item/{{this.item_id}}', '_blank')">{{this.item_title}}</a></h4>
 			<p>{{this.message_text}}</p>
 		</div>
 	{{/each}}
