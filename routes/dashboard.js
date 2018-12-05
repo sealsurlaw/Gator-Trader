@@ -5,6 +5,7 @@
  */
 var express = require("express");
 var router = express.Router();
+var url = require('url');
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
@@ -21,7 +22,29 @@ router.get('/', function(req, res) {
     res.redirect('/login');
     return;
   }
-  //Insertion of dashboard items into dashboard database.
+
+  var q = url.parse(req.url, true).query;
+  var remove = q.remove;
+
+  if (remove && remove.length != 0) {
+    console.log("Removing "+remove);
+    db.any(`DELETE FROM item WHERE user_id=`+req.session.user_id+` AND item_id=`+remove)
+    .catch( err => {
+      console.log(err);
+      render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {script: 'tabSwitcher', message: "Couldn't delete item"});
+      return;
+    });
+    renderDashboard(req,res);
+  }
+  else {
+    renderDashboard(req,res);
+  }
+
+
+});
+
+
+var renderDashboard = function(req, res) {
   db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
@@ -85,7 +108,6 @@ router.get('/', function(req, res) {
       render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
     }
   }));
-
-});
+}
 
 module.exports = router;
