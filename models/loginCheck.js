@@ -43,6 +43,10 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
             .then( user => {
                 var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, username: user[0].user_name, data: data};
                 res.render(page, ops);
+            })
+            .catch( err => {
+                res.redirect('/clear');
+                return;
             });
         }
         else {

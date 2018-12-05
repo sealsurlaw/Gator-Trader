@@ -26,7 +26,6 @@ var filename,thumbname;
 //These variables are needed when callBack functions are called.
 var fields,id;
 var response, request;
-let resizeWidth = 200;
 
 /**
  * This function is responsible for cropping the image.
@@ -37,41 +36,11 @@ let resizeWidth = 200;
  */
 var identifySizeCallback = function (err, features) {
   if (err) throw err;
-  // Get height and width
-  let width = features.width;
-  let height = features.height;
-  // Get smallest dimension
-  let smallestDimension = Math.min(height, width);
-  // Crop width from center
   console.log("Cropping...")
-  im.crop({
-    srcPath: './public/images/user_images/' + filename,
-    dstPath: './public/images/user_images/' + thumbname,
-    width: smallestDimension,
-    height: smallestDimension,
-    quality: 1,
-    gravity: "Center"
-  }, cropImageCallback);
-
-}
-
-/**
- * This function is responsible for resizing image after getting cropped.
- * @param  err throws error if it fails to crop the image
- * @return void
- */
-
-var cropImageCallback = function(err){
-  if (err) throw err;
-  console.log('Cropped');
-  console.log('Resizing');
-  // Resize image
-  im.resize({
-    srcPath: './public/images/user_images/' + thumbname,
-    dstPath: './public/images/user_images/' + thumbname,
-    width:   resizeWidth
-  }, resizeImageCallback(err));
-}
+  im.convert(['-background', 'white', '-gravity', 'center', 
+  './public/images/user_images/' + filename, '-resize', '200x200', '-extent', '200x200', './public/images/user_images/' + thumbname], 
+    resizeImageCallback)
+  }
 
 /**
  * This function is responsible for uploading image on imgur hosting service.
