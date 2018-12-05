@@ -35,7 +35,7 @@
   {{#each data}}
   <div class="media">
     <div class="media-left">
-      <img src="{{this.item_image_thumbnail}}" class="media-object" style="width:200px">
+    <a href="/item/{{this.item_id}}" target="_blank"><img src="{{this.item_image_thumbnail}}" class="media-object" style="width:200px"></a>
     </div>
     <div class="media-body">
       <h3 class="media-heading">Item Name: {{this.item_title}}</h3>
@@ -44,8 +44,7 @@
       <br>
       <br>
       <br>
-      <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')">View Details</button>
-      <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')" >Contact Seller</button>
+      <button type="button" class="btn btn-warning" onclick="window.open('/item/{{this.item_id}}', '_blank')" >Contact Seller</button>
     </div>
   </div>
 
