@@ -11,3 +11,39 @@
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
+
+.paragraph {
+  font-size: 20px;
+  text-align: justify;
+  margin-left:100px;
+  margin-right:100px;
+  border:solid black 1px;
+  margin-bottom: 30px;
+  padding-left:15px;
+  padding-right:15px;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+.col-sm-4 { 
+  width: 300px;
+  height: 300px;
+  margin-bottom: 30px;
+   text-align: justify;
+  margin-left:100px;
+  margin-right:100px;
+  border:solid black 1px;
+  margin-bottom: 30px;
+  margin-left:100px;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+.col-sm-12 {
+	 border:solid black 1px;
+	 margin-bottom: 30px;
+}
+
+.img-set img{
+width:200px;
+}
