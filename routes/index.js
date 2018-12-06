@@ -46,7 +46,7 @@ router.get('/post', function(req, res, next) {
 
 
 router.get('/details',function(req,res,next){
-  render(req, res, 'details', 'DETAILS PAGE', 'details');
+  render(req, res, 'details', 'DETAILS PAGE', 'details', {script: 'details'});
 });
 
 router.get('/login',function(req,res,next){
