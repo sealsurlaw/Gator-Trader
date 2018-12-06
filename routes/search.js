@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
     }
 
     db.any(`SELECT * FROM category`)
-    .then( cat => 
+    .then( cat =>
     db.any(`SELECT * FROM item` + where)
     .then( data => {
         data.search = search;
