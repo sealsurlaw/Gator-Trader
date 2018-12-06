@@ -13,6 +13,13 @@ function viewSwitch(view,elmnt,color) {
 
 			}
 
-$("document").ready(function() {
-    setTimeout(document.getElementById('defaultOpen').click(),10);
+$("document").ready(function() {	
+	var urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('remove_user') || urlParams.has('sort_user')) {
+        setTimeout(document.getElementById('userButton').click(),10);
+	}
+	else {
+		setTimeout(document.getElementById('defaultOpen').click(),10);
+	}
 });

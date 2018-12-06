@@ -54,6 +54,21 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
 
 }
 
+function formatDate (date) {
+    date = new Date(date);
+    var year = 1900+date.getYear();
+    var month = date.getMonth();
+    var day = date.getDay();
+    if (day < 10)
+        day = '0'+day;
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    if (minute < 10)
+        minute = '0'+minute;
+    return month+"-"+day+"-"+year+" "+hour+":"+minute;
+}
+
 module.exports.getUserIDFromSession = getUserIDFromSession;
 module.exports.loginUser = loginUser;
 module.exports.renderUserAndCategory = renderUserAndCategory;
+module.exports.formatDate = formatDate;

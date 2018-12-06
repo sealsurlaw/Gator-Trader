@@ -6,7 +6,7 @@
 	<div class="view-tabs row">
 		<button class="tab-link col-sm-4" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
 		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')">Messages</button>
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Users', this, 'orange')">Users</button>
+		<button class="tab-link col-sm-4" onclick="viewSwitch('Users', this, 'orange')" id="userButton">Users</button>
 	</div>
 
 	<div class="body-table row ">
@@ -17,11 +17,11 @@
 						Filter by <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
-						<li role="presentation"><a role="menuitem" href="#">Newest First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Oldest First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=DESC">Newest First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=ASC">Oldest First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_title&type=ASC">Alphabetical</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=DESC">Highest Price First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=ASC">Lowest Price First</a></li>
 
 					</ul>
 				</span>
@@ -121,37 +121,17 @@
 		{{/if}}
 		<!-- end single message -->
 
-		<!-- DELETE LATER \/\/\/\/ -->
-		<div class='message-box'>
-			<h3>User: UserName</h3><h4>Item:<a href="item/1">ItemName</a></h4>
-			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-			<p>email: email@email.com</p>
-			<button class="btn" onclick="">REMOVE MESSAGE</button><br/>
-		</div>
-
-		<div class='message-box'>
-			<h3>User: UserName</h3><h4>Item:<a href="item/1">ItemName</a></h4><p>email: email@email.com
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-				<p>email: email@email.com</p>
-				<button class="btn" onclick="">REMOVE MESSAGE</button><br/>
-			</div>
-			<!-- DELETE LATER ^^^^^ -->
-
 		</div>
 
 		<div id="Users" class="tab-content user-list col-sm-8">
-			<div class="filters"><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
+			<div class="filters"><span class="">{{data.users.length}} Total Users</span><span class="dropdown filter-dropdown">
 				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">
-						<li><a href="#">User Alphabetical</a></li>
-						<li><a href="#">Newest Joined</a></li>
-						<li><a href="#">Oldest Joined</a></li>
-						<li><a href="#">Newest Item</a></li>
-						<li><a href="#">Oldest Item</a></li>
-						<li><a href="#">Newest Message</a></li>
-						<li><a href="#">Oldest Message</a></li>
-
+						<li><a href="/admin?sort_user=user_name&type=ASC">User A-Z</a></li>
+						<li><a href="/admin?sort_user=user_name&type=DESC">User Z-A</a></li>
+						<li><a href="/admin?sort_user=user_date&type=ASC">Newest Joined</a></li>
+						<li><a href="/admin?sort_user=user_date&type=DESC">Oldest Joined</a></li>
 					</ul>
 				</span>
 			</div>
@@ -160,7 +140,7 @@
 			{{#if data.users}}
 			{{#each data.users}}
 			<div class='user-box'>
-				<h3>User: {{this.user_name}}</h3>
+				<h3>User: {{this.user_name}}<br>Joined: {{this.user_date}}</h3>
 				{{#if this.items}}
 				{{#each this.items}}
 				<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
@@ -173,27 +153,6 @@
 			<!-- end single user -->
 
 		</div>
-
-{{!--
-	<!-- sidebar 1: Campus Map Image -->
-	<div class="col-sm-3 sidebar-box" >
-		<h4>Campus Map Image</h4>
-	</div> <!-- end sidebar 1 -->
-
-	<!-- sidebar 2: Pick-Up Locations -->
-	<div class="col-sm-3 sidebar-box" >
-		<h4>Pick-Up Locations</h4>
-	</div> <!-- end sidebar 2 -->
-
-	<!-- sidebar 3: Campus Police -->
-	<div class="col-sm-3 sidebar-box" >
-		<h4>Campus Police</h4>
-	</div> <!-- end sidebar 3 -->
-
-	<!-- sidebar 4: Administration Contact -->
-	<div class="col-sm-3 sidebar-box" >
-		<h4>Administration Contact</h4>
-	</div> <!-- end sidebar 4 --> --}}
 
 </div><!-- end row -->
 		</div><!-- end page body -->
