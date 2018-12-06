@@ -22,9 +22,9 @@
 <br>
 
 {{#if username}}
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Message">Contact Seller</button>
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Message" id="ContactSeller">Contact Seller</button>
 {{else}}
-<button type="button" class="btn btn-warning" onclick="location.href='/message?item={{data.item_id}}'">Contact Seller</button>
+<button type="button" class="btn btn-warning" onclick="location.href='/message?item={{data.item_id}}'" >Contact Seller</button>
 {{/if}}
 
 <!--Modal-->
@@ -42,7 +42,7 @@
 				<div class="form-group">
 					<form action="/message" method="post" enctype="multipart/form-data">
 						<label for="message-text" class="col-form-label" style="font-size:18px">Write your message below :</label>
-						<input type="text" placeholder="Hi I am interested in buying your item: {{data.item_title}}" class="form-control" name="text_message">
+						<input type="text" placeholder="Please Enter your contact information" class="form-control" name="text_message" required>
 						<input type="hidden" name="item_id" value="{{data.item_id}}">
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
