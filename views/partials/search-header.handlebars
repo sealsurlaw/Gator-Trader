@@ -1,14 +1,43 @@
-<!-- Navigation Bar w/ Register + Login -->
+
+<!-- Login / Register Buttons NavBar -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+
+        <ul class="nav navbar-nav navbar-right">
+          {{#if username}}
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</a></li>
+          <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+          <li><a href="/dashboard">My Dashboard</a></li>
+        </ul>
+          {{else}}
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+          {{/if}}
+        </u>
+      </div>
+    </div>
+  </nav>
+
+<!-- Gator Trader / Search Bar -->
 <nav class="navbar navbar-inverse">
 
   <div class="container-fluid">
     <div class="navbar-header">
 
       <!-- Name / Logo -->
-
       <a href="/home"><h1 style="color:#fff"><br>Gator Trader</h1></a>
-
-
 
       <!-- "All" Dropdown -->
       <div class="dropdown">
@@ -23,11 +52,9 @@
           </ul>
         </div>
 
-
         <!-- Search Bar -->
 
         <div class="container">
-
           <form action="/search">
             <div class="input-group">
               <input type="text" class="form-control" pattern="[A-Za-z0-9]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
@@ -39,22 +66,7 @@
           </form>
         </div>
         {{!-- {{/if}} --}}
-
       </div>
-
-      <!-- Login / Register Buttons -->
-      {{#if username}}
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</a></li>
-        <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-        <li><a href="/dashboard">My Dashboard</a></li>
-      </ul>
-      {{else}}
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-      {{/if}}
     </div>
   </nav>
 
