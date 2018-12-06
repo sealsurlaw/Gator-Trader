@@ -1,17 +1,15 @@
-/* section with carousels */
 .static-column {
-  
   background-color:gray;
-
 }
 
 .sidenav {
   background-color: #f1f1f1;
   height: 100%;
-  font-size: 28px; /* Increased text to enable scrolling */
+  font-size: 28px; 
   padding: 0px 10px;
 }
 
+/* paragraph for about this site section */
 .paragraph {
   font-size: 20px;
   text-align: justify;
@@ -25,25 +23,13 @@
   padding-bottom:15px;
 }
 
-.col-sm-4 { 
-  width: 300px;
-  height: 300px;
-  margin-bottom: 30px;
-   text-align: justify;
-  margin-left:100px;
-  margin-right:100px;
+/* columns with rows contatining images */
+.col-sm-12 {
   border:solid black 1px;
   margin-bottom: 30px;
-  margin-left:100px;
-  padding-top:15px;
-  padding-bottom:15px;
-}
 
-.col-sm-12 {
-	 border:solid black 1px;
-	 margin-bottom: 30px;
 }
 
 .img-set img{
-width:200px;
+  width:200px;
 }
