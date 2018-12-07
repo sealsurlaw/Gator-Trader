@@ -22,15 +22,21 @@
 }
 .filters{
 	background-color: grey;
-	padding-top:10px;
-	padding-bottom: 10px;
-	padding-left: 60px;
+	padding:15px;
 	height:50px;
+	text-align: center;
 }
-
+.filter-dropdown{
+	position: absolute;
+    right:	15vw;
+    margin:	0;
+    padding:0;
+    transform: translateY(-5px);
+	
+}
 .item-list{
 	background-color: lightgrey;
-	padding:0;
+	padding-bottom:20px;
 	/*width:55vw;*/
 }
 
@@ -57,14 +63,7 @@
 	/* width:97%; */
 	margin:20px;
 }
-.spacer-cell{
-	width:2%;
-}
-.filter-dropdown{
-	margin-left: 50px;
-	
-	margin-right:50px;
-}
+
 .page-title h2{
 	font-weight: bold;
 }
@@ -90,6 +89,7 @@
 	height:100px;
 	margin:0;
 	padding:0;
+	float: left;
 }
 .item_image_thumbnail{
 	background-color: darkgrey;
@@ -97,25 +97,16 @@
 	height:100px;
 	margin:0;
 }
-.item-status{
-	
-}
-
-.item-availability{
-	
-}
 
 .dashboard-item-table{
-	width:auto;
 	margin:10px;
-	width:auto;
 	margin-bottom: 20px;
 	padding-left: 20px;
 	
 }
 
 .dashboard-item-table th{
-	width:100px;
+	width:12vw;
 	text-align: center;
 	margin:20px;
 }
@@ -124,8 +115,10 @@
 	text-align: center;
 }
 
-.dashboard-item-table tbody{
-	   
+.dashboard-item-table td{
+	padding-right: 10px;
+	padding-top: 0;
+	padding-bottom:0;
 }
 
 .item-messages{
@@ -140,21 +133,7 @@
 .message-list{
 	background-color: lightgrey;
 	padding:0px;
-	margin-top:20px;
-}
-
-@media (max-width: 1200px) {
-    .vanish-1 { display: none;}
-    .message-list{float:initial;}
-    .item-list{width:auto;}
-}
-@media (max-width: 600px) {
-    .vanish-2 { display: none;}
-}
-
-@media (min-width: 600px) {
-    .dashboard-item-table{ overflow: hidden; }
-    
+	padding-bottom:20px;
 }
 
 .message-box{
@@ -174,7 +153,8 @@
 .message-box p{
 	color:darkgrey;
 	font-style: italic;
-	padding-top:0px;
+	padding-top:10px;
+	padding-bottom: 10px;
 	padding-left: 50px;
 	/*border:solid blue 2px;*/
 }
@@ -194,6 +174,7 @@
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
+    width:50%;
     
 }
 
@@ -207,23 +188,34 @@
     
 }
 
-.item-name{
-	white-space: nowrap; 
-    width: 50px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    
-}
 .item-description{
 	white-space: nowrap; 
-    width: 100px; 
+    width:11vw;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    text-align: center;
     
 }
-.item-date{
-	white-space: nowrap; 
-    width: 100px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
+
+.item-removal-btn{
+	margin-right:20px;
+	color:red;
+	background-color: lightgrey;
+}
+
+.remove-message-btn{
+	color:red;
+	background-color: lightgrey;
+}
+
+
+.dashboard-item-table-wrapper{
+	overflow-x: auto;
+	margin:20px;
+}
+
+
+@media (max-width: 1200px) {
+    .message-list{float:initial;}
+    .item-list{width:auto;}
 }
