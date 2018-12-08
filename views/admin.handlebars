@@ -37,7 +37,6 @@
 							<th >Price</th>
 							<th >Date</th>
 							<th >Description</th>
-							<th >Status</th>
 							
 						</tr>
 					</thread>
@@ -45,40 +44,38 @@
 
 						{{#if data.items}}
 						{{#each data.items}}
-						<tr class="dashboard-item">
-							<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+						<tr class="dashboard-item ">
+							<td><button type="button" onclick="location.href='/item/{{this.item_id}}'" class="btn item_image_thumbnail_btn f-l">
 								<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
 							</button>
 						</td>
 						<td>
-							<div class="item-name ">{{this.item_title}}</div>
+							<div class=" ">{{this.item_title}}</div>
 						</td>
 						<td>
-							<div class="item-category ">{{this.item_category}}</div>
+							<div class=" ">{{this.item_category}}</div>
 						</td>
 						<td>
-							<div class="item-id ">{{this.item_id}}</div>
+							<div class=" ">{{this.item_id}}</div>
 						</td>
 						<td>
-							<div class="item-price ">{{this.item_price}}</div>
+							<div class=" ">{{this.item_price}}</div>
 						</td>
-						<td class="vanish">
-							<div class="item-date ">{{this.item_date}}</div>
+						<td >
+							<div class=" ">{{this.item_date}}</div>
 						</td>
-						<td class="vanish">
+						<td >
 							<div class="item-description ">{{this.item_description}}</div>
 						</td>
+						
 						<td>
-							<div class="item-status">{{this.item_status}}</div>
-						</td>
-						<td>
-							<button type="button" onclick ="location.href='/admin?approve_item={{this.item_id}}'" class="btn item-removal-btn">
+							<button type="button" onclick ="location.href='/admin?approve_item={{this.item_id}}'" class="btn item-approval-btn">
 								APPROVE<br/>ITEM
 							</button>
 
 						</td>
 						<td>
-							<button type="button" onclick ="location.href='/admin?remove_item={{this.item_id}}'" class="btn item-removal-btn">
+							<button type="button" onclick ="location.href='/admin?remove_item={{this.item_id}}'" class="btn item-denial-btn">
 								DENY<br/>ITEM
 							</button>
 
@@ -87,161 +84,14 @@
 					{{/each}}
 					{{/if}}
 
-					<tr class="dashboard-item ">
-						<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
-							<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
-						</button>
-					</td>
-					<td>
-						<div class=" ">this.item_title</div>
-					</td>
-					<td>
-						<div class=" ">this.item_category</div>
-					</td>
-					<td>
-						<div class=" ">this.item_id</div>
-					</td>
-					<td>
-						<div class=" ">this.item_price</div>
-					</td>
-					<td >
-						<div class=" ">this.item_date</div>
-					</td>
-					<td >
-						<div class="item-description ">this.item_description</div>
-					</td>
-					<td>
-						<div class=" ">this.item_status</div>
-					</td>
-					<td>
-						<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
-							APPROVE<br/>ITEM
-						</button>
 
-					</td>
-					<td>
-						<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
-							DENY<br/>ITEM
-						</button>
-
-					</td>
-				</tr>
-
-				<tr class="dashboard-item ">
-					<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
-						<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
-					</button>
-				</td>
-				<td>
-					<div class=" ">this.item_title</div>
-				</td>
-				<td>
-					<div class=" ">this.item_category</div>
-				</td>
-				<td>
-					<div class=" ">this.item_id</div>
-				</td>
-				<td>
-					<div class=" ">this.item_price</div>
-				</td>
-				<td >
-					<div class=" ">this.item_date</div>
-				</td>
-				<td >
-					<div class="item-description ">this.item_description</div>
-				</td>
-				<td>
-					<div class=" ">this.item_status</div>
-				</td>
-				<td>
-					<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
-						APPROVE<br/>ITEM
-					</button>
-
-				</td>
-				<td>
-					<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
-						DENY<br/>ITEM
-					</button>
-
-				</td>
-			</tr>
-
-			<tr class="dashboard-item ">
-				<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
-					<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
-				</button>
-			</td>
-			<td>
-				<div class=" ">this.item_title</div>
-			</td>
-			<td>
-				<div class=" ">this.item_category</div>
-			</td>
-			<td>
-				<div class=" ">this.item_id</div>
-			</td>
-			<td>
-				<div class=" ">this.item_price</div>
-			</td>
-			<td >
-				<div class=" ">this.item_date</div>
-			</td>
-			<td >
-				<div class="item-description ">this.item_description</div>
-			</td>
-			<td>
-				<div class=" ">this.item_status</div>
-			</td>
-			<td>
-				<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
-					APPROVE<br/>ITEM
-				</button>
-
-			</td>
-			<td>
-				<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
-					DENY<br/>ITEM
-				</button>
-
-			</td>
-		</tr>
-
-	</tbody>
-</table>
-</div>
-</div>
-
-<div id="Messages" class="tab-content message-list ">
-	<div class="filters"><span class="">{{data.items.length}} Total Messages</span><span class="dropdown filter-dropdown">
-		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
-			<span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li><a href="#">Item Alphabetical</a></li>
-				<li><a href="#">User Alphabetical</a></li>
-				<li><a href="#">Newest First</a></li>
-				<li><a href="#">Oldest First</a></li>
-
-			</ul>
-		</span>
-	</div>
-
-	<!-- single message -->
-	{{#if data.messages}}
-	{{#each data.messages}}
-	<div class='message-box'>
-		<h3>User: {{this.user_name}}</h3><h4>Item:<a href="item/{{this.item_id}}">{{this.item_name}}</a></h4>
-		<p>{{this.message}}
-			<p>email: {{this.user_email}}</p>
-			<button class="btn" onclick="">REMOVE MESSAGE</button><br/>
+				</tbody>
+			</table>
 		</div>
-		{{/each}}
-		{{/if}}
-		<!-- end single message -->
-
 	</div>
 
-	<div id="Users" class="tab-content user-list ">
+
+	<div id="Users" class="tab-content user-list">
 		<div class="filters"><span class="">{{data.users.length}} Total Users</span><span class="dropdown filter-dropdown">
 			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 				<span class="caret"></span></button>
@@ -261,10 +111,11 @@
 			<h3>User: {{this.user_name}}<br>Joined: {{this.user_date}}</h3>
 			{{#if this.items}}
 			<div class="user-item-list">
-			{{#each this.items}}
-			<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
+				{{#each items}}
+				<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
+				{{/each}}
 			</div>
-			{{/each}}
+			
 			{{else}}
 			<h4 style="padding-left:3em;">This user has no items</h4>
 			{{/if}}
