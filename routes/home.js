@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
-var queryText = 'SELECT item_image_thumbnail FROM item WHERE category_id=1';
+var queryText = 'SELECT item_image_thumbnail FROM item WHERE category_id=4 LIMIT 4';
 
 var tempQuery = 'SELECT item_image_thumbnail, category_id FROM item ORDER BY category_id';
 
