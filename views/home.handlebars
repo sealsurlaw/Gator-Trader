@@ -15,38 +15,16 @@
     </div>
 
     <!-- Image Rows -->
-    <center><h4>Books</h4></center>
+    {{#each data}}
+    {{#if this.items}}
+    <center><h4>{{this.category_name}}</h4></center>
     <div class="col-sm-12 static-column ">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-repsonsive col-sm-3" alt="Image">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
+      {{#each this.items}}
+      <a target="_blank" href="/item/{{this.item_id}}"><img src="{{this.item_image_thumbnail}}" class="img-repsonsive col-sm-3" alt="Image"></a>
+      {{/each}}
     </div>
-
-    <center><h4>Clothes</h4></center>
-    <div class="col-sm-12 static-column ">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-repsonsive col-sm-3" alt="Image">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-    </div>
-
-    <center><h4>Electronics</h4></center>
-    <div class="col-sm-12 static-column ">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-repsonsive col-sm-3" alt="Image">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-    </div>
-
-    <center><h4>Games</h4></center>
-    <div class="col-sm-12 static-column ">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-repsonsive col-sm-3" alt="Image">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive col-sm-3"  alt="Image"> 
-    </div>
-
+    {{/if}}
+    {{/each}}
 
     </div> <!-- end static image column -->
     
