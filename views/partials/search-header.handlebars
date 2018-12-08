@@ -15,9 +15,12 @@
         <ul class="nav navbar-nav navbar-right">
           {{#if username}}
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</a></li>
+          <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
           <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-          <li><a href="/dashboard">My Dashboard</a></li>
+          <li><a href="/dashboard"><span class="glyphicon glyphicon-tags"></span> My Dashboard</a></li>
+          {{#if isAdmin}}
+          <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
+          {{/if}}
         </ul>
           {{else}}
         <ul class="nav navbar-nav navbar-right">
@@ -85,8 +88,8 @@
       <div class="collapse navbar-collapse" id="myNavbar2">
 
         <ul class="nav navbar-nav navbar-right">
-          <li><button type="button" class="btn btn-primary btn-lg" onclick="location.href='/index/';" style="background-color:#FFD363; color:black;">About Us</button></li>
-          <li><button type="button" class="btn btn-primary btn-lg" onclick="location.href='/post/';" style="background-color:#FFD363; color:black;margin-left:20px;">Sell An Item</button></li>
+          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
+          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
         </ul>
       </div>
     </div>

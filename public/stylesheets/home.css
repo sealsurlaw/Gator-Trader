@@ -13,22 +13,34 @@
 .paragraph {
   font-size: 20px;
   text-align: justify;
-  margin-left:100px;
-  margin-right:100px;
+  margin-left:5vw;
+  margin-right:5vw;
   border:solid black 1px;
   margin-bottom: 30px;
-  padding-left:15px;
-  padding-right:15px;
+  padding-left:1vw;
+  padding-right:1vw;
   padding-top:15px;
   padding-bottom:15px;
 }
 
 /* columns with rows contatining images */
-.col-sm-12 {
-  margin-bottom: 30px;
 
+.category{
+  margin-top: 50px;
+  border:solid black 1px;
+  padding-bottom: 20px;
+}
+
+.img-set{
+  display: flex;
+  justify-content: space-between;
 }
 
 .img-set img{
-  width:200px;
+  margin:auto;
+  width:16vw;
+  display: inline-block;
+}
+body{
+  overflow-x: hidden;
 }

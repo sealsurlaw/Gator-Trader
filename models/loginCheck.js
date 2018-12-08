@@ -39,9 +39,9 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     .then( cat => {
 
         if (user_id) {
-            db.any(`SELECT user_name FROM user_record WHERE user_id=` + user_id)
+            db.any(`SELECT user_name, admin_right FROM user_record WHERE user_id=` + user_id)
             .then( user => {
-                var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, username: user[0].user_name, data: data};
+                var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, isAdmin: user[0].admin_right, username: user[0].user_name, data: data};
                 res.render(page, ops);
             })
             .catch( err => {

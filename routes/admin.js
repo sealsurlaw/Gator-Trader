@@ -8,19 +8,19 @@ var formatDate = require('../models/loginCheck').formatDate;
 router.get('/', function(req, res, next){
 
   // Check if user is logged in
-  if (!req.session.user_id){
-    req.session.nextPage = '/admin';
-    res.redirect('/login');
-    return;
-  }
+  // if (!req.session.user_id){
+  //   req.session.nextPage = '/admin';
+  //   res.redirect('/login');
+  //   return;
+  // }
 
   // Check if admin
   db.any(`SELECT admin_right FROM user_record WHERE user_id=`+ req.session.user_id)
   .then(isAdmin =>{
-    if(!isAdmin[0].admin_right){
-      res.redirect('/dashboard');
-      return;
-    }
+    // if(!isAdmin[0].admin_right){
+    //   res.redirect('/dashboard');
+    //   return;
+    // }
 
     // Get query from url
     var q = url.parse(req.url, true).query;

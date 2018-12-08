@@ -37,3 +37,13 @@
   .navbar-right {
     font-size:21px;
   }
+
+.orange-nav-btn{
+  background-color:#FFD363;
+  color:black;
+  margin:5px;
+  width:150px;
+}
+.navbar-inverse{
+  border:none;
+}
