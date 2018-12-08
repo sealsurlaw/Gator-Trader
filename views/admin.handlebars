@@ -3,14 +3,13 @@
 	<div class='page-title container'>
 		<h2>Administrator Dashboard</h2>
 	</div>
-	<div class="view-tabs row">
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')">Messages</button>
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Users', this, 'orange')" id="userButton">Users</button>
+	<div class="view-tabs container">
+		<button class="tab-link" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
+		<button class="tab-link" onclick="viewSwitch('Users', this, 'orange')" id="userButton">Users</button>
 	</div>
 
-	<div class="body-table row ">
-		<div  class="item-list col-sm-12 tab-content" id="Items">
+	<div class="body-table container">
+		<div  class="item-list tab-content" id="Items">
 			<div class="filters"> {{data.items.length}} Total Items
 				<span class="dropdown filter-dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
@@ -27,20 +26,19 @@
 				</span>
 			</div>
 
-			<div class="table-responsive dashboard-item-table">
-				<table class="">
+			<div class="table-responsive-lg dashboard-item-table-wrapper">
+				<table class="dashboard-item-table">
 					<thread>
 						<tr class="dashboard-item-table-key" >
-							<th >Thumbnail</th>
+							<th ></th>
 							<th >Title</th>
 							<th >Category</th>
 							<th >ID Number</th>
 							<th >Price</th>
-							<th class="vanish">Date</th>
-							<th class="vanish">Description</th>
+							<th >Date</th>
+							<th >Description</th>
 							<th >Status</th>
-							<th >Approve Item</th>
-							<th >Deny Item</th>
+							
 						</tr>
 					</thread>
 					<tbody>
@@ -89,12 +87,132 @@
 					{{/each}}
 					{{/if}}
 
-</tbody>
+					<tr class="dashboard-item ">
+						<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
+							<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
+						</button>
+					</td>
+					<td>
+						<div class=" ">this.item_title</div>
+					</td>
+					<td>
+						<div class=" ">this.item_category</div>
+					</td>
+					<td>
+						<div class=" ">this.item_id</div>
+					</td>
+					<td>
+						<div class=" ">this.item_price</div>
+					</td>
+					<td >
+						<div class=" ">this.item_date</div>
+					</td>
+					<td >
+						<div class="item-description ">this.item_description</div>
+					</td>
+					<td>
+						<div class=" ">this.item_status</div>
+					</td>
+					<td>
+						<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
+							APPROVE<br/>ITEM
+						</button>
+
+					</td>
+					<td>
+						<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
+							DENY<br/>ITEM
+						</button>
+
+					</td>
+				</tr>
+
+				<tr class="dashboard-item ">
+					<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
+						<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
+					</button>
+				</td>
+				<td>
+					<div class=" ">this.item_title</div>
+				</td>
+				<td>
+					<div class=" ">this.item_category</div>
+				</td>
+				<td>
+					<div class=" ">this.item_id</div>
+				</td>
+				<td>
+					<div class=" ">this.item_price</div>
+				</td>
+				<td >
+					<div class=" ">this.item_date</div>
+				</td>
+				<td >
+					<div class="item-description ">this.item_description</div>
+				</td>
+				<td>
+					<div class=" ">this.item_status</div>
+				</td>
+				<td>
+					<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
+						APPROVE<br/>ITEM
+					</button>
+
+				</td>
+				<td>
+					<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
+						DENY<br/>ITEM
+					</button>
+
+				</td>
+			</tr>
+
+			<tr class="dashboard-item ">
+				<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn f-l">
+					<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb" class="item_image_thumbnail">
+				</button>
+			</td>
+			<td>
+				<div class=" ">this.item_title</div>
+			</td>
+			<td>
+				<div class=" ">this.item_category</div>
+			</td>
+			<td>
+				<div class=" ">this.item_id</div>
+			</td>
+			<td>
+				<div class=" ">this.item_price</div>
+			</td>
+			<td >
+				<div class=" ">this.item_date</div>
+			</td>
+			<td >
+				<div class="item-description ">this.item_description</div>
+			</td>
+			<td>
+				<div class=" ">this.item_status</div>
+			</td>
+			<td>
+				<button type="button" onclick ="location.href='/admin?approve_item=1'" class="btn item-approval-btn">
+					APPROVE<br/>ITEM
+				</button>
+
+			</td>
+			<td>
+				<button type="button" onclick ="location.href='/admin?remove_item=1'" class="btn item-denial-btn">
+					DENY<br/>ITEM
+				</button>
+
+			</td>
+		</tr>
+
+	</tbody>
 </table>
 </div>
 </div>
 
-<div id="Messages" class="tab-content message-list col-sm-8">
+<div id="Messages" class="tab-content message-list ">
 	<div class="filters"><span class="">{{data.items.length}} Total Messages</span><span class="dropdown filter-dropdown">
 		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 			<span class="caret"></span></button>
@@ -121,38 +239,48 @@
 		{{/if}}
 		<!-- end single message -->
 
+	</div>
+
+	<div id="Users" class="tab-content user-list ">
+		<div class="filters"><span class="">{{data.users.length}} Total Users</span><span class="dropdown filter-dropdown">
+			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="/admin?sort_user=user_name&type=ASC">User A-Z</a></li>
+					<li><a href="/admin?sort_user=user_name&type=DESC">User Z-A</a></li>
+					<li><a href="/admin?sort_user=user_date&type=ASC">Newest Joined</a></li>
+					<li><a href="/admin?sort_user=user_date&type=DESC">Oldest Joined</a></li>
+				</ul>
+			</span>
 		</div>
 
-		<div id="Users" class="tab-content user-list col-sm-8">
-			<div class="filters"><span class="">{{data.users.length}} Total Users</span><span class="dropdown filter-dropdown">
-				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
-					<span class="caret"></span></button>
-					<ul class="dropdown-menu">
-						<li><a href="/admin?sort_user=user_name&type=ASC">User A-Z</a></li>
-						<li><a href="/admin?sort_user=user_name&type=DESC">User Z-A</a></li>
-						<li><a href="/admin?sort_user=user_date&type=ASC">Newest Joined</a></li>
-						<li><a href="/admin?sort_user=user_date&type=DESC">Oldest Joined</a></li>
-					</ul>
-				</span>
-			</div>
-
-			<!-- single user -->
-			{{#if data.users}}
-			{{#each data.users}}
-			<div class='user-box'>
-				<h3>User: {{this.user_name}}<br>Joined: {{this.user_date}}</h3>
-				{{#if this.items}}
-				{{#each this.items}}
-				<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
-				{{/each}}
-				{{/if}}
-				<button class="btn" onclick="location.href = '/admin?remove_user={{this.user_id}}'">REMOVE USER</button><br/>
+		<!-- single user -->
+		{{#if data.users}}
+		{{#each data.users}}
+		<div class='user-box'>
+			<h3>User: {{this.user_name}}<br>Joined: {{this.user_date}}</h3>
+			{{#if this.items}}
+			<div class="user-item-list">
+			{{#each this.items}}
+			<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
 			</div>
 			{{/each}}
+			{{else}}
+			<h4 style="padding-left:3em;">This user has no items</h4>
 			{{/if}}
-			<!-- end single user -->
 
+			
+			<button class="btn remove-user-btn" onclick="location.href = '/admin?remove_user={{this.user_id}}'">REMOVE USER</button><br/>
 		</div>
+		{{/each}}
+		{{/if}}
+		<!-- end single user -->
+
+		
+
+
+
+	</div>
 
 </div><!-- end row -->
-		</div><!-- end page body -->
+</div><!-- end page body -->
