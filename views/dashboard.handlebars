@@ -13,7 +13,7 @@
 
 	<div class="body-table row">
 		<div  class="item-list tab-content" id="Items">
-			<div class="filters"> {*} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
+			<div class="filters"> {{data.items.length}} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
 				Filter by <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
@@ -42,11 +42,11 @@
 			</thread>
 			<tbody>
 
-				{{!-- {{#if data}}
+				{{#if data}}
 				{{#each data}}
-				<tr class="dashboard-item">
-					<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
-						<img src="images/user_images/{{this.item_id}}_thumb.jpg" class="item_image_thumbnail">
+				<tr class="dashboard-item" >
+					<td><button type="button" onclick="location.href='/item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+						<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
 					</button>
 				</td>
 				<td class="vanish-7">
@@ -74,57 +74,25 @@
 					<button type="button" onclick ="" class="btn item-removal-btn">
 						REMOVE<br/>ITEM
 					</button>
-
 				</td>
 			</tr>
 			{{/each}}
-			{{/if}} --}}
+			{{/if}}
 
 
 			
 
-			<tr class="dashboard-item" >
-				<td><button type="button" onclick="location.href='item/1'" class="btn item_image_thumbnail_btn">
-					<img src="images/user_images/f7f4662822c4395a1150650b544bc92f88729830_thumb.jpg" class="item_image_thumbnail">
-				</button>
-			</td>
-			<td class="vanish-7">
-				<div class="item-cell ">this.item_title</div>
-			</td>
-			<td class="vanish-4">
-				<div class="item-cell ">this.item_category</div>
-			</td>
-			<td class="vanish-1">
-				<div class="item-cell ">this.item_id</div>
-			</td>
-			<td class="vanish-6">
-				<div class="item-cell ">this.item_price</div>
-			</td>
-			<td class="vanish-2">
-				<div class="item-cell ">this.item_date</div>
-			</td>
-			<td class="vanish-3">
-				<div class="item-description ">this.item_description</div>
-			</td>
-			<td class="vanish-5">
-				<div class="item-cell">this.item_status</div>
-			</td>
-			<td>
-				<button type="button" onclick ="" class="btn item-removal-btn">
-					REMOVE<br/>ITEM
-				</button>
-			</td>
-		</tr>
-		
-		
-	</tbody>
-</table>
+			
+			
+			
+		</tbody>
+	</table>
 </div>
 </div>
 
 <div id="Messages" class="tab-content">
 	<div class="message-list ">
-		<div class="filters">{*} Total Messages<span class="dropdown filter-dropdown">
+		<div class="filters">{{data.messages.length}} Total Messages<span class="dropdown filter-dropdown">
 			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
@@ -137,35 +105,15 @@
 		</div>
 
 		<!-- single message -->
-		{{!-- {{#if data.messages}}
+		{{#if data.messages}}
 		{{#each data.messages}}
 		<div class='message-box'>
-			<h3>Message From: {{this.user_name}}</h3><h4>For Item:<a href="/item/{{this.item_id}}">{{this.item_name}}</a></h4><p>{{this.message_text}}</p>
+			<h3>Message From: {{this.user_name}}</h3><h4>For Item:<a href="/item/1">{{this.item_name}}</a></h4><p>{{this.message_text}}</p>
 			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
 		</div>
 		{{/each}}
-		{{/if}} --}}
+		{{/if}}
 		<!-- end single message -->
-
-		<div class='message-box'>
-			<h3>Message From: this.user_name</h3><h4>For Item:<a href="/item/1">this.item_name</a></h4><p>this.message_text</p>
-			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
-		</div>
-
-		<div class='message-box'>
-			<h3>Message From: this.user_name</h3><h4>For Item:<a href="/item/1">this.item_name</a></h4><p>this.message_text</p>
-			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
-		</div>
-
-		<div class='message-box'>
-			<h3>Message From: this.user_name</h3><h4>For Item:<a href="/item/1">this.item_name</a></h4><p>this.message_text</p>
-			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
-		</div>
-
-		<div class='message-box'>
-			<h3>Message From: this.user_name</h3><h4>For Item:<a href="/item/1">this.item_name</a></h4><p>this.message_text</p>
-			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
-		</div>
 
 
 	</div> 
