@@ -59,17 +59,28 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
 }
 
 function formatDate (date) {
-    date = new Date(date);
-    var year = 1900+date.getYear();
-    var month = date.getMonth();
-    var day = date.getDay();
-    if (day < 10)
-        day = '0'+day;
-    var hour = date.getHours();
-    var minute = date.getMinutes();
-    if (minute < 10)
-        minute = '0'+minute;
-    return month+"-"+day+"-"+year+" "+hour+":"+minute;
+    let month = 1+date.getMonth();
+      let day = date.getDate();
+      let year = 1900+date.getYear();
+      let hour = date.getHours();
+      let ampm;
+      if (hour == 0) {
+        hour += 12;
+         ampm = "am";
+      }
+      else if (hour > 12) {
+        hour -= 12;
+        ampm = "pm";
+      }
+      else if (hour == 12) {
+        ampm = "pm";
+      }
+      else {
+        ampm = "am";
+      }
+      let minute = date.getMinutes();
+      if (minute < 10) minute = "0"+minute;
+      return month+"-"+day+"-"+year+"<br>"+hour+":"+minute+ampm;
 }
 
 module.exports.getUserIDFromSession = getUserIDFromSession;

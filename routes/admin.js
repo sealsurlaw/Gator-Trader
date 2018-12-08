@@ -97,7 +97,7 @@ var renderAdmin = function(req, res, filter){
     .then (items => {
       users.forEach(user =>{
         user.items= [];
-        user.user_date = formatDate(user.user_date);
+        user.user_date = formatDate(user.user_date).replace(/<br>/g, ' ');
         items.forEach(item => {
           if(  user.user_id == item.user_id){
             user.items.push(item);

@@ -50,7 +50,7 @@
 							</button>
 						</td>
 						<td>
-							<div class=" ">{{this.item_title}}</div>
+							<div class=" ">{{{this.item_title}}}</div>
 						</td>
 						<td>
 							<div class=" ">{{this.item_category}}</div>
@@ -62,10 +62,10 @@
 							<div class=" ">{{this.item_price}}</div>
 						</td>
 						<td >
-							<div class=" ">{{this.item_date}}</div>
+							<div class=" ">{{{this.item_date}}}</div>
 						</td>
 						<td >
-							<div class="item-description ">{{this.item_description}}</div>
+							<div class="item-description ">{{{this.item_description}}}</div>
 						</td>
 						
 						<td>
@@ -108,11 +108,11 @@
 		{{#if data.users}}
 		{{#each data.users}}
 		<div class='user-box'>
-			<h3>User: {{this.user_name}}<br>Joined: {{this.user_date}}</h3>
+			<h3>User: {{this.user_name}}<br>Joined: {{{this.user_date}}}</h3>
 			{{#if this.items}}
 			<div class="user-item-list">
 				{{#each items}}
-				<h4>Item: <a href="{{this.item_id}}">{{this.item_title}}</a></h4>
+				<h4>Item: <a href="{{this.item_id}}">{{{this.item_title}}}</a></h4>
 				{{/each}}
 			</div>
 			

@@ -8,6 +8,7 @@ var router = express.Router();
 var url = require('url');
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
+var formatDate = require('../models/loginCheck').formatDate;
 
 /**
  * The route to dashboard.
@@ -29,12 +30,14 @@ router.get('/', function(req, res) {
   if (remove && remove.length != 0) {
     console.log("Removing "+remove);
     db.any(`DELETE FROM item WHERE user_id=`+req.session.user_id+` AND item_id=`+remove)
+    .then( _ => {
+      renderDashboard(req,res);
+    })
     .catch( err => {
       console.log(err);
       render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {script: 'tabSwitcher', message: "Couldn't delete item"});
       return;
     });
-    renderDashboard(req,res);
   }
   else {
     renderDashboard(req,res);
@@ -45,7 +48,7 @@ router.get('/', function(req, res) {
 
 
 var renderDashboard = function(req, res) {
-  db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
+  db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
 
@@ -53,8 +56,11 @@ var renderDashboard = function(req, res) {
     data = {};
     data.items = items;
 
-    // Items
+    // ITEMS
     data.items.forEach(item => {
+      
+      item.item_date = formatDate(item.item_date);
+      
       cats.forEach(cat => {
         if (item.category_id == cat.category_id) {
           item.item_category = cat.category_name;
@@ -62,12 +68,7 @@ var renderDashboard = function(req, res) {
       });
     });
 
-
-
-    db.any(`SELECT * FROM item WHERE item_status='Pending'`)
-    .then( items => db.any(`SELECT * FROM users`))
-
-    // Messages
+    // MESSAGES
     if (data.items.length > 0) {
       var where = ' WHERE ';
       data.items.forEach(element => {
@@ -97,8 +98,6 @@ var renderDashboard = function(req, res) {
             });
           });
           data.messages = messages;
-
-          console.log(data);
 
           render(req, res, 'dashboard', 'DASHBOARD PAGE','dashboard', {data: data, script: 'tabSwitcher'});
         })
