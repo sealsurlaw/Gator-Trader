@@ -26,6 +26,11 @@ router.get('/', function(req, res) {
 
   var q = url.parse(req.url, true).query;
   var remove = q.remove;
+  var filters = {}
+  filters.items = q.sort_item;
+  filters.messages = q.sort_message
+  filters.type = q.type;
+
 
   if (remove && remove.length != 0) {
     console.log("Removing "+remove);
@@ -40,14 +45,14 @@ router.get('/', function(req, res) {
     });
   }
   else {
-    renderDashboard(req,res);
+    renderDashboard(req,res,filters);
   }
 
 
 });
 
 
-var renderDashboard = function(req, res) {
+var renderDashboard = function(req, res, filter) {
   db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
@@ -68,14 +73,26 @@ var renderDashboard = function(req, res) {
       });
     });
 
-    // MESSAGES
+
+    var sortItems = '';
+    var sortMessages = '';
+
+    if (filter.items) {
+      sortItems = ' ORDER BY '+filter.items+' '+filter.type;
+    }
+    if (filter.messages) {
+      sortMessages = ' ORDER BY '+filter.messages+' '+filter.type;
+    }
+    
+
+    // Messages
     if (data.items.length > 0) {
       var where = ' WHERE ';
       data.items.forEach(element => {
         where += 'item_id='+element.item_id+' OR ';
       });
       where = where.substr(0, where.length-4);
-      db.any(`SELECT * FROM gator_message`+where)
+      db.any(`SELECT * FROM gator_message`+where+sortMessages)
       .then( messages => {
         // Get usernames associated with IDs
         where = ' WHERE ';
@@ -88,6 +105,7 @@ var renderDashboard = function(req, res) {
         .then( usernames => {
           // Map username with message
           messages.forEach( element => {
+            element.message_date = formatDate(element.message_date).replace(/<br>/g, ' ');
             usernames.forEach( element2 => {
               if (element.user_id == element2.user_id)
                 element.user_name = element2.user_name;

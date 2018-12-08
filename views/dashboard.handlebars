@@ -1,4 +1,3 @@
-
 <div class="body">
 	<div class='page-title container'>
 		<h2>My Dashboard</h2>
@@ -6,119 +5,118 @@
 
 	<div class="view-tabs row">
 		<button class="tab-link" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
-		<button class="tab-link" onclick="viewSwitch('Messages', this, 'orange')" >Messages</button>
+		<button class="tab-link" onclick="viewSwitch('Messages', this, 'orange')" id="messageOpen">Messages</button>
 	</div>
 
 
 
 	<div class="body-table row">
-		<div  class="item-list tab-content" id="Items">
-			<div class="filters"> {{data.items.length}} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
-				Filter by <span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
-				<li role="presentation"><a role="menuitem" href="#">Newest First</a></li>
-				<li role="presentation"><a role="menuitem" href="#">Oldest First</a></li>
-				<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
-				<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
-				<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
-
-			</ul>
-		</span>
-	</div>
-	<div class="table-responsive-lg dashboard-item-table-wrapper">
-		<table class="dashboard-item-table center">
-			<thread>
-				<tr class="dashboard-item-table-key" >
-					<th ></th>
-					<th class="vanish-7">Title</th>
-					<th class="vanish-4">Category</th>
-					<th class="vanish-1">ID Number</th>
-					<th class="vanish-6">Price</th>
-					<th class="vanish-2">Date</th>
-					<th class="vanish-3">Description</th>
-					<th class="vanish-5">Status</th>
-				</tr>
-			</thread>
-			<tbody>
-
-				{{#if data.items}}
-				{{#each data.items}}
-				<tr class="dashboard-item" >
-					<td><button type="button" onclick="location.href='/item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
-						<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
+		<div class="item-list tab-content" id="Items">
+			<div class="filters"> {{data.items.length}} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle"
+					 type="button" id="filters-menu" data-toggle="dropdown">
+						Filter by <span class="caret"></span>
 					</button>
-				</td>
-				<td class="vanish-7">
-					<div class="item-cell ">{{{this.item_title}}}</div>
-				</td>
-				<td class="vanish-4">
-					<div class="item-cell ">{{this.item_category}}</div>
-				</td>
-				<td class="vanish-1">
-					<div class="item-cell ">{{this.item_id}}</div>
-				</td>
-				<td class="vanish-6">
-					<div class="item-cell ">{{this.item_price}}</div>
-				</td>
-				<td class="vanish-2">
-					<div class="item-cell ">{{{this.item_date}}}</div>
-				</td>
-				<td class="vanish-3">
-					<div class="item-description ">{{{this.item_description}}}</div>
-				</td>
-				<td class="vanish-5">
-					<div class="item-cell">{{this.item_status}}</div>
-				</td>
-				<td>
-					<button type="button" onclick ='location.href="/dashboard?remove={{this.item_id}}"' class="btn item-removal-btn">
-						REMOVE<br/>ITEM
-					</button>
-				</td>
-			</tr>
-			{{/each}}
-			{{/if}}
+					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=DESC">Newest First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=ASC">Oldest First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_title&type=ASC">Alphabetical</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=DESC">Highest Price First</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=ASC">Lowest Price First</a></li>
+					</ul>
+				</span>
+			</div>
+			<div class="table-responsive-lg dashboard-item-table-wrapper">
+				<table class="dashboard-item-table center">
+					<thread>
+						<tr class="dashboard-item-table-key">
+							<th></th>
+							<th class="vanish-7">Title</th>
+							<th class="vanish-4">Category</th>
+							<th class="vanish-1">ID Number</th>
+							<th class="vanish-6">Price</th>
+							<th class="vanish-2">Date</th>
+							<th class="vanish-3">Description</th>
+							<th class="vanish-5">Status</th>
+						</tr>
+					</thread>
+					<tbody>
+
+						{{#if data.items}}
+						{{#each data.items}}
+						<tr class="dashboard-item">
+							<td><button type="button" onclick="location.href='/item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+									<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
+								</button>
+							</td>
+							<td class="vanish-7">
+								<div class="item-cell ">{{{this.item_title}}}</div>
+							</td>
+							<td class="vanish-4">
+								<div class="item-cell ">{{this.item_category}}</div>
+							</td>
+							<td class="vanish-1">
+								<div class="item-cell ">{{this.item_id}}</div>
+							</td>
+							<td class="vanish-6">
+								<div class="item-cell ">{{this.item_price}}</div>
+							</td>
+							<td class="vanish-2">
+								<div class="item-cell ">{{{this.item_date}}}</div>
+							</td>
+							<td class="vanish-3">
+								<div class="item-description ">{{{this.item_description}}}</div>
+							</td>
+							<td class="vanish-5">
+								<div class="item-cell">{{this.item_status}}</div>
+							</td>
+							<td>
+								<button type="button" onclick='location.href="/dashboard?remove={{this.item_id}}"' class="btn item-removal-btn">
+									REMOVE<br />ITEM
+								</button>
+							</td>
+						</tr>
+						{{/each}}
+						{{/if}}
 
 
-			
 
-			
-			
-			
-		</tbody>
-	</table>
-</div>
-</div>
 
-<div id="Messages" class="tab-content">
-	<div class="message-list ">
-		<div class="filters">{{data.messages.length}} Total Messages<span class="dropdown filter-dropdown">
-			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
-				<span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<li><a href="#">Item Alphabetical</a></li>
-					<li><a href="#">User Alphabetical</a></li>
-					<li><a href="#">Newest Message</a></li>
-					<li><a href="#">Oldest Message</a></li>
-				</ul>
-			</span>
+
+
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 
-		<!-- single message -->
-		{{#if data.messages}}
-		{{#each data.messages}}
-		<div class='message-box'>
-			<h3>Message From: {{this.user_name}}</h3><h4>For Item:<a href="/item/1">{{this.item_name}}</a></h4><p>{{this.message_text}}</p>
-			<button class="btn remove-message-btn" onclick="">REMOVE MESSAGE</button><br/>
+		<div id="Messages" class="tab-content">
+			<div class="message-list ">
+				<div class="filters">{{data.messages.length}} Total Messages<span class="dropdown filter-dropdown">
+						<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+							<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="/dashboard?sort_message=message_date&type=DESC">Newest Message</a></li>
+							<li><a href="/dashboard?sort_message=message_date&type=ASC">Oldest Message</a></li>
+						</ul>
+					</span>
+				</div>
+
+				<!-- single message -->
+				{{#if data.messages}}
+				{{#each data.messages}}
+				<div class='message-box'>
+					<h3>Message From: {{this.user_name}}</h3>
+					<h4>For Item: <a href="/item/{{this.item_id}}">{{{this.item_title}}}</a></h4>
+					<h5>{{{this.message_date}}}</h5>
+					<p>{{this.message_text}}</p>
+				</div>
+				{{/each}}
+				{{/if}}
+				<!-- end single message -->
+
+
+			</div>
 		</div>
-		{{/each}}
-		{{/if}}
-		<!-- end single message -->
 
-
-	</div> 
-</div>
-
-</div><!-- end row -->
+	</div><!-- end row -->
 </div><!-- end page body -->
-

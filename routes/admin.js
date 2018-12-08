@@ -45,8 +45,6 @@ router.get('/', function(req, res, next){
       query = `UPDATE item SET item_status='Approved' WHERE item_id=`+approveItem;
     }
 
-    console.log(query);
-
     // Run query and render, or just render
     if (query != '') {
       db.any(query)

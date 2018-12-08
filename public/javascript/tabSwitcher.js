@@ -19,6 +19,9 @@ $("document").ready(function() {
     if (urlParams.has('remove_user') || urlParams.has('sort_user')) {
         setTimeout(document.getElementById('userButton').click(),10);
 	}
+	else if (urlParams.has('sort_message')) {
+		setTimeout(document.getElementById('messageOpen').click(),10);
+	}
 	else {
 		setTimeout(document.getElementById('defaultOpen').click(),10);
 	}

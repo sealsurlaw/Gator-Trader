@@ -26,7 +26,7 @@ router.get('/' ,function(req, res) {
         let count = 0;
         for (let j = 0; j < items.length; ++j) {
           let item = items[j];
-          if (item.category_id == catID) {
+          if (item.category_id == catID && item.item_status == 'Approved') {
             itemArray[i].items.push(item);
             count++;
           }
