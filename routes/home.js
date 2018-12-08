@@ -2,20 +2,44 @@ var express = require("express");
 var router = express.Router();
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
-var queryText = 'SELECT item_image_thumbnail FROM item WHERE category_id=1';
-
-var tempQuery = 'SELECT item_image_thumbnail, category_id FROM item ORDER BY category_id';
 
 router.get('/' ,function(req, res) {
 
-  console.log("Hi");
-  db.query(queryText)
-  .then(data => {
-    console.log(data.length);
-    render(req,res,'home','HOME PAGE', 'home',{data:data});
+  db.any(`SELECT * FROM category`)
+  .then( categories => {
+
+    let categoryIDs = [];
+
+    categories.forEach( category => {
+      categoryIDs.push({id: category.category_id, name: category.category_name});
+    });
+
+    db.any(`SELECT * FROM item ORDER BY category_id ASC, item_date DESC`)
+    .then( items => {
+
+      let itemArray = [];
+
+      for (let i = 0; i < categoryIDs.length; ++i) {
+        let catID = categoryIDs[i].id;
+        itemArray[i] = {};
+        itemArray[i].items = [];
+        let count = 0;
+        for (let j = 0; j < items.length; ++j) {
+          let item = items[j];
+          if (item.category_id == catID) {
+            itemArray[i].items.push(item);
+            count++;
+          }
+          if (count >= 4 || item.category_id > catID) {
+            count = 0;
+            break;
+          }
+        };
+        itemArray[i].category_name = categoryIDs[i].name;
+      };
+      render(req, res, 'home', 'HOME PAGE', 'home', {data: itemArray});
+    }) 
   })
-  .catch( (e) => {
-      res.render('error');
-  });
 });
+
 module.exports = router;

@@ -6,46 +6,42 @@
     <!-- static image column w/ about section-->
     <div class="col-sm-9 static-column">
 
-    <br>
-    
-    <div class ="paragraph">
+      <br>
 
-    <h2><center>About This Site</center></h2>
-    <p>GatorTrader website is a platform for San Francisco State University students to sell their unused items, old class materials, etc. as well as buy essential items at a cheaper rate compared to the market price.The basic objective of developing this website is to help students build relationships within the community, save their money, and time. Moreover, this website builds direct communication between seller and buyer. This unique approach will eliminate long wait times and no shipping costs would be involved.</p>
-    </div>
+      <div class="paragraph">
 
-    <!-- Image Rows -->
-    
-    <div class="category"><center><h4>Books</h4></center>  
-    <div class="img-set">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-    </div>
-  </div>
+        <h2>
+          <center>About This Site</center>
+        </h2>
+        <p>GatorTrader website is a platform for San Francisco State University students to sell their unused items,
+          old class materials, etc. as well as buy essential items at a cheaper rate compared to the market price.The
+          basic objective of developing this website is to help students build relationships within the community, save
+          their money, and time. Moreover, this website builds direct communication between seller and buyer. This
+          unique approach will eliminate long wait times and no shipping costs would be involved.</p>
+      </div>
 
-    <div class="category"><center><h4>Clothes</h4></center>  
-    <div class="img-set">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-    </div></div>
+      <!-- Image Rows -->
 
-    <div class="category"><center><h4>Electronics</h4></center>  
-    <div class="img-set">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-    </div></div>
-
-    <div class="category"><center><h4>Games</h4></center>
-    <div class="img-set">
-      <img src="https://placehold.it/100x100?text=IMAGE" class="img-responsive "  alt="Image"> 
-    </div></div>
-
+      {{#each data}}
+      {{#if this.items}}
+      <div class="category">
+        <center>
+          <h4>{{this.category_name}}</h4>
+        </center>
+        <div class="row justify-content-around img-set">
+          {{#each this.items}}
+          <div class="col-3">
+          <a target="_blank" href="/item/{{this.item_id}}"><img src="{{this.item_image_thumbnail}}" class="img-repsonsive"
+              alt="Image"></a>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
 
     </div> <!-- end static image column -->
-    
+
     <!-- home sidebar -->
     {{>sidebar}}
 
@@ -53,6 +49,3 @@
   </div> <!-- end row div class -->
 
 </div> <!-- end of static image column -->
-
-
-    
