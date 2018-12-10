@@ -1,8 +1,16 @@
+/*
+* The function of this .js file is to direct a registered user to their
+* personal dashboard where they can view the approved items they have
+* posted for sale. The user can also check messages from other users
+* who are interested in buying their product.
+*/
+
 var express = require("express");
 var router = express.Router();
 var db = require('../db');
-var render = require("../models/loginCheck").renderUserAndCategory;
+var render = require("../models/loginCheck").renderUserAndCategory; //require the user to be a registered user
 
+//Route to the dashboard if logged in else route to the login page
 router.get('/', function(req, res, next) {
   if (!req.session.user_id) {
     req.session.nextPage = '/dashboard';
@@ -10,6 +18,8 @@ router.get('/', function(req, res, next) {
     return;
   }
 
+//Get user_id from cookies of the user logged in
+//Then fetch their data from the database
   db.any(`SELECT * FROM item WHERE user_id =` + req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
@@ -23,7 +33,7 @@ router.get('/', function(req, res, next) {
       });
     });
 
-    // Messages
+    //Get messages sent to this user 
     if (data.length > 0) {
       var where = ' WHERE ';
       data.forEach(element => {
