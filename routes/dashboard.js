@@ -1,5 +1,5 @@
 /*
-* The function of this .js file is to direct a registered user to their
+* The purpose of this .js file is to direct a registered user to their
 * personal dashboard where they can view the approved items they have
 * posted for sale. The user can also check messages from other users
 * who are interested in buying their product.
@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
       });
     });
 
-    //Get messages sent to this user 
+    //Get messages sent to this user
     if (data.length > 0) {
       var where = ' WHERE ';
       data.forEach(element => {

@@ -1,3 +1,10 @@
+/*
+* The purpose of this .js file is to route to the About Us page.
+* This page consists of links to individual developers on this project
+* which then routes to their own about page.
+* This function doesn't require a user to be logged in.
+*/
+
 var express = require('express');
 var router = express.Router();
 var render = require('../models/loginCheck').renderUserAndCategory;
