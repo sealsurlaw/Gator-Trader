@@ -1,3 +1,11 @@
+/*
+* The purpose of this .js file is to allow registered users to post an item for sale after login.
+* Unregistered users will be prompted to register on the website.
+* Users will fill out a form and the data from there will be stored in the database
+* under the user_id of the user logged in.
+* The user is also required to upload a picture which is then cropped and resized using imagemagick.
+*/
+
 var express = require("express");
 var router = express.Router();
 var db = require('../db');
