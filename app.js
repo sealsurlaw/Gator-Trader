@@ -1,3 +1,7 @@
+/*
+* This is where all the routes are stored and directed to.
+*/
+
 if(process.env.NODE_ENV === 'development') {
 require("dotenv").config();
 }
