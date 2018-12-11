@@ -1,3 +1,9 @@
+/*
+* This file was for the vertical prototype and to get out website up
+* and running the first time. This page had the search bar and search
+* by category functionalities. 
+*/
+
 var express = require("express");
 var pgp = require('pg-promise');
 var url = require('url');
