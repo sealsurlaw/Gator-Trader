@@ -14,7 +14,7 @@
 		<div class="item-list tab-content" id="Items">
 			<div class="filters"> {{data.items.length}} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle"
 					 type="button" id="filters-menu" data-toggle="dropdown">
-						Filter by <span class="caret"></span>
+						Sort by <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
 						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=DESC">Newest First</a></li>
@@ -92,11 +92,12 @@
 		<div id="Messages" class="tab-content">
 			<div class="message-list ">
 				<div class="filters">{{data.messages.length}} Total Messages<span class="dropdown filter-dropdown">
-						<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+						<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Sort by
 							<span class="caret"></span></button>
 						<ul class="dropdown-menu">
 							<li><a href="/dashboard?sort_message=message_date&type=DESC">Newest Message</a></li>
 							<li><a href="/dashboard?sort_message=message_date&type=ASC">Oldest Message</a></li>
+							<li><a href="/dashboard?sort_message=item_title&type=ASC">Item Name</a></li>
 						</ul>
 					</span>
 				</div>
