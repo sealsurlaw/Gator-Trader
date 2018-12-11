@@ -61,17 +61,19 @@ router.get('/', function(req, res, next){
 //Render Function Starts here
 var renderAdmin = function(req, res, filter){
   var sortUsers = '';
-  var sortItems = '';
+  var sortItems = ` ORDER BY item_status DESC`;
 
   if (filter.items) {
-    sortItems = ' ORDER BY '+filter.items+' '+filter.type;
+    sortItems += ', '+filter.items+' '+filter.type;
   }
   if (filter.users) {
     sortUsers = ' ORDER BY '+filter.users+' '+filter.type;
   }
 
+  console.log(sortItems);
+
   // Get all the pending items
-  db.any(`SELECT * FROM item`+sortItems+` ORDER BY item_status DESC`)
+  db.any(`SELECT * FROM item`+sortItems)
   .then( pendingItems => db.any('SELECT * FROM category')
   .then (cats => {
 
