@@ -1,3 +1,11 @@
+/*
+* This .js allows users to register on the website. The users are required to
+* fill out a form where they input their email id, username and password.
+* This will be stored in the database under the user_id of the user.
+* This is also where the password is hashed and stored in the database
+* only after hashing.
+*/
+
 var express = require("express");
 var pgp = require('pg-promise');
 var url = require('url');
@@ -19,8 +27,10 @@ router.post('/', function(req, res, next) {
   //Form Parsing takes place here
   form.parse(req,function(err,fields,files){
 
+    //Hash the password here
   var hashedPassword = pswdHash.generate(fields.password);
 
+  //Query to store data into the database
   db.any(
           `INSERT INTO user_record(
             user_name,
@@ -37,6 +47,7 @@ router.post('/', function(req, res, next) {
             )`
           )
   .then( function() {
+    //route to login page for registered user to log in
     res.redirect('./login');
   })
   .catch( e => {

@@ -1,3 +1,10 @@
+/*
+* This .js file allows users to search for items on the website.
+* The users can search by entering text into the search bar or by using
+* the dropdown of categories available. If the search bar is left empty
+* then all the items will be displayed.
+*/
+
 var express = require("express");
 var url = require('url');
 var router = express.Router();
@@ -6,8 +13,8 @@ var render = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
-    var search = q.search;
-    var browse = q.browse;
+    var search = q.search;  //search by search bar input
+    var browse = q.browse;  //search by category
 
     if (browse == -1) {
         search = '';
@@ -25,8 +32,9 @@ router.get('/', function(req, res, next) {
         where = ' WHERE category_id=' + browse;
     }
 
+    //Get item and category from the database
     db.any(`SELECT * FROM category`)
-    .then( cat => 
+    .then( cat =>
     db.any(`SELECT * FROM item` + where)
     .then( data => {
         data.search = search;
