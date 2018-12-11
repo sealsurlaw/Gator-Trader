@@ -49,6 +49,7 @@
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
               <li><a href="/search?browse=-1">All Categories</a></li>
+              <hr style="margin: 4px; padding: 0;">
             {{#each categories}}
             <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
             {{/each}}
