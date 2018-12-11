@@ -37,6 +37,7 @@
 							<th >Price</th>
 							<th >Date</th>
 							<th >Description</th>
+							<th>Status</th>
 							
 						</tr>
 					</thread>
@@ -67,7 +68,13 @@
 						<td >
 							<div class="item-description ">{{{this.item_description}}}</div>
 						</td>
+
+						<td>
+							<div class=" ">{{{this.item_status}}}</div>
+						</td>
 						
+						{{#if this.pending}}
+
 						<td>
 							<button type="button" onclick ="location.href='/admin?approve_item={{this.item_id}}'" class="btn item-approval-btn">
 								APPROVE<br/>ITEM
@@ -80,6 +87,17 @@
 							</button>
 
 						</td>
+
+						{{else}}
+
+						<td colspan="2">
+							<button type="button" onclick ="location.href='/admin?remove_item={{this.item_id}}'" class="btn item-denial-btn">
+								REMOVE<br/>ITEM
+							</button>
+
+						</td>
+
+						{{/if}}
 					</tr>
 					{{/each}}
 					{{/if}}

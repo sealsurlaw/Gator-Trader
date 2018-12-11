@@ -71,7 +71,7 @@ var renderAdmin = function(req, res, filter){
   }
 
   // Get all the pending items
-  db.any(`SELECT * FROM item WHERE item_status = 'Pending'`+sortItems)
+  db.any(`SELECT * FROM item`+sortItems+` ORDER BY item_status DESC`)
   .then( pendingItems => db.any('SELECT * FROM category')
   .then (cats => {
 
@@ -81,6 +81,8 @@ var renderAdmin = function(req, res, filter){
 
     // Attach categories to each item
     data.items.forEach(item => {
+      if (item.item_status == 'Pending')
+        item.pending = true;
       item.item_date = formatDate(item.item_date);
       cats.forEach(cat =>{
         if (item.category_id == cat.category_id){
