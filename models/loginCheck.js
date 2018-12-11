@@ -1,3 +1,8 @@
+/*
+* This is where our function is for logging in a user is as well as for checking
+* whether the login credentials are correct.
+*/
+
 var passwordHash = require('password-hash');
 
 var db = require('../db');
