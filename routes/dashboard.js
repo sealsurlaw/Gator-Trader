@@ -63,9 +63,9 @@ var renderDashboard = function(req, res, filter) {
 
     // ITEMS
     data.items.forEach(item => {
-      
+
       item.item_date = formatDate(item.item_date);
-      
+
       cats.forEach(cat => {
         if (item.category_id == cat.category_id) {
           item.item_category = cat.category_name;
@@ -81,9 +81,10 @@ var renderDashboard = function(req, res, filter) {
       sortItems = ' ORDER BY '+filter.items+' '+filter.type;
     }
     if (filter.messages) {
+      console.log("THis is " + filter.messages + filter.type);
       sortMessages = ' ORDER BY '+filter.messages+' '+filter.type;
     }
-    
+
 
     // Messages
     if (data.items.length > 0) {
