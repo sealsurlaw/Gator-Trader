@@ -1,10 +1,19 @@
 var express = require("express");
 var router = express.Router();
+var url = require('url');
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/:id', function(req, res, next) {
     var id = req.params.id;
+    var q = url.parse(req.url, true).query;
+    var open = q.open;
+
+    if (!req.session.user_id && open) {
+        req.session.nextPage = '/item/'+id+'?open=true';
+        res.redirect('/login');
+        return;
+    }
     var user_id = req.session.user_id;
     if (!user_id) user_id = -1;
     db.any(`SELECT * FROM category`)
