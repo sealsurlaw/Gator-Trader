@@ -53,7 +53,19 @@ router.get('/', function(req, res) {
 
 
 var renderDashboard = function(req, res, sorter) {
-  db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id )
+
+  //var sortItems = '';
+  var sortItems = 'ORDER BY item_status DESC';
+  var sortMessages = '';
+
+  if (sorter && sorter.items) {
+    sortItems = ' ORDER BY '+sorter.items+' '+sorter.type;
+  }
+  if (sorter && sorter.messages) {
+    sortMessages = ' ORDER BY '+sorter.messages+' '+sorter.type;
+  }
+
+  db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id + sortItems)
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
 
@@ -72,19 +84,6 @@ var renderDashboard = function(req, res, sorter) {
         }
       });
     });
-
-
-    var sortItems = '';
-    var sortMessages = '';
-
-    if (sorter && sorter.items) {
-      console.log(sorter.items)
-      sortItems = ' ORDER BY '+sorter.items+' '+sorter.type;
-    }
-    if (sorter && sorter.messages) {
-      sortMessages = ' ORDER BY '+sorter.messages+' '+sorter.type;
-    }
-
     // Messages
     if (data.items.length > 0) {
       var where = ' WHERE ';
