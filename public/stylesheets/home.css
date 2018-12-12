@@ -1,11 +1,11 @@
 .static-column {
-  background-color:gray;
+  background-color:white;
 }
 
 .sidenav {
   background-color: lightgrey;
   height: 100%;
-  font-size: 28px; 
+  font-size: 28px;
   padding: 0px 10px;
 }
 
@@ -13,8 +13,6 @@
 .paragraph {
   font-size: 20px;
   text-align: justify;
-  margin-left:5vw;
-  margin-right:5vw;
   border:solid black 1px;
   margin-bottom: 30px;
   padding-left:1vw;
