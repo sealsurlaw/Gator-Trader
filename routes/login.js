@@ -7,7 +7,6 @@ var loginUser = require('../models/loginCheck').loginUser;
 
 //uses post method
 router.post('/', function(req, res, next) {
-    console.log(req.signedCookies);
     var form = new formidable.IncomingForm();
 
     form.parse(req,function(err,fields,files){

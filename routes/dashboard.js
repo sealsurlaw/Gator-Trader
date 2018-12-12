@@ -26,10 +26,10 @@ router.get('/', function(req, res) {
 
   var q = url.parse(req.url, true).query;
   var remove = q.remove;
-  var filters = {}
-  filters.items = q.sort_item;
-  filters.messages = q.sort_message
-  filters.type = q.type;
+  var sorters = {}
+  sorters.items = q.sort_item;
+  sorters.messages = q.sort_message
+  sorters.type = q.type;
 
 
   if (remove && remove.length != 0) {
@@ -45,26 +45,26 @@ router.get('/', function(req, res) {
     });
   }
   else {
-    renderDashboard(req,res,filters);
+    renderDashboard(req,res,sorters);
   }
 
 
 });
 
 
-var renderDashboard = function(req, res, filter) {
+var renderDashboard = function(req, res, sorter) {
 
-  var sortItems = '';
+  var sortItems = 'ORDER BY item_status DESC';
   var sortMessages = '';
 
-  if (filter.items) {
-    sortItems = ' ORDER BY '+filter.items+' '+filter.type;
+  if (sorter && sorter.items) {
+    sortItems = ' ORDER BY '+sorter.items+' '+sorter.type;
   }
-  if (filter.messages) {
-    sortMessages = ' ORDER BY '+filter.messages+' '+filter.type;
+  if (sorter && sorter.messages) {
+    sortMessages = ' ORDER BY '+sorter.messages+' '+sorter.type;
   }
 
-  db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id + sortItems )
+  db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id + sortItems)
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
 
@@ -83,11 +83,6 @@ var renderDashboard = function(req, res, filter) {
         }
       });
     });
-
-
-
-
-
     // Messages
     if (data.items.length > 0) {
       var where = ' WHERE ';
