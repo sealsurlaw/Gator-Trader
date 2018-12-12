@@ -26,10 +26,10 @@ router.get('/', function(req, res) {
 
   var q = url.parse(req.url, true).query;
   var remove = q.remove;
-  var filters = {}
-  filters.items = q.sort_item;
-  filters.messages = q.sort_message
-  filters.type = q.type;
+  var sorters = {}
+  sorters.items = q.sort_item;
+  sorters.messages = q.sort_message
+  sorters.type = q.type;
 
 
   if (remove && remove.length != 0) {
@@ -45,14 +45,14 @@ router.get('/', function(req, res) {
     });
   }
   else {
-    renderDashboard(req,res,filters);
+    renderDashboard(req,res,sorters);
   }
 
 
 });
 
 
-var renderDashboard = function(req, res, filter) {
+var renderDashboard = function(req, res, sorter) {
   db.any(`SELECT * FROM item WHERE user_id =`+req.session.user_id )
   .then( data => db.any(`SELECT * from category`)
   .then( cats => {
@@ -77,12 +77,12 @@ var renderDashboard = function(req, res, filter) {
     var sortItems = '';
     var sortMessages = '';
 
-    if (filter.items) {
-      sortItems = ' ORDER BY '+filter.items+' '+filter.type;
+    if (sorter && sorter.items) {
+      sortItems = ' ORDER BY '+sorter.items+' '+sorter.type;
     }
-    if (filter.messages) {
-      console.log("THis is " + filter.messages + filter.type);
-      sortMessages = ' ORDER BY '+filter.messages+' '+filter.type;
+    if (sorter && sorter.messages) {
+      console.log("THis is " + sorter.messages + sorter.type);
+      sortMessages = ' ORDER BY '+sorter.messages+' '+sorter.type;
     }
 
 
