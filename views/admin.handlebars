@@ -38,7 +38,7 @@
 							<th >Date</th>
 							<th >Description</th>
 							<th>Status</th>
-							
+
 						</tr>
 					</thread>
 					<tbody>
@@ -72,7 +72,7 @@
 						<td>
 							<div class=" ">{{{this.item_status}}}</div>
 						</td>
-						
+
 						{{#if this.pending}}
 
 						<td>
@@ -111,7 +111,7 @@
 
 	<div id="Users" class="tab-content user-list">
 		<div class="filters"><span class="">{{data.users.length}} Total Users</span><span class="dropdown filter-dropdown">
-			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+			<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Sort by
 				<span class="caret"></span></button>
 				<ul class="dropdown-menu">
 					<li><a href="/admin?sort_user=user_name&type=ASC">User A-Z</a></li>
@@ -133,19 +133,19 @@
 				<h4>Item: <a href="{{this.item_id}}">{{{this.item_title}}}</a></h4>
 				{{/each}}
 			</div>
-			
+
 			{{else}}
 			<h4 style="padding-left:3em;">This user has no items</h4>
 			{{/if}}
 
-			
+
 			<button class="btn remove-user-btn" onclick="location.href = '/admin?remove_user={{this.user_id}}'">REMOVE USER</button><br/>
 		</div>
 		{{/each}}
 		{{/if}}
 		<!-- end single user -->
 
-		
+
 
 
 
