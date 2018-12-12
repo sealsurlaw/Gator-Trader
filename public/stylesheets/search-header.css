@@ -1,4 +1,6 @@
-
+.header-bar{
+    /*background-color: #290834;*/
+}
 .logo{
   z-index: -1;
   float:left;
@@ -78,4 +80,17 @@
 
 .gator-search-select:hover{
   background-color: green;
+}
+
+.input-group{
+  margin:0;
+  transform: translateX(-5px);
+}
+
+.f-l{
+  float: left;
+}
+
+.f-r{
+  float:right;
 }
