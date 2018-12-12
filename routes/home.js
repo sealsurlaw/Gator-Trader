@@ -36,6 +36,7 @@ router.get('/' ,function(req, res) {
           }
         };
         itemArray[i].category_name = categoryIDs[i].name;
+        itemArray[i].category_id = categoryIDs[i].id;
       };
       render(req, res, 'home', 'HOME PAGE', 'home', {data: itemArray});
     }) 

@@ -36,6 +36,7 @@ router.post('/', function(req,res){
   var form = new formidable.IncomingForm();
   form.parse(req,function(err,fields){
   req.session.nextPage = '/item/' + fields.item_id;
+  fields.text_message = fields.text_message.replace(/'/g, '&apos;');
 
   //DataBase insertion
   db.any(
