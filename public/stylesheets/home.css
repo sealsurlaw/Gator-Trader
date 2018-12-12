@@ -23,9 +23,7 @@
 /* columns with rows contatining images */
 
 .category{
-  margin-top: 50px;
-  border:solid black 1px;
-  padding-bottom: 20px;
+  padding-bottom: 1px;
 }
 
 .img-set{
