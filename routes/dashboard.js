@@ -78,6 +78,7 @@ var renderDashboard = function(req, res, sorter) {
     var sortMessages = '';
 
     if (sorter && sorter.items) {
+      console.log(sorter.items)
       sortItems = ' ORDER BY '+sorter.items+' '+sorter.type;
     }
     if (sorter && sorter.messages) {
