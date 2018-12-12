@@ -3,7 +3,7 @@ var router = express.Router();
 var render = require('../models/loginCheck').renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
-  render(req, res, 'home', 'HOME PAGE', 'home');
+  res.redirect('/home');
 });
 
 router.get('/index', function(req, res, next) {

@@ -45,10 +45,12 @@
 
       <!-- "All" Dropdown -->
       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#FFD363;">{{this.category_name}}
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#FFD363;">
+          {{#if data.category_name}}{{data.category_name}}{{else}}All{{/if}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
               <li><a href="/search?browse=-1">All Categories</a></li>
+              <hr style="margin: 4px; padding: 0;">
             {{#each categories}}
             <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
             {{/each}}

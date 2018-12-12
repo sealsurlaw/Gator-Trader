@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
     var search = q.search;
     var browse = q.browse;
+    var browseCatName = -1;
 
     if (browse == -1) {
         search = '';
@@ -29,6 +30,15 @@ router.get('/', function(req, res, next) {
     .then( cat =>
     db.any(`SELECT * FROM item` + where)
     .then( data => {
+        if (browseCatName) {
+            if (browse != '-1') {
+                browseCatName = browse;
+                cat.forEach(element => {
+                    if (element.category_id == browseCatName) browseCatName = element.category_name; 
+                 });
+                 data.category_name = browseCatName;
+            }
+        }
         data.search = search;
         render(req, res, 'search', 'SEARCH PAGE', 'search', {data: data});
     }));

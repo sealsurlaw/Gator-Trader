@@ -3,7 +3,7 @@
   height: 100%;
   background-color: white;
   text-align: center;
-  
+
 }
 
 .sidebar-box{
@@ -19,6 +19,6 @@
 /* campus map image */
 .sidebar-box img{
 	padding:0;
-	width:  20vw;
-	height: 20vw;
+	width:  15vw;
+	height: 15vw;
 }

@@ -12,8 +12,7 @@
 /* paragraph for about this site section */
 .paragraph {
   font-size: 20px;
-  text-align: justify;
-  border:solid black 1px;
+  text-align: center;
   margin-bottom: 30px;
   padding-left:1vw;
   padding-right:1vw;
@@ -24,9 +23,7 @@
 /* columns with rows contatining images */
 
 .category{
-  margin-top: 50px;
-  border:solid black 1px;
-  padding-bottom: 20px;
+  padding-bottom: 1px;
 }
 
 .img-set{

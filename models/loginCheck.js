@@ -22,20 +22,20 @@ function loginUser (req, res, user, fields) {
         db.any(`SELECT * FROM category`)
         .then(cat => {
             console.log("Login failed!");
-            renderUserAndCategory(req, res, 'login', 'LOGIN PAGE', 'login');
+            renderUserAndCategory(req, res, 'login', 'LOGIN PAGE', 'login', {message: "Incorrect email or password"});
         })
     }
 }
 
 function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     if (!options) var options = {};
-    var user_id = getUserIDFromSession(req);
+    var user_id = req.session.user_id;
     var script;
     var data;
     if (options.script) script = options.script;
     if (options.data) data = options.data;
 
-    db.any(`SELECT * FROM category`)
+    db.any(`SELECT * FROM category ORDER BY category_name ASC`)
     .then( cat => {
 
         if (user_id) {
