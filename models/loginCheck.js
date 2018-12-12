@@ -1,4 +1,5 @@
 var passwordHash = require('password-hash');
+var url = require('url');
 
 var db = require('../db');
 
@@ -28,6 +29,9 @@ function loginUser (req, res, user, fields) {
 }
 
 function renderUserAndCategory (req, res, page, title, stylesheet, options) {
+    var q = url.parse(req.url, true).query;
+    var category = q.category;
+
     if (!options) var options = {};
     var user_id = getUserIDFromSession(req);
     var script;
@@ -37,6 +41,10 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
 
     db.any(`SELECT * FROM category`)
     .then( cat => {
+        if (category == -1 || !category) cat.all = true;
+        cat.forEach(element => {
+            if (element.category_id == category) element.selected = true;
+        });
 
         if (user_id) {
             db.any(`SELECT user_name, admin_right FROM user_record WHERE user_id=` + user_id)

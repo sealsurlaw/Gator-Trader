@@ -52,10 +52,10 @@
         <div class="container search-bar">
           <!-- Category Dropdown -->
           <form action="/search" class="form-inline">
-            <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category">
-              <option value="-1" selected >All</option>
+            <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
+              <option value="-1" {{#if categories.selected}}selected{{/if}}>All</option>
               {{#each categories}}
-              <option value="{{this.category_id}}">{{this.category_name}}</option>
+              <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
               {{/each}}
             </select>
             <div class="input-group">
