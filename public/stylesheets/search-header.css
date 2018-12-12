@@ -1,37 +1,46 @@
 
+.logo{
+  z-index: -1;
+  float:left;
+  background-color: yellow;
+  text-decoration:none;
+  color:black;
+}
+
   /* Remove the navbar's default margin-bottom and rounded borders */ 
-  .navbar {
+  .gator-navbar {
     margin-bottom: 0;
     border-radius: 0;
     background-color: #290834;
+    padding-left:20px;
   }
 
 
    /* Navigation Bar Categories Centered*/
-  .navbar-center {
+  /*.navbar-center {
     position: absolute;
     left: 50%;
     transform: translatex(-50%);
-  }
+  }*/
 
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {
+  /*.row.content {
     height: 1500px;
-  }
+  }*/
 
   /* dropdown "ALL"*/
-  .navbar .dropdown {
+  .gator-header-dropdown {
     margin-left: 266px;
     margin-top: -81px;
     margin-bottom: 30px;
+    display:inline;
   }
 
   /* Search Bar */
-  .navbar .container {
-    margin-top:-64px;
-    margin-left:300px;
-    margin-bottom:30px;
-    width:50vw;
+  .search-bar {
+    margin:auto;
+    width:auto;
+    display:inline;
   }
 
   .navbar-right {
@@ -46,4 +55,27 @@
 }
 .navbar-inverse{
   border:none;
+}
+
+.gator-search-select::-ms-expand {
+    display: none;
+}
+
+.gator-search-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    margin:0;
+    background-color:#FFD363;
+    color:black;
+}
+
+.gator-search-select:hover{
+  background-color:#FFD363;
+  color:black;
+}
+
+.gator-search-select:hover{
+  background-color: green;
 }

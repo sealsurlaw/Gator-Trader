@@ -1,19 +1,24 @@
+<div class="header-bar">
+  <div class="logo" >
+    <a href="/home" ><h1><br>Gator Trader</h1></a>
+  </div>
 
-<!-- Login / Register Buttons NavBar -->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+  <!-- Login / Register / Dahsboard Buttons NavBar -->
+  <nav class="navbar navbar-inverse gator-navbar" style="background-color:red">
 
-      <div class="collapse navbar-collapse" id="myNavbar">
+    <!-- Name / Logo -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="float:left;">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          {{#if username}}
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        {{#if username}}
         <ul class="nav navbar-nav navbar-right">
           <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
           <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
@@ -22,43 +27,35 @@
           <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
           {{/if}}
         </ul>
-          {{else}}
+        {{else}}
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
-          {{/if}}
-        </u>
-      </div>
+        {{/if}}
+      </ul>
     </div>
   </nav>
 
-<!-- Gator Trader / Search Bar -->
-<nav class="navbar navbar-inverse">
+  <!-- Gator Trader / Search Bar -->
+  <nav class="navbar navbar-inverse gator-navbar">
 
-  <div class="container-fluid">
     <div class="navbar-header">
 
-      <!-- Name / Logo -->
 
-      <a href="/home" style="text-decoration:none;"><h1 style="color:#fff;"><br>Gator Trader</h1></a>
 
-      <!-- "All" Dropdown -->
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#FFD363;">All
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-              <li><a href="/search?browse=-1">All Categories</a></li>
-            {{#each categories}}
-            <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
 
-        <!-- Search Bar -->
+      <!-- Search Bar -->
 
-        <div class="container">
-          <form action="/search">
+      <div class="container search-bar">
+        <!-- Category Dropdown -->
+          <form action="/search" class="form-inline">
+            <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category">
+              <option value="-1" selected >All</option>
+              {{#each categories}}
+              <option value="{{this.category_id}}">{{this.category_name}}</option>
+              {{/each}}
+            </select>
             <div class="input-group">
               <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
               <!-- Search Bar Button -->
@@ -68,28 +65,28 @@
             </div>
           </form>
         </div>
-        {{!-- {{/if}} --}}
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Navigation Bar w/ Categories -->
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <!-- Navigation Bar w/ Categories -->
+    <nav class="navbar navbar-inverse gator-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2" style="float:left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar2">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
+            <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
-      <div class="collapse navbar-collapse" id="myNavbar2">
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
-          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  </div>
