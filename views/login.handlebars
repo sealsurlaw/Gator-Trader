@@ -3,7 +3,9 @@
 <div class="cont">
     <h2 class="centered">Log In</h2>
     {{#if message}}
-    {{message}}
+    <div class="LoginFail centered">
+            {{message}}
+    </div>
     {{/if}}
     <form action="/login" method="POST" enctype="multipart/form-data">
         <div class="row center-block ">

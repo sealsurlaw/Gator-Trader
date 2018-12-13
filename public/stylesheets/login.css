@@ -3,6 +3,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .cont{
     width: 75%;
     margin: auto;
+    margin-bottom: 5%;
     color: black;
     background-color: lightgray;
     border: 5px solid black;
@@ -19,8 +20,15 @@ justify-content: center;
   .fontSpacing{
     margin-right: 5%;
   }
+  .LoginFail{
+  padding: 20px;
+  margin: 2% 23% 2% 23%;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  font-size: 175%;
+  }
 @media (max-width: 575.98px) { 
-
     .screenResize{
       display: block;
       justify-content: left;
