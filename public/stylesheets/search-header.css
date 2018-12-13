@@ -1,53 +1,70 @@
+@import "compas/css3";
 .header-bar{
-    /*background-color: #290834;*/
+  background-color: #290834;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
 }
 .logo{
-  z-index: -1;
-  float:left;
-  background-color: yellow;
-  text-decoration:none;
-  color:black;
+  /*position: relative;*/
+  z-index: 1;
+  order:1;
 }
 
-  /* Remove the navbar's default margin-bottom and rounded borders */ 
-  .gator-navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-    background-color: #290834;
-    padding-left:20px;
-  }
+.logo img{
+  margin:10px;
+}
 
+.non-logo{
+  float:right;
+  width:80%;
+  order:2;
+}
 
-   /* Navigation Bar Categories Centered*/
-  /*.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-  }*/
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.gator-navbar {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-right:20px;
+  margin-left:5px;
 
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  /*.row.content {
-    height: 1500px;
-  }*/
+  padding-left:20px;
 
-  /* dropdown "ALL"*/
-  .gator-header-dropdown {
-    margin-left: 266px;
-    margin-top: -81px;
-    margin-bottom: 30px;
-    display:inline;
-  }
+  background-color: #290834;  
+  font-size:20px;
+  border:none;
+}
 
-  /* Search Bar */
-  .search-bar {
-    margin:auto;
-    width:auto;
-    display:inline;
-  }
+.gator-btns {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-right:5px;
+  margin-left:5px;
 
-  .navbar-right {
-    font-size:21px;
-  }
+  background-color: #290834;  
+  font-size:20px;
+  border:none;
+
+  float:right;
+}
+
+.search-input{
+  width:60%;
+}
+
+/* dropdown "ALL"*/
+.gator-header-dropdown {
+  margin: 30px;
+  display:inline;
+}
 
 .orange-nav-btn{
   background-color:#FFD363;
@@ -55,22 +72,19 @@
   margin:5px;
   width:150px;
 }
-.navbar-inverse{
-  border:none;
-}
 
 .gator-search-select::-ms-expand {
-    display: none;
+  display: none;
 }
 
 .gator-search-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    text-overflow: '';
-    margin:0;
-    background-color:#FFD363;
-    color:black;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  margin:0;
+  background-color:#FFD363;
+  color:black;
 }
 
 .gator-search-select:hover{
@@ -83,7 +97,7 @@
 }
 
 .input-group{
-  margin:0;
+  margin:0px;
   transform: translateX(-5px);
 }
 
@@ -93,4 +107,22 @@
 
 .f-r{
   float:right;
+}
+
+.red{
+  border:solid red 2px;
+}
+
+.yellow{
+  border:solid yellow 2px;
+}
+
+.green{
+  border:solid green 2px;
+}
+
+@media all and (max-width: 760px){
+  .gator-btns{float:left;}
+  .green{background-color: green;}
+  .logo{display: block;}
 }

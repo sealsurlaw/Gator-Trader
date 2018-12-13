@@ -215,7 +215,7 @@
 }
 
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     .message-list{float:initial;}
     .item-list{width:auto;}
 }

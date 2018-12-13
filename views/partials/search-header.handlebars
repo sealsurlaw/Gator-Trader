@@ -1,64 +1,61 @@
-<div class="header-bar row">
-  <div class="logo col-sm-2" >
+<ul class="header-bar flex-container">
+  <li class="logo flex-item green" >
     <img src="/images/gator2.png"/>
-  </div>
+  </li>
 
   <!-- Login / Register / Dahsboard Buttons NavBar -->
-  <div class="col-sm-12">
-    <nav class="navbar navbar-inverse gator-navbar">
+  <li class="non-logo flex-item red">
+    <ul class="flex-container">
+      <li class="flex-item">
+        <nav class="navbar navbar-inverse gator-navbar">
 
-      <!-- <div class="navbar-header login-btns">
-        <button type="button" class="navbar-toggle f-l" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div> -->
+          <div class="navbar-header login-btns">
+            <button type="button" class="navbar-toggle f-l" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-      <div class="collapse navbar-collapse" id="myNavbar">
-
-        <ul class="nav navbar-nav navbar-right">
-          {{#if username}}
-          <ul class="nav navbar-nav navbar-right">
-            <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
-            <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-            <li><a href="/dashboard"><span class="glyphicon glyphicon-tags"></span> My Dashboard</a></li>
-            {{#if isAdmin}}
-            <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            {{#if username}}
+            <ul class="nav navbar-nav navbar-right">
+              <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
+              <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+              <li><a href="/dashboard"><span class="glyphicon glyphicon-tags"></span> My Dashboard</a></li>
+              {{#if isAdmin}}
+              <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
+              {{/if}}
+            </ul>
+            {{else}}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
             {{/if}}
-          </ul>
-          {{else}}
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
-          {{/if}}
-        </ul>
-      </div>
-    </nav>
-  </div>
+          </div>
 
-  <!-- Gator Trader / Search Bar -->
-  <div class="col-sm-10">
-    <nav class="navbar navbar-inverse gator-navbar">
-
-      <div class="navbar-header">
+        </nav>
+      </li>
+      <li class="flex-item">
+        
 
 
+        <!-- Gator Trader / Search Bar -->
+        
 
+          <!-- Search Bar -->
 
-        <!-- Search Bar -->
-
-        <div class="container search-bar">
-          <!-- Category Dropdown -->
           <form action="/search" class="form-inline">
+            <!-- Category Dropdown -->
             <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
               <option value="-1" {{#if categories.selected}}selected{{/if}}>All</option>
               {{#each categories}}
               <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
               {{/each}}
             </select>
-            <div class="input-group">
+            <!-- search bar input -->
+            <div class="input-group search-input">
               <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
               <!-- Search Bar Button -->
               <div class="input-group-btn">
@@ -66,32 +63,24 @@
               </div>
             </div>
           </form>
-        </div>
-      </div>
-    </nav>
-  </div>
+        
+      </li>
+      <li class="flex-item">
 
-  <!-- Navigation Bar w/ Categories -->
-  <div class="col-sm-10 f-r">
-    <nav class="navbar navbar-inverse gator-navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle f-l" data-toggle="collapse" data-target="#myNavbar2">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
+        <!-- Navigation Bar w/ Categories -->
+          <nav class="navbar navbar-inverse gator-btns">
+            <div class="container-fluid">
+        
 
-        <div class="collapse navbar-collapse" id="myNavbar2">
-
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav">
             <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
             <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
           </ul>
         </div>
-      </div>
-    </nav>
-  </div>
+        
+      </nav>
+  </li>
+</ul>
+</li>
 
-</div>
+</ul>
