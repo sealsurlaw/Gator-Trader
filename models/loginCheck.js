@@ -36,8 +36,12 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     var user_id = req.session.user_id;
     var script;
     var data;
+    var message;
+
     if (options.script) script = options.script;
     if (options.data) data = options.data;
+    if (options.message) message = options.message;
+    console.log(message);
 
     db.any(`SELECT * FROM category ORDER BY category_name ASC`)
     .then( cat => {
@@ -49,7 +53,7 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
         if (user_id) {
             db.any(`SELECT user_name, admin_right FROM user_record WHERE user_id=` + user_id)
             .then( user => {
-                var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, isAdmin: user[0].admin_right, username: user[0].user_name, data: data};
+                var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, message: message, isAdmin: user[0].admin_right, username: user[0].user_name, data: data};
                 res.render(page, ops);
             })
             .catch( err => {
@@ -58,7 +62,7 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
             });
         }
         else {
-            var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, data: data};
+            var ops = {title: title, stylesheet: stylesheet, script: script, message: message, categories: cat, data: data};
             res.render(page, ops);
         }
 
