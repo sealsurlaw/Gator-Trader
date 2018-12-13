@@ -1,10 +1,10 @@
 <ul class="header-bar flex-container">
-  <li class="logo flex-item green" >
-    <img src="/images/gator2.png"/>
+  <li class="logo flex-item" >
+    <a href="/home"><img src="/images/gator3.png"/></a>
   </li>
 
   <!-- Login / Register / Dahsboard Buttons NavBar -->
-  <li class="non-logo flex-item red">
+  <li class="non-logo flex-item">
     <ul class="flex-container">
       <li class="flex-item">
         <nav class="navbar navbar-inverse gator-navbar">
@@ -38,49 +38,49 @@
         </nav>
       </li>
       <li class="flex-item">
-        
+
 
 
         <!-- Gator Trader / Search Bar -->
         
 
-          <!-- Search Bar -->
+        <!-- Search Bar -->
 
-          <form action="/search" class="form-inline">
-            <!-- Category Dropdown -->
-            <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
-              <option value="-1" {{#if categories.selected}}selected{{/if}}>All</option>
-              {{#each categories}}
-              <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
-              {{/each}}
-            </select>
-            <!-- search bar input -->
-            <div class="input-group search-input">
-              <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
-              <!-- Search Bar Button -->
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
+        <form action="/search" class="form-inline">
+          <!-- Category Dropdown -->
+          <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
+            <option value="-1" {{#if categories.selected}}selected{{/if}}>All</option>
+            {{#each categories}}
+            <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
+            {{/each}}
+          </select>
+          <!-- search bar input -->
+          <div class="input-group search-input">
+            <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
+            <!-- Search Bar Button -->
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
-          </form>
+          </div>
+        </form>
         
       </li>
       <li class="flex-item">
 
         <!-- Navigation Bar w/ Categories -->
-          <nav class="navbar navbar-inverse gator-btns">
-            <div class="container-fluid">
-        
+        <nav class="navbar navbar-inverse gator-btns">
+          <div class="container-fluid">
 
-          <ul class="nav navbar-nav">
-            <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
-            <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
-          </ul>
-        </div>
-        
-      </nav>
+
+            <ul class="nav navbar-nav">
+              <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
+              <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
+            </ul>
+          </div>
+
+        </nav>
+      </li>
+    </ul>
   </li>
-</ul>
-</li>
 
 </ul>

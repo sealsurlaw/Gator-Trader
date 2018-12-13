@@ -1,32 +1,10 @@
 
 {{#if data}}
 <!-- Navigation Bar w/ Dropdowns -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <a href="#" style="text-decoration:none;"><h5 style="color:#fff; font-size:150%;">Showing {{data.length}} of {{data.length}} results</h5></a>
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-
-        {{!-- <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
-          <span class="caret"></span></button>
-        </div> --}}
-
-      </ul>
-    </div>
+  <div class="container-fluid results">
+        Showing {{data.length}} results
   </div>
-</nav>
-
 {{/if}}
 
 

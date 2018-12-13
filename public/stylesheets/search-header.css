@@ -12,6 +12,8 @@
   display: flex;
   
   -webkit-flex-flow: row wrap;
+
+  justify-content: space-between;
 }
 .logo{
   /*position: relative;*/
@@ -20,12 +22,13 @@
 }
 
 .logo img{
-  margin:10px;
+  margin:20px;
+  width:200px;
 }
 
 .non-logo{
-  float:right;
-  width:80%;
+  padding-top:20px;
+  width:70%;
   order:2;
 }
 
@@ -33,10 +36,6 @@
 .gator-navbar {
   margin-bottom: 20px;
   margin-top: 5px;
-  margin-right:20px;
-  margin-left:5px;
-
-  padding-left:20px;
 
   background-color: #290834;  
   font-size:20px;
@@ -46,8 +45,6 @@
 .gator-btns {
   margin-bottom: 20px;
   margin-top: 20px;
-  margin-right:5px;
-  margin-left:5px;
 
   background-color: #290834;  
   font-size:20px;
@@ -101,28 +98,17 @@
   transform: translateX(-5px);
 }
 
-.f-l{
-  float: left;
-}
 
-.f-r{
-  float:right;
-}
-
-.red{
-  border:solid red 2px;
-}
-
-.yellow{
-  border:solid yellow 2px;
-}
-
-.green{
-  border:solid green 2px;
-}
-
-@media all and (max-width: 760px){
+@media all and (max-width: 800px){
   .gator-btns{float:left;}
-  .green{background-color: green;}
-  .logo{display: block;}
+  
+  .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .input-group{transform: translateX(0px);}
+
+  .orange-nav-btn{margin-left:0;}
 }
