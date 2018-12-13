@@ -1,42 +1,67 @@
+@import "compas/css3";
+.header-bar{
+  background-color: #290834;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
 
-  /* Remove the navbar's default margin-bottom and rounded borders */ 
-  .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-    background-color: #290834;
-  }
+  justify-content: space-between;
+}
+.logo{
+  /*position: relative;*/
+  z-index: 1;
+  order:1;
+}
 
+.logo img{
+  margin:20px;
+  width:200px;
+}
 
-   /* Navigation Bar Categories Centered*/
-  .navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-  }
+.non-logo{
+  padding-top:20px;
+  width:70%;
+  order:2;
+}
 
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {
-    height: 1500px;
-  }
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.gator-navbar {
+  margin-bottom: 20px;
+  margin-top: 5px;
 
-  /* dropdown "ALL"*/
-  .navbar .dropdown {
-    margin-left: 266px;
-    margin-top: -81px;
-    margin-bottom: 30px;
-  }
+  background-color: #290834;  
+  font-size:20px;
+  border:none;
+}
 
-  /* Search Bar */
-  .navbar .container {
-    margin-top:-64px;
-    margin-left:350px;
-    margin-bottom:30px;
-    width:50vw;
-  }
+.gator-btns {
+  margin-bottom: 20px;
+  margin-top: 20px;
 
-  .navbar-right {
-    font-size:21px;
-  }
+  background-color: #290834;  
+  font-size:20px;
+  border:none;
+
+  float:right;
+}
+
+.search-input{
+  width:60%;
+}
+
+/* dropdown "ALL"*/
+.gator-header-dropdown {
+  margin: 30px;
+  display:inline;
+}
 
 .orange-nav-btn{
   background-color:#FFD363;
@@ -44,6 +69,46 @@
   margin:5px;
   width:150px;
 }
-.navbar-inverse{
-  border:none;
+
+.gator-search-select::-ms-expand {
+  display: none;
+}
+
+.gator-search-select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  margin:0;
+  background-color:#FFD363;
+  color:black;
+}
+
+.gator-search-select:hover{
+  background-color:#FFD363;
+  color:black;
+}
+
+.gator-search-select:hover{
+  background-color: green;
+}
+
+.input-group{
+  margin:0px;
+  transform: translateX(-5px);
+}
+
+
+@media all and (max-width: 800px){
+  .gator-btns{float:left;}
+  
+  .logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .input-group{transform: translateX(0px);}
+
+  .orange-nav-btn{margin-left:0;}
 }

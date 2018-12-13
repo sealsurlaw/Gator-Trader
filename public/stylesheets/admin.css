@@ -3,25 +3,25 @@
 	display: inline-block;
 	float: left;
 }
-.header{
-	color:white;
-	background-color: grey;
-	height: 150px;
-	padding-top:20px;
-}
 .search-bar{
 	width:300px;
 	padding-top:20px;
 	float:center;
 }
 .page-title{
-	background-color: lightgrey;
+	background-color: green;
+	color:white;
 	margin:20px;
 	padding-left:10%;
 	width:auto;
 }
 .filters{
-	background-color: grey;
+	background-color: #290834;
+	
+	color:white;
+	font-size: 20px;
+	font-weight: bold;
+	
 	padding:15px;
 	height:50px;
 	text-align: center;
@@ -43,9 +43,7 @@
 	margin:20px;
 	padding:0;
 }
-.spacer-cell{
-	width:2%;
-}
+
 .filter-dropdown{
 	position: absolute;
     right:	15vw;
@@ -53,6 +51,9 @@
     padding:0;
     transform: translateY(-5px);
 	
+}
+.filter-dropdown button{
+	background-color: orange;
 }
 .page-title h2{
 	font-weight: bold;
@@ -113,8 +114,6 @@
 	padding-top: 0;
 	padding-bottom:0;
 }
-
-
 
 .dashboard-item-table-wrapper{
 	overflow-x: auto;
@@ -194,7 +193,7 @@
 	width:90px;
 	background-color: lightgreen;
 	border:solid black 1px;
-	color:white;
+	color:black;
 	text-align: center;
 }
 .item-approval-btn:hover{
@@ -205,9 +204,9 @@
 
 .item-denial-btn{
 	width:90px;
-	background-color: pink;
+	background-color: tomato;
 	border:solid black 1px;
-	color:white;
+	color:black;
 	text-align: center;
 }
 .item-denial-btn:hover{
@@ -218,9 +217,9 @@
 
 .remove-user-btn{
 	width:auto;
-	background-color: pink;
+	background-color: tomato;
 	border:solid black 1px;
-	color:white;
+	color:black;
 	text-align: center;
 }
 .remove-user-btn:hover{

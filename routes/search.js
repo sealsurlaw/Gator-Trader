@@ -9,12 +9,9 @@ router.get('/', function(req, res, next) {
     var search = q.search;
     var browse = q.browse;
     var browseCatName = -1;
+    var category = q.category;
 
-    if (browse == -1) {
-        search = '';
-    }
-
-    var where;
+    var where = '';
 
     if (search == '') {
         where = ` WHERE item_status='Approved'`;
@@ -22,8 +19,9 @@ router.get('/', function(req, res, next) {
     else if (search) {
         where = ` WHERE item_status='Approved' AND (item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%')`;
     }
-    else if (browse) {
-        where = ` WHERE item_status='Approved' AND category_id=` + browse;
+
+    if (category && category != -1) {
+        where += ' AND category_id='+category
     }
 
     db.any(`SELECT * FROM category`)

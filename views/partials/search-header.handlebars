@@ -1,97 +1,86 @@
+<ul class="header-bar flex-container">
+  <li class="logo flex-item" >
+    <a href="/home"><img src="/images/gator3.png"/></a>
+  </li>
 
-<!-- Login / Register Buttons NavBar -->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+  <!-- Login / Register / Dahsboard Buttons NavBar -->
+  <li class="non-logo flex-item">
+    <ul class="flex-container">
+      <li class="flex-item">
+        <nav class="navbar navbar-inverse gator-navbar">
 
-      <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="navbar-header login-btns">
+            <button type="button" class="navbar-toggle f-l" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          {{#if username}}
-        <ul class="nav navbar-nav navbar-right">
-          <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
-          <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-          <li><a href="/dashboard"><span class="glyphicon glyphicon-tags"></span> My Dashboard</a></li>
-          {{#if isAdmin}}
-          <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
-          {{/if}}
-        </ul>
-          {{else}}
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-          {{/if}}
-        </u>
-      </div>
-    </div>
-  </nav>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            {{#if username}}
+            <ul class="nav navbar-nav navbar-right">
+              <li><span class="navbar-text"><span class="glyphicon glyphicon-user"></span> Hello, {{username}}</span></li>
+              <li><a href="/clear"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+              <li><a href="/dashboard"><span class="glyphicon glyphicon-tags"></span> My Dashboard</a></li>
+              {{#if isAdmin}}
+              <li><a href="/admin"> <span class="glyphicon glyphicon-th-list"></span> Admin Dashboard</a></li>
+              {{/if}}
+            </ul>
+            {{else}}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            {{/if}}
+          </div>
 
-<!-- Gator Trader / Search Bar -->
-<nav class="navbar navbar-inverse">
+        </nav>
+      </li>
+      <li class="flex-item">
 
-  <div class="container-fluid">
-    <div class="navbar-header">
 
-      <!-- Name / Logo -->
 
-      <a href="/home" style="text-decoration:none;"><h1 style="color:#fff;"><br>Gator Trader</h1></a>
-
-      <!-- "All" Dropdown -->
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:#FFD363;">
-          {{#if data.category_name}}{{data.category_name}}{{else}}All{{/if}}
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-              <li><a href="/search?browse=-1">All Categories</a></li>
-              <hr style="margin: 4px; padding: 0;">
-            {{#each categories}}
-            <li><a href="/search?browse={{this.category_id}}">{{this.category_name}}</a></li>
-            {{/each}}
-          </ul>
-        </div>
+        <!-- Gator Trader / Search Bar -->
+        
 
         <!-- Search Bar -->
 
-        <div class="container">
-          <form action="/search">
-            <div class="input-group">
-              <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
-              <!-- Search Bar Button -->
-              <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
+        <form action="/search" class="form-inline">
+          <!-- Category Dropdown -->
+          <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
+            <option value="-1" {{#if categories.selected}}selected{{/if}}>All</option>
+            {{#each categories}}
+            <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
+            {{/each}}
+          </select>
+          <!-- search bar input -->
+          <div class="input-group search-input">
+            <input type="text" class="form-control" pattern="[A-Za-z0-9\s]+" maxlength="40" placeholder="Search" name="search" value="{{data.search}}">
+            <!-- Search Bar Button -->
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
-          </form>
-        </div>
-        {{!-- {{/if}} --}}
-      </div>
-    </div>
-  </nav>
+          </div>
+        </form>
+        
+      </li>
+      <li class="flex-item">
 
-  <!-- Navigation Bar w/ Categories -->
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+        <!-- Navigation Bar w/ Categories -->
+        <nav class="navbar navbar-inverse gator-btns">
+          <div class="container-fluid">
 
-      <div class="collapse navbar-collapse" id="myNavbar2">
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
-          <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <ul class="nav navbar-nav">
+              <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/index/';">About Us</button></li>
+              <li><button type="button" class="btn btn-primary btn-lg orange-nav-btn" onclick="location.href='/post/';" >Sell An Item</button></li>
+            </ul>
+          </div>
+
+        </nav>
+      </li>
+    </ul>
+  </li>
+
+</ul>

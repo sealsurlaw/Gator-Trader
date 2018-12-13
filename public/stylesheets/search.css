@@ -22,3 +22,17 @@
 	width:  200px;
 	height: 200px;
 }
+
+.results{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:10px;
+	padding-left:20%;
+	
+	background-color: green;
+	
+	color:white;
+	/*text-align: center;*/
+	font-weight: bold;
+	font-size: 20px;
+}
