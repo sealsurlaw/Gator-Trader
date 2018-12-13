@@ -15,6 +15,11 @@
 
   justify-content: space-between;
 }
+
+.flex-container {
+  list-style: none;
+}
+
 .logo{
   /*position: relative;*/
   z-index: 1;
@@ -67,7 +72,7 @@
   background-color:#FFD363;
   color:black;
   margin:5px;
-  width:150px;
+  width:120px;
 }
 
 .gator-search-select::-ms-expand {
