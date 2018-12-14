@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
   .catch( e => {
     console.log('Couldn\'t add user');
     console.log(e);
-    render(req, res, 'register', 'REGISTRATION PAGE', 'register', 'register');
+    render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register', message: "Email or Username already exists"});
     // res.render('register', {title:'REGISTRATION PAGE', stylesheet:'register', message: "Email already exists", categories: cat});
   })
 })

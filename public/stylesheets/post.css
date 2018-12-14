@@ -24,6 +24,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .fontSpacing{
   margin-right: 5%;
 }
+.PostFail{
+  padding: 20px;
+  margin: 2% 23% 2% 23%;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  font-size: 175%;
+  }
 
 @media (max-width: 575.98px) { 
 

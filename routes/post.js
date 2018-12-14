@@ -21,10 +21,10 @@ var imgur = require('imgur');
 //Used to render a page with associated handlebars file.
 var render = require('../models/loginCheck').renderUserAndCategory;
 
-var filename,thumbname;
+var filename, thumbname;
 
 //These variables are needed when callBack functions are called.
-var fields,id;
+var fields, id;
 var response, request;
 
 /**
@@ -37,10 +37,10 @@ var response, request;
 var identifySizeCallback = function (err, features) {
   if (err) throw err;
   console.log("Cropping...")
-  im.convert(['-background', 'white', '-gravity', 'center', 
-  './public/images/user_images/' + filename, '-resize', '200x200', '-extent', '200x200', './public/images/user_images/' + thumbname], 
+  im.convert(['-background', 'white', '-gravity', 'center',
+    './public/images/user_images/' + filename, '-resize', '200x200', '-extent', '200x200', './public/images/user_images/' + thumbname],
     resizeImageCallback)
-  }
+}
 
 /**
  * This function is responsible for uploading image on imgur hosting service.
@@ -51,26 +51,26 @@ var identifySizeCallback = function (err, features) {
  * @return void
  */
 
-var resizeImageCallback = function(err){
+var resizeImageCallback = function (err) {
   if (err) throw err;
   console.log('Resized');
   //Uploading of original file
   imgur.uploadFile('./public/images/user_images/' + filename)
     //returns a json file.
-    .then( (filejson) => {
+    .then((filejson) => {
       //Uploading of thumbnail version of file.
       imgur.uploadFile('./public/images/user_images/' + thumbname)
-      //returns a json file of thumbnail version.
-      .then( thumbjson => {
-        console.log(filejson.data.link);
-        console.log(thumbjson.data.link);
-        console.log(fields.category)
-        //Removes all the '/'' from incoming form.
-        let title = fields.title.replace('&apos');
-        let description = fields.description.replace('&apos');
-        // Insert new item into database
-        db.any(
-          `INSERT INTO item(
+        //returns a json file of thumbnail version.
+        .then(thumbjson => {
+          console.log(filejson.data.link);
+          console.log(thumbjson.data.link);
+          console.log(fields.category)
+          //Removes all the '/'' from incoming form.
+          let title = fields.title.replace('&apos');
+          let description = fields.description.replace('&apos');
+          // Insert new item into database
+          db.any(
+            `INSERT INTO item(
             item_title,
             item_description,
             item_price,
@@ -94,20 +94,21 @@ var resizeImageCallback = function(err){
             '` + thumbjson.data.link + `'
           )
           RETURNING item_id`
-        )
-        // Query returns with data called 'myData'
-        .then(function(myData) {
-          response.redirect('./item/' + myData[0].item_id);
+          )
+            // Query returns with data called 'myData'
+            .then(function (myData) {
+              response.redirect('./item/' + myData[0].item_id);
+            })
+            //If there is an error, it is catched here.
+            .catch(function (err) {
+              console.log(err.message);
+              render(request, response, 'post', 'POST PAGE', 'post', {message: "Something went wrong. Try again."});
+            });
         })
-        //If there is an error, it is catched here.
-        .catch(function(error) {
-          render(request, response, 'post', 'POST PAGE', 'post');
-        });
-      })
     })
     .catch(function (err) {
-        console.error(err.message);
-        render(request,response,'post','ERROR PAGE','error');
+      console.error(err.message);
+      render(request, response, 'post', 'POST PAGE', 'post', {message: "Something went wrong. Try again."});
     });
 }
 
@@ -119,7 +120,7 @@ var resizeImageCallback = function(err){
  * @param res  it is a response to the http
  * @returns void
  */
-router.post('/', function(req, res) {
+router.post('/', function (req, res) {
   id = req.session.user_id;
 
   //response and request
@@ -145,8 +146,8 @@ router.post('/', function(req, res) {
       thumbname = name + '_thumb.png';
     }
     else {
-      res.write("Not an image file");
-      res.end();
+      console.log("Not an image");
+      render(request, response, 'post', 'POST PAGE', 'post', {message: "Not an image file."});
       return;
     }
     console.log(filename);

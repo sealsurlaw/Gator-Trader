@@ -1,75 +1,84 @@
-
 <body>
         <br>
-    <div class="cont">
-            <h2><center>Post Item</center></h2>
-            <form action="/post" method="POST" enctype="multipart/form-data">
-                <div class="row center-block fontStyle screenResize">
-                    <div class="form-group row centered">
-                            <label class="col-sm-5 col-form-label" for="Fields"></label>
-                                 <div class="col-sm-4">
-                                          All fields required
-                                  </div>
-                    </div>
-                    <!-- Item Title form-->
-                    <div class="form-group row centered screenResize fontSizing">
-                            <label for="Title" class="col-sm-1 col-form-label fontSpacing">Title:</label>
-                            <div class="col-sm-4">
-                              <input type="text" class="form-control largeScreen" name="title" id="Title" maxlength="20" required>
-                            </div>
-                    </div>
-                    <!-- Item category form-->
-                    <div class="form-group row centered screenResize fontSizing">
-                            <label for="category" class="col-sm-1 col-form-label fontSpacing">Category:</label>
-                            <div class="col-sm-4">
-                                    <select class="custom-select " name="category" id="category"
-                                    oninvalid="setCustomValidity('Please select a category.')" onchange="try{setCustomValidity('')}catch(e){}"
-                                    required>
-                                            <option selected value="">Choose...</option>
-                                            {{#each categories}}
-                                            <option value="{{this.category_id}}">{{this.category_name}}</option>
-                                            {{/each}}
-                                            {{!-- <option value="2">Two</option>
-                                            <option value="3">Three</option> --}}
-                                    </select>
-                            </div>
-                    </div>
-                    <!--Item price form-->
-                    <div class="form-group row centered screenResize fontSizing">
-                            <label for="Price" class="col-sm-1 col-form-label fontSpacing">Price:</label>
-                            <div class="col-sm-4">
-                              <input type="text" class="form-control largeScreen" name="price" id="Price" maxlength="10" required>
-                            </div>
-                    </div>
-                    <!-- Item description form-->
-                    <div class="form-group row centered screenResize fontSizing ">
-                            <label for="descriptionInput" class="col-sm-1 col-form-label fontSpacing">Description:</label>
-                            <div class="col-sm-4">
-                                <textarea class="form-control largeScreen" name="description" id="descriptionInput" rows="4" placeholder="Write a description here..."required></textarea>
-                             </div>
-                    </div>
+        <div class="cont">
+                <h2>
+                        <center>Post Item</center>
+                </h2>
+                {{#if message}}
+                <div class="PostFail centered">
+                        {{message}}
+                </div>
+                {{/if}}
+                <form action="/post" method="POST" enctype="multipart/form-data">
+                        <div class="row center-block fontStyle screenResize">
+                                <div class="form-group row centered">
+                                        <label class="col-sm-5 col-form-label" for="Fields"></label>
+                                        <div class="col-sm-4">
+                                                All fields required
+                                        </div>
+                                </div>
+                                <!-- Item Title form-->
+                                <div class="form-group row centered screenResize fontSizing">
+                                        <label for="Title" class="col-sm-1 col-form-label fontSpacing">Title:</label>
+                                        <div class="col-sm-4">
+                                                <input type="text" class="form-control largeScreen" name="title" id="Title"
+                                                        maxlength="20" required>
+                                        </div>
+                                </div>
+                                <!-- Item category form-->
+                                <div class="form-group row centered screenResize fontSizing">
+                                        <label for="category" class="col-sm-1 col-form-label fontSpacing">Category:</label>
+                                        <div class="col-sm-4">
+                                                <select class="custom-select " name="category" id="category" oninvalid="setCustomValidity('Please select a category.')"
+                                                        onchange="try{setCustomValidity('')}catch(e){}" required>
+                                                        <option selected value="">Choose...</option>
+                                                        {{#each categories}}
+                                                        <option value="{{this.category_id}}">{{this.category_name}}</option>
+                                                        {{/each}}
+                                                        {{!-- <option value="2">Two</option>
+                                                        <option value="3">Three</option> --}}
+                                                </select>
+                                        </div>
+                                </div>
+                                <!--Item price form-->
+                                <div class="form-group row centered screenResize fontSizing">
+                                        <label for="Price" class="col-sm-1 col-form-label fontSpacing">Price:</label>
+                                        <div class="col-sm-4">
+                                                <input type="text" class="form-control largeScreen" name="price" id="Price"
+                                                        maxlength="10" required>
+                                        </div>
+                                </div>
+                                <!-- Item description form-->
+                                <div class="form-group row centered screenResize fontSizing ">
+                                        <label for="descriptionInput" class="col-sm-1 col-form-label fontSpacing">Description:</label>
+                                        <div class="col-sm-4">
+                                                <textarea class="form-control largeScreen" name="description" id="descriptionInput"
+                                                        rows="4" placeholder="Write a description here..." required></textarea>
+                                        </div>
+                                </div>
 
-                    <div class ="form-group row centered screenResize fontSizing">
-                        <label for="Images" class="col-sm-1 col-form-label fontSpacing">Image:</label>
-                        <div class="col-sm-4">
-                            <input type="file" class="custom-file-input" name="image_file" id="Images" accept="image/*"  required> Upload a single Image only
-                          </div>
-                    </div>
-                        <br>
-                    <div class="center screenResize" >
-                          <p>Once an item has been posted it is in pending status.</p>
-                          <p>Please wait until approved by an administrator to go live.<p>
-                    </div>
-                    <br>
-                    <!--Buttons-->
-                    <br>
-                   <div align="center">
-                    <button class="btn btn-primary btn-lg" onclick="location.href='/home/';" style="font-size:175%; background-color:red;">Cancel</button>
-                    <span class="vanish" style="margin-left:20%; margin-right:20%;"></span>
-                    <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%; background-color:#00C90D;">Post</button>
-                </div>
-                <br>
-                </div>
-            </form>
-    </div>
+                                <div class="form-group row centered screenResize fontSizing">
+                                        <label for="Images" class="col-sm-1 col-form-label fontSpacing">Image:</label>
+                                        <div class="col-sm-4">
+                                                <input type="file" class="custom-file-input" name="image_file" id="Images"
+                                                        accept="image/*" required> Upload a single Image only
+                                        </div>
+                                </div>
+                                <br>
+                                <div class="center screenResize">
+                                        <p>Once an item has been posted it is in pending status.</p>
+                                        <p>Please wait until approved by an administrator to go live.<p>
+                                </div>
+                                <br>
+                                <!--Buttons-->
+                                <br>
+                                <div align="center">
+                                        <button class="btn btn-primary btn-lg" onclick="location.href='/home/';" style="font-size:175%; background-color:red;">Cancel</button>
+                                        <span class="vanish" style="margin-left:20%; margin-right:20%;"></span>
+                                        <button type="submit" class="btn btn-primary btn-lg" style="font-size:175%; background-color:#00C90D;">Post</button>
+                                </div>
+                                <br>
+                        </div>
+                </form>
+        </div>
 </body>
