@@ -15,19 +15,16 @@
 <div class="col-sm-7" style="background-color:#d3d3d3;">
 
 <br><br><br><br><br>
-<h3>Item ID: {{data.item_id}}</h3>
-
 <h3>Item Name: {{data.item_title}}</h3>
 <h3>Price: {{data.item_price}}</h3>
 <h3>Category: {{data.category}}</h3>
 <h3>Description: {{data.item_description}}</h3>
-
 <br>
 
 {{#if username}}
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Message">Contact Seller</button>
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Message" id="ContactSeller">Contact Seller</button>
 {{else}}
-<button type="button" class="btn btn-warning" onclick="location.href='/message?item={{data.item_id}}'">Contact Seller</button>
+<button type="button" class="btn btn-warning" onclick="location.href='/message?item={{data.item_id}}'" >Contact Seller</button>
 {{/if}}
 
 <!--Modal-->
@@ -35,17 +32,21 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller</h4>
+				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller in order to buy this Item:</h4>
+				<h5>Name: {{data.item_title}}</h5>
+				<h5>Price: {{data.item_price}}</h5>
+				<h5>Category: {{data.category}}</h5>
+				<h5>Description: {{data.item_description}}</h5>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
 					<form action="/message" method="post" enctype="multipart/form-data">
-						<label for="message-text" class="col-form-label">Message:</label>
-						<input type="text" value="Hi I am interested in buying your item: {{data.item_title}}" class="form-control" name="text_message" readonly>
+						<label for="message-text" class="col-form-label" style="font-size:18px">Write your message below :</label>
+						<input type="text" placeholder="Please Enter your contact information" class="form-control" name="text_message" required>
 						<input type="hidden" name="item_id" value="{{data.item_id}}">
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Send Message</button>
+							<button type="submit" class="btn btn-warning">Send Message</button>
 						</div>
 						</form>
 					</div>

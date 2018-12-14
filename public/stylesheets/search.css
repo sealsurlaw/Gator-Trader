@@ -1,0 +1,38 @@
+/* side bar navigation sizings */
+.sidebar {
+  height: 100%;
+  background-color: white;
+  text-align: center;
+
+}
+
+.sidebar-box{
+	background: lightyellow;
+	margin-bottom: 5px;
+	padding:20px;
+	padding-top:1px;
+	margin-left: -15px;
+	margin-right:-20px;
+
+}
+
+/* campus map image */
+.sidebar-box img{
+	padding:0;
+  width:  15vw;
+	height: 15vw;
+}
+
+.results{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:10px;
+	padding-left:20%;
+	
+	background-color: green;
+	
+	color:white;
+	/*text-align: center;*/
+	font-weight: bold;
+	font-size: 20px;
+}

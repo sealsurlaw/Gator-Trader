@@ -10,7 +10,7 @@ var router = express.Router();
 var render = require('../models/loginCheck').renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
-  render(req, res, 'home', 'HOME PAGE', 'home');
+  res.redirect('/home');
 });
 
 router.get('/index', function(req, res, next) {
@@ -50,10 +50,8 @@ router.get('/post', function(req, res, next) {
   }
 });
 
-
-
 router.get('/details',function(req,res,next){
-  render(req, res, 'details', 'DETAILS PAGE', 'details');
+  render(req, res, 'details', 'DETAILS PAGE', 'details', {script: 'details'});
 });
 
 router.get('/login',function(req,res,next){
@@ -64,12 +62,10 @@ router.get('/register',function(req,res,next){
   render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register'});
 });
 
-router.get('/admin',function(req,res,next){
-  render(req, res, 'admin', 'ADMIN PAGE', 'admin',{script: 'tabSwitcher'});
-});
-
 router.get('/messageSent',function(req,res,next){
   render(req, res, 'messageSent', 'MESSAGE SENT PAGE');
 });
+
+
 
 module.exports = router;

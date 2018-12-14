@@ -11,7 +11,6 @@ var loginUser = require('../models/loginCheck').loginUser;
 
 //uses post method
 router.post('/', function(req, res, next) {
-    console.log(req.signedCookies);
     var form = new formidable.IncomingForm();
 
     //Parse the information from the form and get the user_record from the database

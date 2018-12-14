@@ -1,145 +1,124 @@
-
 <div class="body">
 	<div class='page-title container'>
 		<h2>My Dashboard</h2>
 	</div>
 
 	<div class="view-tabs row">
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
-		<button class="tab-link col-sm-4" onclick="viewSwitch('Messages', this, 'orange')" >Messages</button>
+		<button class="tab-link" onclick="viewSwitch('Items', this, 'orange')" id="defaultOpen">Items</button>
+		<button class="tab-link" onclick="viewSwitch('Messages', this, 'orange')" id="messageOpen">Messages</button>
 	</div>
 
 
 
-	<div class="body-table row ">
-		<div  class="item-list col-sm-8 tab-content" id="Items">
-			<div class="filters"> {*} Total Items
-				<span class="dropdown filter-dropdown">
-					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
-						Filter by <span class="caret"></span>
+	<div class="body-table row">
+		<div class="item-list tab-content" id="Items">
+			<div class="filters"> {{data.items.length}} Total Items <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle"
+					 type="button" id="filters-menu" data-toggle="dropdown">
+						Sort by <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
-						<li role="presentation"><a role="menuitem" href="#">Newest First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Oldest First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Alphabetical</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Highest Price First</a></li>
-						<li role="presentation"><a role="menuitem" href="#">Lowest Price First</a></li>
-						
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_title&type=ASC">Item Title</a></li>
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_date&type=DESC">Most Recent Item</a></li>
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_date&type=ASC">Oldest Item</a></li>
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_price&type=DESC">Highest Item Price</a></li>
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_price&type=ASC">Lowest Item Price</a></li>
+						<li role="presentation"><a role="menuitem" href="/dashboard?sort_item=item_status&type=DESC">Item Status</a></li>
 					</ul>
 				</span>
 			</div>
-
-			<div class="table-responsive dashboard-item-table">
-				<table class="">
+			<div class="table-responsive-lg dashboard-item-table-wrapper">
+				<table class="dashboard-item-table center">
 					<thread>
-						<tr class="dashboard-item-table-key" >
-							<th >Thumbnail</th>
-							<th >Title</th>
-							<th class="vanish-2">Category</th>
+						<tr class="dashboard-item-table-key">
+							<th></th>
+							<th class="vanish-7">Title</th>
+							<th class="vanish-4">Category</th>
 							<th class="vanish-1">ID Number</th>
-							<th >Price</th>
-							<th class="vanish-1">Date</th>
-							<th class="vanish-1">Description</th>
-							<th class="vanish-2">Status</th>
-							<th >Remove</th>
-
+							<th class="vanish-6">Price</th>
+							<th class="vanish-2">Date</th>
+							<th class="vanish-3">Description</th>
+							<th class="vanish-5">Status</th>
 						</tr>
 					</thread>
 					<tbody>
 
-					{{#if data}}
-					{{#each data}}
-					<tr class="dashboard-item">
-						<td><button type="button" onclick="location.href='item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
-							<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
-						</button>
-						</td>
-						<td>
-							<div class="item-name ">{{this.item_title}}</span>
-						</td>
-						<td class="vanish-2">
-							<div class="item-category ">{{this.item_category}}</span>
-						</td>
-						<td class="vanish-1">
-							<div class="item-id ">{{this.item_id}}</span>
-						</td>
-						<td>
-							<div class="item-price ">{{this.item_price}}</span>
-						</td>
-						<td class="vanish-1">
-							<div class="item-date ">{{this.item_date}}</span>
-						</td>
-						<td class="vanish-1">
-							<div class="item-description ">{{this.item_description}}</div>
-						</td>
-						<td class="vanish-2">
-							<div class="item-status">{{this.item_status}}</div>
-						</td>
-						<td>
-							<button type="button" onclick ="" class="btn item-removal-btn">
-								REMOVE<br/>ITEM
-							</button>
-						
-						</td>
-					</tr>
-					{{/each}}
-					{{/if}}
+						{{#if data.items}}
+						{{#each data.items}}
+						<tr class="dashboard-item">
+							<td><button type="button" onclick="location.href='/item/{{this.item_id}}'" class="btn item_image_thumbnail_btn">
+									<img src="{{this.item_image_thumbnail}}" class="item_image_thumbnail">
+								</button>
+							</td>
+							<td class="vanish-7">
+								<div class="item-cell ">{{{this.item_title}}}</div>
+							</td>
+							<td class="vanish-4">
+								<div class="item-cell ">{{this.item_category}}</div>
+							</td>
+							<td class="vanish-1">
+								<div class="item-cell ">{{this.item_id}}</div>
+							</td>
+							<td class="vanish-6">
+								<div class="item-cell ">{{this.item_price}}</div>
+							</td>
+							<td class="vanish-2">
+								<div class="item-cell ">{{{this.item_date}}}</div>
+							</td>
+							<td class="vanish-3">
+								<div class="item-description ">{{{this.item_description}}}</div>
+							</td>
+							<td class="vanish-5">
+								<div class="item-cell">{{this.item_status}}</div>
+							</td>
+							<td>
+								<button type="button" onclick='location.href="/dashboard?remove={{this.item_id}}"' class="btn item-removal-btn">
+									REMOVE<br />ITEM
+								</button>
+							</td>
+						</tr>
+						{{/each}}
+						{{/if}}
 
-			</tbody>
-		</table>
-	</div>
-</div>
 
-<div id="Messages" class="tab-content">
-<div class="message-list col-sm-8">
-	<div class="filters"><span class="">{*} Total Messages</span><span class="dropdown filter-dropdown">
-		<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Filter by
-			<span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li><a href="#">Item Alphabetical</a></li>
-				<li><a href="#">User Alphabetical</a></li>
-				<li><a href="#">Newest Message</a></li>
-				<li><a href="#">Oldest Message</a></li>
-				
-			</ul>
-		</span>
-	</div>
 
-	<!-- single message -->
-	{{#if data.messages}}
-	{{#each data.messages}}
-		<div class='message-box'>
-			<!-- <h3>User: {{this.user_name}}</h3><h4>Item:<a href="/details/{{this.item_id}}">{{this.item_name}}</a></h4><p>{{this.message_text}}</p> -->
-			<h3>User: UserName</h3><h4>Item:<a href="#">ItemName</a></h4>
-			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-			<p>email: email@email.com</p>
-			<button class="btn" onclick="">REMOVE MESSAGE</button><br/>
+
+
+
+
+					</tbody>
+				</table>
+			</div>
 		</div>
-	{{/each}}
-	{{/if}}
-	<!-- end single message -->
-</div> 
-</div>
 
-<!-- sidebar 1: Campus Map Image -->
-    <div class="col-sm-3 sidebar-box" >
-      <h4>Campus Map Image</h4>
-    </div> <!-- end sidebar 1 -->
-    
-    <!-- sidebar 2: Pick-Up Locations -->
-    <div class="col-sm-3 sidebar-box" >
-      <h4>Pick-Up Locations</h4>
-    </div> <!-- end sidebar 2 -->
+		<div id="Messages" class="tab-content">
+			<div class="message-list ">
+				<div class="filters">{{data.messages.length}} Total Messages<span class="dropdown filter-dropdown">
+						<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Sort by
+							<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="/dashboard?sort_message=item_id&type=ASC">Item Name</a></li>
+							<li><a href="/dashboard?sort_message=message_date&type=DESC">Recent Messages</a></li>
+							<li><a href="/dashboard?sort_message=message_date&type=ASC">Oldest Messages</a></li>
+						</ul>
+					</span>
+				</div>
 
-    <!-- sidebar 3: Campus Police -->
-    <div class="col-sm-3 sidebar-box" >
-      <h4>Campus Police</h4>
-    </div> <!-- end sidebar 3 -->
+				<!-- single message -->
+				{{#if data.messages}}
+				{{#each data.messages}}
+				<div class='message-box'>
+					<h3>Message From: {{this.user_name}}</h3>
+					<h4>For Item: <a href="/item/{{this.item_id}}">{{{this.item_title}}}</a></h4>
+					<h5>{{{this.message_date}}}</h5>
+					<p>{{{this.message_text}}}</p>
+				</div>
+				{{/each}}
+				{{/if}}
+				<!-- end single message -->
 
-    <!-- sidebar 4: Administration Contact -->
-    <div class="col-sm-3 sidebar-box" >
-      <h4>Administration Contact</h4>
-    </div> <!-- end sidebar 4 -->
 
-</div><!-- end row -->
+			</div>
+		</div>
+
+	</div><!-- end row -->
 </div><!-- end page body -->

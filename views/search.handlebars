@@ -1,41 +1,22 @@
 
 {{#if data}}
 <!-- Navigation Bar w/ Dropdowns -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <a href="#"><h5 style="color:#fff">Showing {{data.length}} of {{data.length}} results</h5></a>
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-
-        {{!-- <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter
-          <span class="caret"></span></button>
-        </div> --}}
-
-      </ul>
-    </div>
+  <div class="container-fluid results">
+        Showing {{data.length}} results
   </div>
-</nav>
-
 {{/if}}
 
 
   <!-- Left-aligned media object -->
+  <div class = "col-sm-9">
+  <br>
+
   {{#if data}}
   {{#each data}}
   <div class="media">
     <div class="media-left">
-      <img src="{{this.item_image_thumbnail}}" class="media-object" style="width:200px">
+    <a href="/item/{{this.item_id}}" target="_blank"><img src="{{this.item_image_thumbnail}}" class="media-object" style="width:200px"></a>
     </div>
     <div class="media-body">
       <h3 class="media-heading">Item Name: {{this.item_title}}</h3>
@@ -44,38 +25,49 @@
       <br>
       <br>
       <br>
-      <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')">View Details</button>
-      <button type="button" onclick="window.open('/item/{{this.item_id}}', '_blank')" >Contact Seller</button>
+      <button type="button" class="btn btn-primary" onclick="window.open('/item/{{this.item_id}}', '_blank')" >View Details</button>
+      <button type="button" class="btn btn-warning" onclick="window.open('/item/{{this.item_id}}?open=true', '_blank')" >Contact Seller</button>
     </div>
   </div>
-
-  <!--Modal-->
-<div class="modal fade" id="Message" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="Message">Contact Seller</h4>
-      </div>
-      <div class="modal-body">
-           <form>
-          <div class="form-group">
-            <label for="contactEmail" class="col-form-label">Email:</label>
-            <input type="email" class="form-control" id="contactEmail">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text" placeholder="I am interested in your {{this.item_title}} for sale"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send Message</button>
-      </div>
-    </div>
-  </div>
-</div>
-
   <hr>
   {{/each}}
   {{/if}}
+
+  </div>
+
+<!-- sidebar -->
+<div class = "col-sm-3">
+
+<div class="sidebar" >
+
+  <div class="sidebar-box">
+    <h2>Campus Map</h2>
+    <a href="http://www.sfsu.edu/~sfsumap/" target="_blank"><img src="images/campusmap.png" alt="campus map" class="container map"></a>
+  </div>
+
+
+  <div class="sidebar-box">
+    <h2>Pick-Up Locations</h2>
+    <h4>University PD Station - <a href="http://www.sfsu.edu/~sfsumap/northwest.htm" target="_blank">D4</a></h4>
+    <h4>Library Peet's Coffee - <a href="http://www.sfsu.edu/~sfsumap/southeast.htm" target="_blank">I7</a></h4>
+    <h4>C. Chavez Student Center - <a href="http://www.sfsu.edu/~sfsumap/southeast.htm" target="_blank">H7</a></h4>
+  </div>
+
+  <div class="sidebar-box">
+    <h2>University Police Department</h2>
+      <h4>In case of EMERGENCY dial 911</h4>
+      <h4>from a campus phone line or</h4>
+      <h4>(415) 338 2222 from a cell phone.</h4>
+      <br/>
+      <h4> Non-emergency: (415) 3387 200</h4>
+      <h4> Station located on North State Drive D4 on the map</h4>
+      <h4> <a href="https://upd.sfsu.edu/" target="_blank">UPD website</a></h4>
+  </div>
+
+  <div class="sidebar-box">
+    <h2>Administrator Contact</h2>
+    <h4>admin@gatortrader.com</h4>
+  </div>
+
+    </div> <!-- end sidebar -->
+</div> <!-- sidebar column -->

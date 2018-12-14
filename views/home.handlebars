@@ -6,82 +6,41 @@
     <!-- static image column w/ about section-->
     <div class="col-sm-9 static-column">
 
+      <br>
 
-    <h3>About This Site</h3>
-    <br>
-    <p><font size="4">GatorTrader website is a platform for San Francisco State University students to sell their unused items, old class materials, etc. as well as buy essential items at a cheaper rate compared to the market price.The basic objective of developing this website is to help students build relationships within the community, save their money, and time. Moreover, this website builds direct communication between seller and buyer. This unique approach will eliminate long wait times and no shipping costs would be involved.</font></p>
+      <div class="paragraph">
 
-    <center><h4>Books</h4><center>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p></p>
-    </div>
 
-    <center><h4>Clothes</h4><center>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p></p>
-    </div>
+        </h2>
+        <p>GatorTrader website is a buy and sell platform for San Francisco State University students.</p>
+      </div>
 
-    <center><h4>Electronics</h4></center>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p></p>
-    </div>
+      <!-- Image Rows -->
 
-     <center><h4>Games</h4><center>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p></p>
-    </div>
+      {{#each data}}
+      {{#if this.items}}
+      <div class="category">
+        <center>
+          <h4><b>Recent additions in <a href="search?category={{this.category_id}}&search=">{{this.category_name}}</a> you may like </b></h4>
+        </center>
+        <div class="row justify-content-around img-set">
+          {{#each this.items}}
+          <div class="col-3">
+          <a target="_blank" href="/item/{{this.item_id}}"><img src="{{this.item_image_thumbnail}}" class="img-repsonsive"
+              alt="Image"></a>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
 
     </div> <!-- end static image column -->
+
+    <!-- home sidebar -->
     {{>sidebar}}
 
-    
-    
-    <!-- sidebar 2: Pick-Up Locations 
-    <div class="col-sm-3 sidebar-box1" >
-
-    </div> <!-- end sidebar 2
-
-    <!-- sidebar 3: Campus Police
-    <div class="col-sm-3 sidebar-box1" >
-
-    </div> <!-- end sidebar 3 -->
-
-    <!-- sidebar 4: Administration Contact
-    <div class="col-sm-3 sidebar-box" > --?
-
-    </div> <!-- end sidebar 4 -->
 
   </div> <!-- end row div class -->
 
 </div> <!-- end of static image column -->
-
-<!-- sidebar 1: Campus Map Image -->
-    

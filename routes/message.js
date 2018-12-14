@@ -13,8 +13,14 @@ var db = require('../db');
 var formidable = require('formidable');
 var render = require('../models/loginCheck').renderUserAndCategory;
 
-
-router.get('/', function(req,res,next) {
+/**
+ * The rotue to message. Used to get details of item from url and include user_id.
+ * Requires user to login, before contacting the seller.
+ * @param req It is a request to http
+ * @param res It is a response to http
+ * @return void
+ */
+router.get('/', function(req,res) {
   var q = url.parse(req.url, true).query;
   var item = q.item;
 
@@ -23,12 +29,19 @@ router.get('/', function(req,res,next) {
   res.redirect('/login');
 });
 
-router.post('/', function(req,res,next){
+/**
+ * The database gets populated here through parsing of incoming forms
+ * @param req it is a request to http
+ * @param res it is a response to http
+ * @return void
+ */
+router.post('/', function(req,res){
 
   //Form for the user interested in buying the item
   var form = new formidable.IncomingForm();
-  form.parse(req,function(err,fields,files){
-    req.session.nextPage = '/item/' + fields.item_id;
+  form.parse(req,function(err,fields){
+  req.session.nextPage = '/item/' + fields.item_id;
+  fields.text_message = fields.text_message.replace(/'/g, '&apos;');
 
     //Database query to enter the message details into the dashboard of the seller
     db.any(
@@ -44,9 +57,11 @@ router.post('/', function(req,res,next){
             ` + fields.item_id + `
         )`
     )
+    //Produces a confirmation on a newtab.
     .then(function(){
       res.redirect('messageSent');
     })
+    //Catches error and renders to search page.
     .catch(e =>{
       console.log("Message Error");
       console.log(e);

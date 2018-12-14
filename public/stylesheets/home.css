@@ -1,13 +1,41 @@
-/* section with carousels */
 .static-column {
-  
-  background-color:gray;
-
+  background-color:white;
 }
 
 .sidenav {
-  background-color: #f1f1f1;
+  background-color: lightgrey;
   height: 100%;
-  font-size: 28px; /* Increased text to enable scrolling */
+  font-size: 28px;
   padding: 0px 10px;
+}
+
+/* paragraph for about this site section */
+.paragraph {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-left:1vw;
+  padding-right:1vw;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+/* columns with rows contatining images */
+
+.category{
+  padding-bottom: 1px;
+}
+
+.img-set{
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-set img{
+  margin:auto;
+  width:16vw;
+  display: inline-block;
+}
+body{
+  overflow-x: hidden;
 }

@@ -3,68 +3,61 @@
 	display: inline-block;
 	float: left;
 }
-.header{
-	color:white;
-	background-color: grey;
-	height: 150px;
-	padding-top:20px;
-}
+
 .search-bar{
 	width:300px;
 	padding-top:20px;
 	float:center;
 }
 .page-title{
-	background-color: lightgrey;
+	background-color: green;
+	color:white;
 	margin:20px;
 	padding-left:10%;
+	padding-top:5px;
+	padding-bottom:5px;
 	width:auto;
 }
 .filters{
-	background-color: grey;
-	padding-top:10px;
-	padding-bottom: 10px;
-	padding-left: 60px;
+	background-color: #290834;
+	
+	color:white;
+	font-size: 20px;
+	font-weight: bold;
+	
+	padding:15px;
 	height:50px;
+	text-align: center;
+}
+.filter-dropdown{
+	position: absolute;
+    right:	15vw;
+    margin:	0;
+    padding:0;
+    transform: translateY(-5px);
+	
+}
+
+.filter-dropdown button{
+	background-color: orange;
 }
 
 .item-list{
 	background-color: lightgrey;
-	padding:0;
+	padding-bottom:20px;
 	/*width:55vw;*/
 }
 
 .icon-title{
 	float:left;
 }
-.red{
-	border:solid;
-	border-width: 2px;
-	border-color: red;
-}
-.blue{
-	border:solid;
-	border-width: 2px;
-	border-color: blue;
-}
-.green{
-	border:solid;
-	border-width: 2px;
-	border-color: lightgreen;
-}
+
 .body-table{
 	
 	/* width:97%; */
 	margin:20px;
 }
-.spacer-cell{
-	width:2%;
-}
-.filter-dropdown{
-	margin-left: 50px;
-	
-	margin-right:50px;
-}
+
 .page-title h2{
 	font-weight: bold;
 }
@@ -90,6 +83,7 @@
 	height:100px;
 	margin:0;
 	padding:0;
+	float: left;
 }
 .item_image_thumbnail{
 	background-color: darkgrey;
@@ -97,25 +91,16 @@
 	height:100px;
 	margin:0;
 }
-.item-status{
-	
-}
-
-.item-availability{
-	
-}
 
 .dashboard-item-table{
-	width:auto;
 	margin:10px;
-	width:auto;
 	margin-bottom: 20px;
 	padding-left: 20px;
 	
 }
 
 .dashboard-item-table th{
-	width:100px;
+	width:12vw;
 	text-align: center;
 	margin:20px;
 }
@@ -124,8 +109,10 @@
 	text-align: center;
 }
 
-.dashboard-item-table tbody{
-	   
+.dashboard-item-table td{
+	padding-right: 10px;
+	padding-top: 0;
+	padding-bottom:0;
 }
 
 .item-messages{
@@ -140,21 +127,7 @@
 .message-list{
 	background-color: lightgrey;
 	padding:0px;
-	margin-top:20px;
-}
-
-@media (max-width: 1200px) {
-    .vanish-1 { display: none;}
-    .message-list{float:initial;}
-    .item-list{width:auto;}
-}
-@media (max-width: 600px) {
-    .vanish-2 { display: none;}
-}
-
-@media (min-width: 600px) {
-    .dashboard-item-table{ overflow: hidden; }
-    
+	padding-bottom:20px;
 }
 
 .message-box{
@@ -174,7 +147,8 @@
 .message-box p{
 	color:darkgrey;
 	font-style: italic;
-	padding-top:0px;
+	padding-top:10px;
+	padding-bottom: 10px;
 	padding-left: 50px;
 	/*border:solid blue 2px;*/
 }
@@ -194,6 +168,7 @@
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
+    width:50%;
     
 }
 
@@ -207,23 +182,42 @@
     
 }
 
-.item-name{
-	white-space: nowrap; 
-    width: 50px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    
-}
 .item-description{
 	white-space: nowrap; 
-    width: 100px; 
+    width:11vw;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
+    text-align: center;
     
 }
-.item-date{
-	white-space: nowrap; 
-    width: 100px; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
+
+/*.item-removal-btn{
+	margin-right:20px;
+	color:red;
+	background-color: lightgrey;
+}*/
+
+.item-removal-btn{
+	margin-right:20px;
+	
+	background-color: tomato;
+	border:solid black 1px;
+	color:black;
+	text-align: center;
+}
+.item-removal-btn:hover{
+	color:black;
+	background-color: yellow;
+}
+
+
+.dashboard-item-table-wrapper{
+	overflow-x: auto;
+	margin:20px;
+}
+
+
+@media (min-width: 1200px) {
+    .message-list{float:initial;}
+    .item-list{width:auto;}
 }

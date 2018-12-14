@@ -13,23 +13,22 @@ var render = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
-    var search = q.search;  //search by search bar input
-    var browse = q.browse;  //search by category
+    var search = q.search;
+    var browse = q.browse;
+    var browseCatName = -1;
+    var category = q.category;
 
-    if (browse == -1) {
-        search = '';
-    }
-
-    var where;
+    var where = '';
 
     if (search == '') {
-        where = '';
+        where = ` WHERE item_status='Approved'`;
     }
     else if (search) {
-        where = ` WHERE item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%'`;
+        where = ` WHERE item_status='Approved' AND (item_title ILIKE '%` + search + `%' OR item_description ILIKE '%` + search + `%')`;
     }
-    else if (browse) {
-        where = ' WHERE category_id=' + browse;
+
+    if (category && category != -1) {
+        where += ' AND category_id='+category
     }
 
     //Get item and category from the database
@@ -37,6 +36,15 @@ router.get('/', function(req, res, next) {
     .then( cat =>
     db.any(`SELECT * FROM item` + where)
     .then( data => {
+        if (browseCatName) {
+            if (browse != '-1') {
+                browseCatName = browse;
+                cat.forEach(element => {
+                    if (element.category_id == browseCatName) browseCatName = element.category_name; 
+                 });
+                 data.category_name = browseCatName;
+            }
+        }
         data.search = search;
         render(req, res, 'search', 'SEARCH PAGE', 'search', {data: data});
     }));

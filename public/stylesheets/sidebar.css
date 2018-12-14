@@ -1,28 +1,24 @@
 /* side bar navigation sizings */
 .sidebar {
   height: 100%;
-  background-color:white;
-  /*position: fixed;  /* Fixed Sidebar (stay in place on scroll) */
-  right:0;
+  background-color: white;
   text-align: center;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 5px;
-  padding-right:5px;
+
 }
 
 .sidebar-box{
-	
-	width:  400px;
-	min-height: 300px;
-	background:lightgrey;
+	background: lightyellow;
 	margin-bottom: 5px;
 	padding:20px;
 	padding-top:1px;
+	margin-left: -15px;
+	margin-right:-20px;
 
 }
 
+/* campus map image */
 .sidebar-box img{
 	padding:0;
-	width:  200px;
-	height: 200px;
+	width:  15vw;
+	height: 15vw;
 }
