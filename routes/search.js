@@ -11,6 +11,10 @@ var router = express.Router();
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
+/*
+* This function gets all approved items and lists them based on
+* the search query whether its by caregory or text input.
+*/
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
     var search = q.search;
@@ -40,7 +44,7 @@ router.get('/', function(req, res, next) {
             if (browse != '-1') {
                 browseCatName = browse;
                 cat.forEach(element => {
-                    if (element.category_id == browseCatName) browseCatName = element.category_name; 
+                    if (element.category_id == browseCatName) browseCatName = element.category_name;
                  });
                  data.category_name = browseCatName;
             }
