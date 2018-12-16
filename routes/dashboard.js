@@ -54,7 +54,13 @@ router.get('/', function(req, res) {
 
 
 });
-
+/*
+* One of the purpose of this function is to add functionality to the
+* sort by feature. Further, this will link a paticular item to the
+* user that posted it by looking through the database.
+* In the messages tab, the items are linked to userid of the user
+* interested in buying the item.
+*/
 
 var renderDashboard = function(req, res, sorter) {
 
@@ -76,7 +82,7 @@ var renderDashboard = function(req, res, sorter) {
     data = {};
     data.items = items;
 
-    // ITEMS
+    // Get items that the user has posted for sale
     data.items.forEach(item => {
 
       item.item_date = formatDate(item.item_date);
@@ -88,7 +94,7 @@ var renderDashboard = function(req, res, sorter) {
       });
     });
 
-    //Get messages sent to this user
+    //Get messages sent to this user in messages tab
     if (data.items.length > 0) {
       var where = ' WHERE ';
       data.items.forEach(element => {
