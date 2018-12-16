@@ -13,7 +13,10 @@ var loginUser = require('../models/loginCheck').loginUser;
 router.post('/', function(req, res, next) {
     var form = new formidable.IncomingForm();
 
-    //Parse the information from the form and get the user_record from the database
+/*
+* Function to parse the information from the form and get the user_record from
+* the database. Use this data to log user on the website.
+*/
     form.parse(req,function(err,fields,files){
         db.any(`SELECT * FROM user_record WHERE user_email='` + fields.email + `'`)
         .then(function (user){

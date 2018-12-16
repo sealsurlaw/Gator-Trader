@@ -38,7 +38,7 @@ router.get('/:id', function(req, res, next) {
                 if (element.category_id == data[0].category_id)
                     data[0].category = element.category_name;
             });
-            //direct to details page
+            //Redirect to details page
             render(req, res, 'details', 'DETAILS PAGE', 'details', {script: 'details', data: data[0]});
         }
         else {

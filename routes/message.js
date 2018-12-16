@@ -14,7 +14,7 @@ var formidable = require('formidable');
 var render = require('../models/loginCheck').renderUserAndCategory;
 
 /**
- * The rotue to message. Used to get details of item from url and include user_id.
+ * The route to message. Used to get details of item from url and include user_id.
  * Requires user to login, before contacting the seller.
  * @param req It is a request to http
  * @param res It is a response to http
