@@ -39,6 +39,7 @@ router.get('/divam', function(req, res, next) {
   render(req, res, 'team/divam', 'ABOUT');
 });
 
+//For function post am item while on the index page
 router.get('/post', function(req, res, next) {
   var user_id = req.session.user_id
   if (user_id == false || !user_id) {
@@ -50,14 +51,17 @@ router.get('/post', function(req, res, next) {
   }
 });
 
+//to get to the details page for a certain item
 router.get('/details',function(req,res,next){
   render(req, res, 'details', 'DETAILS PAGE', 'details', {script: 'details'});
 });
 
+//login page for the user
 router.get('/login',function(req,res,next){
   render(req, res, 'login', 'LOGIN PAGE', 'login');
 });
 
+//register page 
 router.get('/register',function(req,res,next){
   render(req, res, 'register', 'REGISTRATION PAGE', 'register', {script: 'register'});
 });
