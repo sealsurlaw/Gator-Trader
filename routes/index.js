@@ -13,30 +13,9 @@ router.get('/', function(req, res, next) {
   res.redirect('/home');
 });
 
+//about us page
 router.get('/index', function(req, res, next) {
-  render(req, res, 'index', 'ABOUT');
-});
-
-router.get('/gayatri', function(req, res, next) {
-  render(req, res, 'team/gayatri', 'ABOUT');
-});
-router.get('/charul', function(req, res, next) {
-  render(req, res, 'team/charul', 'ABOUT');
-});
-router.get('/dylan', function(req, res, next) {
-  render(req, res, 'team/dylan', 'ABOUT');
-});
-router.get('/moses', function(req, res, next) {
-  render(req, res, 'team/moses', 'ABOUT');
-});
-router.get('/peter', function(req, res, next) {
-  render(req, res, 'team/peter', 'ABOUT');
-});
-router.get('/regine', function(req, res, next) {
-  render(req, res, 'team/regine', 'ABOUT');
-});
-router.get('/divam', function(req, res, next) {
-  render(req, res, 'team/divam', 'ABOUT');
+  render(req, res, 'about', 'ABOUT PAGE', 'about');
 });
 
 //For function post am item while on the index page
