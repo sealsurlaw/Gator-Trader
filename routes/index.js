@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 //about us page
-router.get('/index', function(req, res, next) {
+router.get('/about', function(req, res, next) {
   render(req, res, 'about', 'ABOUT PAGE', 'about');
 });
 

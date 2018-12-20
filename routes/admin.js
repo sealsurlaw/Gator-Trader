@@ -13,6 +13,11 @@ var formatDate = require('../models/loginCheck').formatDate;
 
 router.get('/', function(req, res, next){
 
+  if (!req.session.user_id) {
+    res.redirect('/home');
+    return;
+  }
+
   // Check if admin right is true from the database based on
   //user id of the user logged in
   db.any(`SELECT admin_right FROM user_record WHERE user_id=`+ req.session.user_id)
