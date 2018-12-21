@@ -67,8 +67,8 @@ var resizeImageCallback = function (err) {
           console.log(thumbjson.data.link);
           console.log(fields.category)
           //Removes all the '/'' from incoming form.
-          let title = fields.title.replace('&apos');
-          let description = fields.description.replace('&apos');
+          let title = fields.title.replace(/'/g, '&apos;');
+          let description = fields.description.replace(/'/g, '&apos;');
           // Insert new item into database
           db.any(
             `INSERT INTO item(

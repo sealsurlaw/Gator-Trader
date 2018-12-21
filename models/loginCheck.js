@@ -17,12 +17,18 @@ function loginUser (req, res, user, fields) {
     if (user[0] && passwordHash.verify(fields.password, user[0].user_password)) {
         console.log("Login successful!");
         req.session.user_id = user[0].user_id;
-        if (req.session.nextPage) {
-            res.redirect(req.session.nextPage);
-        }
-        else {
-            res.redirect('/search?search=');
-        }
+
+        req.session.save( function () {
+            if (user[0].admin_right == true) {
+                return res.redirect('/admin');
+            }
+            else if (req.session.nextPage) {
+                return res.redirect(req.session.nextPage);
+            }
+            else {
+                return res.redirect('/search?search=');
+            }
+        });
     }
     else {
         db.any(`SELECT * FROM category`)
@@ -46,7 +52,6 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     if (options.script) script = options.script;
     if (options.data) data = options.data;
     if (options.message) message = options.message;
-    console.log(message);
 
     db.any(`SELECT * FROM category ORDER BY category_name ASC`)
     .then( cat => {
