@@ -39,7 +39,19 @@
 }
 
 .filter-dropdown button{
-	background-color: orange;
+	font-size:14px;
+	background-color:  #FFD363;
+	color:black;
+}
+
+.filter-dropdown button:hover{
+  background-color:green;
+  color:white;
+}
+
+.filter-dropdown button:active{
+  background-color:green;
+  color:white;
 }
 
 .item-list{

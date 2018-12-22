@@ -40,3 +40,27 @@
 .red-results {
 	background-color: #a32ea7;
 }
+
+.filter-dropdown{
+	
+    margin-left:10vw;
+    padding:0;
+    transform: translateY(-5px);
+	
+}
+
+.filter-dropdown button{
+	font-size: 14px;
+	background-color: #FFD363;
+	color:black;
+}
+
+.filter-dropdown button:hover{
+  background-color:purple;
+  color:white;
+}
+
+.filter-dropdown button:active{
+  background-color:purple;
+  color:white;
+}
