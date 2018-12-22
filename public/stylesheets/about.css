@@ -16,14 +16,14 @@
 		margin-right:20px;
 	}
 	.about-lead{
-		background-color: purple;
+		background-color: #ffb3e6;
 		text-align: center;
 		color:white;
 		padding:20px;
 	}
 	.about-front{
 		background-color: white;
-		
+
 	}
 	.about-front img{
 		float:left;
@@ -32,7 +32,7 @@
 		background-color: lightgrey;
 		justify-content: right;
 		text-align: right;
-		background-color: #FFD363
+		background-color: #FFD363;
 	}
 	.about-back img{
 		float:right;
