@@ -57,12 +57,16 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     .then( cat => {
         if (category == -1 || !category) cat.all = true;
         cat.forEach(element => {
-            if (element.category_id == category) element.selected = true;
+            if (element.category_id == category) {
+                element.selected = true;
+                cat.selected = category;
+            }
         });
 
         if (user_id) {
             db.any(`SELECT user_name, admin_right FROM user_record WHERE user_id=` + user_id)
             .then( user => {
+                console.log(cat);
                 var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, message: message, isAdmin: user[0].admin_right, username: user[0].user_name, data: data};
                 res.render(page, ops);
             })

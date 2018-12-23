@@ -43,7 +43,7 @@
         <form action="/search" class="form-inline">
           <!-- Category Dropdown -->
           <select class="custom-select gator-search-select custom-select-lg mb-3 btn btn-primary" name="category" id="category">
-            <option value="-1" {{#if categories.selected}}selected{{/if}}>All<span class="glyphicon glyphicon-chevron-down"></span></option>
+            <option value="-1" {{#if categories.all}}selected{{/if}}>All<span class="glyphicon glyphicon-chevron-down"></span></option>
             {{#each categories}}
             <option value="{{this.category_id}}" {{#if this.selected}}selected{{/if}}>{{this.category_name}}</option>
             {{/each}}
