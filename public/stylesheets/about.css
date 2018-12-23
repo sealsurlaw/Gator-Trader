@@ -37,3 +37,20 @@
 	.about-back img{
 		float:right;
 	}
+	@media (max-width: 575.98px) { 
+		.smallScreen{
+		  display: block;
+		}
+		.about-front{
+			text-align: right;
+		}
+		.about-back{
+			text-align: left;
+		}
+		.reduceFont{
+			font-size: 80%;
+		}
+		.reduceFontPeter{
+			font-size: 78%;
+		}
+	   }
