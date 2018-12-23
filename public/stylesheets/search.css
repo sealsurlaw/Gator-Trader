@@ -42,7 +42,7 @@
 }
 
 .filter-dropdown{
-	
+	z-index: 1;
     margin-left:10vw;
     padding:0;
     transform: translateY(-5px);
