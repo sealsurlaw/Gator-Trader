@@ -22,6 +22,10 @@ router.get('/', function(req, res, next) {
     var browseCatName = -1;
     var category = q.category;
 
+    var sorters = {}
+    sorters.items = q.sort_item;
+    sorters.type = q.type;
+
     var where = '';
 
     if (search == '') {
@@ -34,6 +38,12 @@ router.get('/', function(req, res, next) {
     if (category && category != -1) {
         where += ' AND category_id='+category
     }
+
+    if (sorters.items) {
+        where += ' ORDER BY '+sorters.items+' '+sorters.type;
+    }
+
+    console.log(where);
 
     //Get item and category from the database
     db.any(`SELECT * FROM category`)
