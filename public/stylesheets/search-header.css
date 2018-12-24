@@ -4,13 +4,13 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  
+
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  
+
   -webkit-flex-flow: row wrap;
 
   justify-content: space-between;
@@ -37,12 +37,12 @@
   order:2;
 }
 
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+/* Remove the navbar's default margin-bottom and rounded borders */
 .gator-navbar {
   margin-bottom: 20px;
   margin-top: 5px;
 
-  background-color: #290834;  
+  background-color: #290834;
   font-size:20px;
   border:none;
 }
@@ -51,7 +51,7 @@
   margin-bottom: 20px;
   margin-top: 20px;
 
-  background-color: #290834;  
+  background-color: #290834;
   font-size:20px;
   border:none;
 
@@ -106,14 +106,14 @@
 
 @media all and (max-width: 800px){
   .gator-btns{float:left;}
-  
+
   .logo{
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .input-group{transform: translateX(0px);}
 
-  .orange-nav-btn{margin-left:0;}
+  .orange-nav-btn{margin-left:100;}
 }
