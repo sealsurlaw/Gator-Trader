@@ -1,3 +1,8 @@
+/*
+* This is where our function is for logging in a user is as well as for checking
+* whether the login credentials are correct.
+*/
+
 var passwordHash = require('password-hash');
 var url = require('url');
 
@@ -12,12 +17,18 @@ function loginUser (req, res, user, fields) {
     if (user[0] && passwordHash.verify(fields.password, user[0].user_password)) {
         console.log("Login successful!");
         req.session.user_id = user[0].user_id;
-        if (req.session.nextPage) {
-            res.redirect(req.session.nextPage);
-        }
-        else {
-            res.redirect('/search?search=');
-        }
+
+        req.session.save( function () {
+            if (user[0].admin_right == true) {
+                return res.redirect('/admin');
+            }
+            else if (req.session.nextPage) {
+                return res.redirect(req.session.nextPage);
+            }
+            else {
+                return res.redirect('/search?search=');
+            }
+        });
     }
     else {
         db.any(`SELECT * FROM category`)
@@ -41,18 +52,21 @@ function renderUserAndCategory (req, res, page, title, stylesheet, options) {
     if (options.script) script = options.script;
     if (options.data) data = options.data;
     if (options.message) message = options.message;
-    console.log(message);
 
     db.any(`SELECT * FROM category ORDER BY category_name ASC`)
     .then( cat => {
         if (category == -1 || !category) cat.all = true;
         cat.forEach(element => {
-            if (element.category_id == category) element.selected = true;
+            if (element.category_id == category) {
+                element.selected = true;
+                cat.selected = category;
+            }
         });
 
         if (user_id) {
             db.any(`SELECT user_name, admin_right FROM user_record WHERE user_id=` + user_id)
             .then( user => {
+                console.log(cat);
                 var ops = {title: title, stylesheet: stylesheet, script: script, categories: cat, message: message, isAdmin: user[0].admin_right, username: user[0].user_name, data: data};
                 res.render(page, ops);
             })

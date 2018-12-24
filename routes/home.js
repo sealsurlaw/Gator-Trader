@@ -1,3 +1,8 @@
+/*
+* The purpose of this .js is to route to the homepage.
+* This is true whether the user is registered or not.
+*/
+
 var express = require("express");
 var router = express.Router();
 var db = require('../db');
@@ -5,6 +10,7 @@ var render = require("../models/loginCheck").renderUserAndCategory;
 
 router.get('/' ,function(req, res) {
 
+  //Get items based on the category ID
   db.any(`SELECT * FROM category`)
   .then( categories => {
 
@@ -14,11 +20,12 @@ router.get('/' ,function(req, res) {
       categoryIDs.push({id: category.category_id, name: category.category_name});
     });
 
+    //Order them by category ID and item ID
     db.any(`SELECT * FROM item ORDER BY category_id ASC, item_date DESC`)
     .then( items => {
 
       let itemArray = [];
-
+      //Only display items that have been approved by an admin
       for (let i = 0; i < categoryIDs.length; ++i) {
         let catID = categoryIDs[i].id;
         itemArray[i] = {};
@@ -35,6 +42,7 @@ router.get('/' ,function(req, res) {
             break;
           }
         };
+        //List them under their specific category and item name
         itemArray[i].category_name = categoryIDs[i].name;
         itemArray[i].category_id = categoryIDs[i].id;
       };

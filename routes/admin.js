@@ -1,3 +1,9 @@
+/*
+* The purpose of this .js is to route an admin to their admin dashboard
+* where they have the ability to approve or deny items that
+* are pending as well as remove users.
+*/
+
 var express = require("express");
 var router = express.Router();
 var url = require('url');
@@ -7,20 +13,15 @@ var formatDate = require('../models/loginCheck').formatDate;
 
 router.get('/', function(req, res, next){
 
-  // Check if user is logged in
-  // if (!req.session.user_id){
-  //   req.session.nextPage = '/admin';
-  //   res.redirect('/login');
-  //   return;
-  // }
+  if (!req.session.user_id) {
+    res.redirect('/home');
+    return;
+  }
 
-  // Check if admin
+  // Check if admin right is true from the database based on
+  //user id of the user logged in
   db.any(`SELECT admin_right FROM user_record WHERE user_id=`+ req.session.user_id)
   .then(isAdmin =>{
-    // if(!isAdmin[0].admin_right){
-    //   res.redirect('/dashboard');
-    //   return;
-    // }
 
     // Get query from url
     var q = url.parse(req.url, true).query;
@@ -58,7 +59,11 @@ router.get('/', function(req, res, next){
   });
 });
 
-//Render Function Starts here
+/*
+* Render Function Starts here. Depending on what the admin
+* decides to do eg. filter items, remove items, remove users etc
+* go to the database place query accordingly.
+*/
 var renderAdmin = function(req, res, filter){
   var sortUsers = '';
   var sortItems = ` ORDER BY item_status DESC`;
@@ -93,7 +98,7 @@ var renderAdmin = function(req, res, filter){
       });
     });
 
-    // Get all the users
+    // Get all the users from the database
     db.any(`SELECT * FROM user_record`+sortUsers)
     .then (users => db.any(`SELECT * FROM item`)
     .then (items => {

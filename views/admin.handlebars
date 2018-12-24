@@ -13,12 +13,12 @@
 			<div class="filters"> {{data.items.length}} Total Items
 				<span class="dropdown filter-dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="filters-menu" data-toggle="dropdown" >
-						Filter by <span class="caret"></span>
+						Sort by <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
 						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=DESC">Newest First</a></li>
 						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_date&type=ASC">Oldest First</a></li>
-						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_title&type=ASC">Alphabetical</a></li>
+						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_title&type=ASC">Alphabetical Item Title</a></li>
 						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=DESC">Highest Price First</a></li>
 						<li role="presentation"><a role="menuitem" href="/admin?sort_item=item_price&type=ASC">Lowest Price First</a></li>
 
@@ -116,8 +116,8 @@
 				<ul class="dropdown-menu">
 					<li><a href="/admin?sort_user=user_name&type=ASC">User A-Z</a></li>
 					<li><a href="/admin?sort_user=user_name&type=DESC">User Z-A</a></li>
-					<li><a href="/admin?sort_user=user_date&type=ASC">Newest Joined</a></li>
-					<li><a href="/admin?sort_user=user_date&type=DESC">Oldest Joined</a></li>
+					<li><a href="/admin?sort_user=user_date&type=ASC">Oldest Joined</a></li>
+					<li><a href="/admin?sort_user=user_date&type=DESC">Newest Joined</a></li>
 				</ul>
 			</span>
 		</div>
@@ -130,7 +130,7 @@
 			{{#if this.items}}
 			<div class="user-item-list">
 				{{#each items}}
-				<h4>Item: <a href="{{this.item_id}}">{{{this.item_title}}}</a></h4>
+				<h4>Item: <a href="/item/{{this.item_id}}">{{{this.item_title}}}</a></h4>
 				{{/each}}
 			</div>
 

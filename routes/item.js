@@ -1,9 +1,21 @@
+/*
+* The purpose of this .js file to redirect to a specific item that
+* was clicked on by the user. Depending on the item_id, we get
+* the item and its details from the database.
+*/
 var express = require("express");
 var router = express.Router();
 var url = require('url');
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
+/*
+* Here the function parses through the query to get what item was clicked
+* on and then fetches it from the database.
+* It checks to make sure this item has been approved.
+* Then it takes the user to the details page for the item that
+* was clicked on.
+*/
 router.get('/:id', function(req, res, next) {
     var id = req.params.id;
     var q = url.parse(req.url, true).query;
@@ -16,6 +28,7 @@ router.get('/:id', function(req, res, next) {
     }
     var user_id = req.session.user_id;
     if (!user_id) user_id = -1;
+    //Fetch item from database
     db.any(`SELECT * FROM category`)
     .then( cat => db.any(`SELECT * FROM item WHERE item_id=` + id)
     .then( data => db.any(`SELECT * FROM user_record WHERE user_id=`+user_id)
@@ -25,6 +38,7 @@ router.get('/:id', function(req, res, next) {
                 if (element.category_id == data[0].category_id)
                     data[0].category = element.category_name;
             });
+            //Redirect to details page
             render(req, res, 'details', 'DETAILS PAGE', 'details', {script: 'details', data: data[0]});
         }
         else {

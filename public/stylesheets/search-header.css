@@ -24,6 +24,7 @@
   /*position: relative;*/
   z-index: 1;
   order:1;
+  margin:20px;
 }
 
 .logo img{
@@ -33,7 +34,7 @@
 
 .non-logo{
   padding-top:20px;
-  width:70%;
+  width:75vw;
   order:2;
 }
 
@@ -59,8 +60,10 @@
 }
 
 .search-input{
-  width:60%;
+  width:75%;
+  font-size: 14pt;
 }
+
 
 /* dropdown "ALL"*/
 .gator-header-dropdown {
@@ -72,7 +75,24 @@
   background-color:#FFD363;
   color:black;
   margin:5px;
-  width:120px;
+  width:125px;
+  transition-duration: 0.4s;
+  padding:5px;
+  height:40px;
+  outline: none;
+  border:none;
+
+}
+.orange-nav-btn:hover{
+  background-color:green;
+  color:white;
+}
+.orange-nav-btn:active{
+  background-color:green;
+  color:white;
+}
+.navbar-nav{
+  margin-top:20px;
 }
 
 .gator-search-select::-ms-expand {
@@ -82,27 +102,52 @@
 .gator-search-select{
   -webkit-appearance: none;
   -moz-appearance: none;
-  text-indent: 1px;
   text-overflow: '';
   margin:0;
   background-color:#FFD363;
+  transition-duration: 0.4s;
   color:black;
-}
+  font-size: 14pt;
+  outline: none;
 
+
+}
 .gator-search-select:hover{
+  background-color:green;
+  color:white;
+}
+.gator-search-select:active{
   background-color:#FFD363;
-  color:black;
+  color:white;
 }
-
-.gator-search-select:hover{
-  background-color: green;
+.gator-search-select:focus{
+  background-color:green;
+  color:white;
+}
+.gator-search-select:focus-within{
+  background-color:green;
+  color:white;
 }
 
 .input-group{
   margin:0px;
   transform: translateX(-5px);
 }
+.form-control{
+  height:40px;
+}
+.input-group-btn button{
+ height:40px;
+}
+.navbar-toggle{
+  float:left;
+}
 
+.search-label{
+  color:white;
+  margin-top:10px;
+  margin-left:10vw;
+}
 
 @media all and (max-width: 800px){
   .gator-btns{float:left;}
@@ -112,7 +157,9 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+  .search-label{
+    display:none;
+  }
   .input-group{transform: translateX(0px);}
 
   .orange-nav-btn{margin-left:100;}

@@ -1,3 +1,8 @@
+/*
+* The purpose of this .js file is to switch between the items/users/messages
+* tabs while in the user or admin dashboard.
+*/
+
 function viewSwitch(view,elmnt,color) {
 				var i, tabcontent, tablinks;
 				tabcontent = document.getElementsByClassName("tab-content");
@@ -12,8 +17,12 @@ function viewSwitch(view,elmnt,color) {
 				elmnt.style.backgroundColor = color;
 
 			}
+/*
+* This function makes sure that the correct tab is open when then
+* page is loaded.
+*/
 
-$("document").ready(function() {	
+$("document").ready(function() {
 	var urlParams = new URLSearchParams(window.location.search);
 
     if (urlParams.has('remove_user') || urlParams.has('sort_user')) {

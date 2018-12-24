@@ -1,0 +1,56 @@
+.body{
+		display: flex;
+		flex-direction: column;
+	}
+	.about-member{
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:20px;
+		padding-right:20px;
+
+	}
+	.about-member img{
+		width:200px;
+		border-radius: 50%;
+		margin-left:20px;
+		margin-right:20px;
+	}
+	.about-lead{
+		background-color: #ffb3e6;
+		text-align: center;
+		color:white;
+		padding:20px;
+	}
+	.about-front{
+		background-color: white;
+
+	}
+	.about-front img{
+		float:left;
+	}
+	.about-back{
+		background-color: lightgrey;
+		justify-content: right;
+		text-align: right;
+		background-color: #FFD363;
+	}
+	.about-back img{
+		float:right;
+	}
+	@media (max-width: 575.98px) { 
+		.smallScreen{
+		  display: block;
+		}
+		.about-front{
+			text-align: right;
+		}
+		.about-back{
+			text-align: left;
+		}
+		.reduceFont{
+			font-size: 80%;
+		}
+		.reduceFontPeter{
+			font-size: 78%;
+		}
+	   }

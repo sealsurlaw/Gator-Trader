@@ -3,7 +3,22 @@
 <!-- Navigation Bar w/ Dropdowns -->
 
   <div class="container-fluid results">
-        Showing {{data.length}} results
+        Showing {{data.length}} out of {{data.length}} results
+        <span class="dropdown filter-dropdown"> <button class="btn btn-secondary btn-sm dropdown-toggle"
+           type="button" id="filters-menu" data-toggle="dropdown">
+            Sort by <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="filters-menu">
+            <li role="presentation"><a role="menuitem" href="/search?category={{#if categories.selected}}{{categories.selected}}{{else}}-1{{/if}}&search={{#if data.search}}{{data.search}}{{/if}}&sort_item=item_date&type=DESC">Newest</a></li>
+            <li role="presentation"><a role="menuitem" href="/search?category={{#if categories.selected}}{{categories.selected}}{{else}}-1{{/if}}&search={{#if data.search}}{{data.search}}{{/if}}&sort_item=item_date&type=ASC">Oldest</a></li>
+            <li role="presentation"><a role="menuitem" href="/search?category={{#if categories.selected}}{{categories.selected}}{{else}}-1{{/if}}&search={{#if data.search}}{{data.search}}{{/if}}&sort_item=item_price&type=DESC">Highest Price</a></li>
+            <li role="presentation"><a role="menuitem" href="/search?category={{#if categories.selected}}{{categories.selected}}{{else}}-1{{/if}}&search={{#if data.search}}{{data.search}}{{/if}}&sort_item=item_price&type=ASC">Lowest Price</a></li>
+          </ul>
+        </span>
+  </div>
+{{else}}
+  <div class="container-fluid results red-results">
+        No results found!
   </div>
 {{/if}}
 

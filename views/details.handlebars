@@ -15,10 +15,10 @@
 <div class="col-sm-7" style="background-color:#d3d3d3;">
 
 <br><br><br><br><br>
-<h3>Item Name: {{data.item_title}}</h3>
+<h3>Item Name: {{{data.item_title}}}</h3>
 <h3>Price: {{data.item_price}}</h3>
 <h3>Category: {{data.category}}</h3>
-<h3>Description: {{data.item_description}}</h3>
+<h3>Description: {{{data.item_description}}}</h3>
 <br>
 
 {{#if username}}
@@ -33,10 +33,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title" id="exampleModalLongTitle">Contact Seller in order to buy this Item:</h4>
-				<h5>Name: {{data.item_title}}</h5>
+				<h5>Name: {{{data.item_title}}}</h5>
 				<h5>Price: {{data.item_price}}</h5>
 				<h5>Category: {{data.category}}</h5>
-				<h5>Description: {{data.item_description}}</h5>
+				<h5>Description: {{{data.item_description}}}</h5>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">

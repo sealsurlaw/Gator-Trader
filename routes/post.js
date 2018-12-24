@@ -1,10 +1,11 @@
-/**
- * This script is responsible for allowing the user to post images for sell an item
- * functionality. The user can upload a single file from there system. The accepted
- * file formats are jpeg or png.
- *
- * Authors: Dylan Wright, Divam Shah
- */
+/*
+* The purpose of this .js file is to allow registered users to post an item for sale after login.
+* Unregistered users will be prompted to register on the website.
+* Users will fill out a form and the data from there will be stored in the database
+* under the user_id of the user logged in.
+* The user is also required to upload a picture which is then cropped and resized using imagemagick.
+*/
+
 var express = require("express");
 var router = express.Router();
 var db = require('../db');
@@ -66,8 +67,8 @@ var resizeImageCallback = function (err) {
           console.log(thumbjson.data.link);
           console.log(fields.category)
           //Removes all the '/'' from incoming form.
-          let title = fields.title.replace('&apos');
-          let description = fields.description.replace('&apos');
+          let title = fields.title.replace(/'/g, '&apos;');
+          let description = fields.description.replace(/'/g, '&apos;');
           // Insert new item into database
           db.any(
             `INSERT INTO item(

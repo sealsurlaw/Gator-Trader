@@ -1,15 +1,30 @@
+/*
+* This .js file allows users to search for items on the website.
+* The users can search by entering text into the search bar or by using
+* the dropdown of categories available. If the search bar is left empty
+* then all the items will be displayed.
+*/
+
 var express = require("express");
 var url = require('url');
 var router = express.Router();
 var db = require('../db');
 var render = require("../models/loginCheck").renderUserAndCategory;
 
+/*
+* This function gets all approved items and lists them based on
+* the search query whether its by caregory or text input.
+*/
 router.get('/', function(req, res, next) {
     var q = url.parse(req.url, true).query;
     var search = q.search;
     var browse = q.browse;
     var browseCatName = -1;
     var category = q.category;
+
+    var sorters = {}
+    sorters.items = q.sort_item;
+    sorters.type = q.type;
 
     var where = '';
 
@@ -24,6 +39,13 @@ router.get('/', function(req, res, next) {
         where += ' AND category_id='+category
     }
 
+    if (sorters.items) {
+        where += ' ORDER BY '+sorters.items+' '+sorters.type;
+    }
+
+    console.log(where);
+
+    //Get item and category from the database
     db.any(`SELECT * FROM category`)
     .then( cat =>
     db.any(`SELECT * FROM item` + where)
@@ -32,7 +54,7 @@ router.get('/', function(req, res, next) {
             if (browse != '-1') {
                 browseCatName = browse;
                 cat.forEach(element => {
-                    if (element.category_id == browseCatName) browseCatName = element.category_name; 
+                    if (element.category_id == browseCatName) browseCatName = element.category_name;
                  });
                  data.category_name = browseCatName;
             }
