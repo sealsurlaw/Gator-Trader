@@ -1,4 +1,7 @@
-# csc648-fa18-Team02
+# GatorTrader
+A selling/buying web application for San Francisco State University Students. It is a team project in Software Engineering class. The project has been carried out by following the best practices of SWE life cycles from scrumming to code-reviewing and implementing check-points.
+
+The project has 5 milestones and each milestone is documented. 
 
 Project Run instructions :
 
@@ -9,7 +12,7 @@ Project Run instructions :
      
 2. update url with your database name and port in .env file
  
-     my example for .env file --> DATABASE_URL=postgres://gayatripise@localhost:5432/sesec01team02
+     my example for .env file --> DATABASE_URL=postgres://postgres:12345@localhost:5432/sesec01team02
      
      where sesec01team02 is database name and 5432 is database default port number for everyone.
      
